@@ -13,3 +13,4 @@ Violating a law is a defect regardless of outcome.
 3. `ARCHITECTURE.md` and `CONVENTIONS.md` may state only rules supported by an ADR. 
 4. `.ai/` is the single source of truth for agent and skill behavior. Vendor folders (`.claude/`, `.github/`, `.opencode/`) hold only routing stubs.
 5. Execution artifacts (`PLAN.md`, `INSPECTION.md`) are ephemeral. They are never committed as permanent state.
+6. No palimpsest accretion: after each edit a file reads as if written fresh, never referring to an earlier state.
