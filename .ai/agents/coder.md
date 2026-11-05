@@ -17,4 +17,4 @@ Executes `PLAN.md` to produce the working increment, autonomously, in iterative 
 
 ## Triggers
 
-- Launched by the Planner or human with a ready `PLAN.md`.
+- Launched by the human with a ready `PLAN.md`.
