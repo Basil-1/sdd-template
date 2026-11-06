@@ -14,7 +14,7 @@ The template states invariants; the instantiated project supplies mechanisms. Th
 ## What is included, and why
 
 - `project/` — the strategic layer (`ROADMAP`, `CONSTITUTION`, `CONVENTIONS`, `ARCHITECTURE`, `CHANGELOG`, ADRs, and the ephemeral `PLAN.md`). Expresses the invariants a project's intent and rules must obey.
-- `.ai/` — the vendor-neutral core: three agent personas (`planner`, `coder`, `reviewer`) and two shared skills (`manage_adr`, `manage_ai_capabilities`). Expresses the workflow invariants as role instructions.
+- `.ai/` — the vendor-neutral core: three agent personas (`planner`, `coder`, `reviewer`) and two shared skills (`manage-adr`, `manage-ai-capabilities`). Expresses the workflow invariants as role instructions.
 - `.claude/`, `.github/`, `.opencode/` — routing stubs only. Each carries that harness's required front matter and a pointer to the `.ai/` core, so behavior is defined exactly once.
 - `INSPECTION.md` is an ephemeral runtime artifact at the root, not committed here; its lifecycle is documented inside the agent files.
 

@@ -28,4 +28,4 @@ Canonical index of all current ADRs. This index — not the individual ADR files
 
 ## Consistency
 
-The `manage_adr` skill verifies this index stays consistent with the ADR files, and with `ARCHITECTURE.md`, `CONVENTIONS.md`, and `CONSTITUTION.md`.
+The `manage-adr` skill verifies this index stays consistent with the ADR files, and with `ARCHITECTURE.md`, `CONVENTIONS.md`, and `CONSTITUTION.md`.
