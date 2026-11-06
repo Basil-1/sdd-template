@@ -6,7 +6,7 @@ A spec-driven development (SDD) scaffold. This repository is a **template, not a
 
 The design rests on one split:
 
-- **Invariants** — rules about the workflow itself that hold for every project, regardless of domain: who may write which files, file lifecycles, JIT planning, phase handover, the review/rework loop, ADR indexing and compaction, pruning over archiving, no palimpsest, one entry per branch. These live in this template.
+- **Invariants** — rules about the workflow itself that hold for every project, regardless of domain: who may write which files, file lifecycles, JIT planning, phase handover, the review/rework loop, ADR indexing and supersession, pruning over archiving, no palimpsest, one entry per branch. These live in this template.
 - **Mechanisms** — how an invariant is enforced in a specific project: tests, CI gates, linting, deterministic smell detection, TDD discipline, harness permission rules. These are project-specific.
 
 The template states invariants; the instantiated project supplies mechanisms. That split is what keeps this scaffold language- and domain-agnostic.
@@ -36,5 +36,5 @@ Anything you add for your own project is an *instantiation*, not a template chan
 
 Improve this template with changes that are domain-independent and would benefit any project:
 
-- It states or sharpens an invariant, or a rule for maintaining the invariant layer itself (ADR indexing, compaction, pruning, no-palimpsest).
+- It states or sharpens an invariant, or a rule for maintaining the invariant layer itself (ADR indexing, supersession, pruning, no-palimpsest).
 - It is not a mechanism or a methodology opinion.
