@@ -1,3 +1,8 @@
+---
+name: manage_adr
+description: Creates, supersedes, and compacts Architecture Decision Records (ADRs), keeps the ADR index current, and detects desync between ADRs and strategy files. Use when recording or changing an architectural or technical decision, adding or updating an ADR, superseding an old decision, compacting a supersession chain, or checking that the ADR index matches ARCHITECTURE.md, CONVENTIONS.md, and CONSTITUTION.md.
+---
+
 # manage_adr
 
 ## Purpose
@@ -17,8 +22,3 @@ Automates ADR creation, supersession, and chain compaction, and keeps the record
    - index vs. ADR files;
    - compaction opportunities (chains over 3);
    - index vs. `ARCHITECTURE.md`, `CONVENTIONS.md`, and `CONSTITUTION.md`.
-
-## Triggers
-
-- Invoked during planning when a decision changes.
-- Run proactively by the Planner before and after editing strategy files.

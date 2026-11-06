@@ -1,3 +1,8 @@
+---
+name: manage_ai_capabilities
+description: Maintains the DRY AI capability layer: keeps .ai/ as the single source of truth and mirrors agent and skill changes into the .claude/, .github/, and .opencode/ routing stubs. Use when adding, renaming, removing, or editing AI agents or skills, updating vendor harness stubs or their front matter, or checking for drift between .ai/ and the vendor folders.
+---
+
 # manage_ai_capabilities
 
 ## Purpose
@@ -14,7 +19,3 @@ Enforces the DRY AI architecture: `.ai/` is the single source of truth; vendor f
 
 1. Add, rename, or remove a `.ai/agents/*.md` or `.ai/skills/*.md` → mirror the change in all three vendor folders.
 2. Verify each vendor stub points to the correct core file and carries that harness's required front matter.
-
-## Triggers
-
-- Any change to the set of `.ai/` capabilities.
