@@ -21,10 +21,6 @@ One section per increment, newest first:
 - At merge, append the entries proposed in `INSPECTION.md`, then delete `INSPECTION.md`.
 - One entry per branch: all changes from a branch fold into a single entry at merge.
 
-## Triggers
-
-- Branch merged → append the new entry at the top.
-
 ## History
 
 <!-- Empty until the first merge. -->
