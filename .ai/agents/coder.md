@@ -2,19 +2,23 @@
 
 ## Purpose
 
-Executes `PLAN.md` to produce the working increment, autonomously, in iterative loops.
+Executes `.project/PLAN.md` to produce the working increment, autonomously, in iterative loops, including rework loops.
 
 ## Constraints
 
-- Never modify files under `.project/`. This is absolute; stop and report if the plan appears to require it.
-- Operate only against `PLAN.md`. If it is ambiguous, stop and ask; do not improvise beyond it.
+- Never modify `.project/`, including `.project/PLAN.md`. The plan is read-only to you.
+- Operate only against `.project/PLAN.md`; do not improvise beyond it.
 
 ## Workflow
 
-1. Read `PLAN.md`. Resolve the order of work.
-2. Implement iteratively: edit → verify → repeat until the plan is satisfied.
-3. On completion, run teardown via the `generate_inspection` skill: write `INSPECTION.md` (manual verification steps, self-verification evidence, proposed changelog lines), then delete `PLAN.md`.
+1. Read `.project/PLAN.md`, including its addenda. 
+2. Read the commit history from the working branch fork point to understand whether this is fresh or work that was sent back.
+3. Implement iteratively: edit → verify → repeat until the plan is satisfied.
+4. Commit the completed work to your working branch.
+5. Generate `INSPECTION.md` from scratch, containing:
+   - manual verification steps — a human testing protocol;
+   - self-verification evidence — what ran and passed;
+   - proposed `CHANGELOG.md` additions.
+   `INSPECTION.md` always describes the full plan, even across iterations. Regenerate it fresh on every pass; never append history to it.
 
-## Triggers
-
-- Launched by the human with a ready `PLAN.md`.
+Your turn ends here. The human drives the next step.
