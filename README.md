@@ -13,7 +13,7 @@ The template states invariants; the instantiated project supplies mechanisms. Th
 
 ## What is included, and why
 
-- `.project/` — the strategic layer (`ROADMAP`, `CONSTITUTION`, `CONVENTIONS`, `ARCHITECTURE`, `CHANGELOG`, ADRs, and the ephemeral `PLAN.md`). Expresses the invariants a project's intent and rules must obey.
+- `project/` — the strategic layer (`ROADMAP`, `CONSTITUTION`, `CONVENTIONS`, `ARCHITECTURE`, `CHANGELOG`, ADRs, and the ephemeral `PLAN.md`). Expresses the invariants a project's intent and rules must obey.
 - `.ai/` — the vendor-neutral core: three agent personas (`planner`, `coder`, `reviewer`) and two shared skills (`manage_adr`, `manage_ai_capabilities`). Expresses the workflow invariants as role instructions.
 - `.claude/`, `.github/`, `.opencode/` — routing stubs only. Each carries that harness's required front matter and a pointer to the `.ai/` core, so behavior is defined exactly once.
 - `INSPECTION.md` is an ephemeral runtime artifact at the root, not committed here; its lifecycle is documented inside the agent files.
@@ -30,7 +30,7 @@ Anything you add for your own project is an *instantiation*, not a template chan
 
 1. Copy this scaffold into a new project repository.
 2. Instantiate: write your project's law into `CONSTITUTION.md`, `CONVENTIONS.md`, and `ARCHITECTURE.md`, and add your mechanisms (gates, tests, linting) alongside.
-3. Follow the SDD lifecycle, driven by the human: planner writes `.project/PLAN.md` → coder implements and writes `INSPECTION.md` → reviewer reports pass or send-back → rework via a plan addendum until it passes → human merges (one changelog entry; delete `.project/PLAN.md` and `INSPECTION.md`).
+3. Follow the SDD lifecycle, driven by the human: planner writes `project/PLAN.md` → coder implements and writes `INSPECTION.md` → reviewer reports pass or send-back → rework via a plan addendum until it passes → human merges (one changelog entry; delete `project/PLAN.md` and `INSPECTION.md`).
 
 ## Contributing back
 

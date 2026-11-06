@@ -6,7 +6,7 @@ Automates ADR creation, supersession, and chain compaction, and keeps the record
 
 ## References
 
-- Follow `.project/adr/README.md` for authoring, superseding, and compaction rules.
+- Follow `project/adr/README.md` for authoring, superseding, and compaction rules.
 
 ## Duties
 
