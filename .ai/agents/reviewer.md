@@ -24,7 +24,8 @@ On a **pass** verdict with the human's agreement:
 
 1. Append the single branch entry from `INSPECTION.md` into `CHANGELOG.md`.
 2. Delete `PLAN.md` and `INSPECTION.md`.
-3. The human merges the feature branch into the base branch.
+3. Commit these merge-prep changes to the feature branch.
+4. The human merges the feature branch into the base branch.
 
 ## Rework & Mini-Planning
 

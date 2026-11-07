@@ -45,7 +45,7 @@ The human starts a fresh **Reviewer** session on the feature branch while runnin
 2. Diffs the branch against the base branch and audits the implementation and `INSPECTION.md` against `PLAN.md`, `project/specs/`, `ARCHITECTURE.md`, `CONVENTIONS.md`, and `CONSTITUTION.md`.
 3. Reports a **Pass** verdict to the human.
 4. If the human agrees, appends the single branch entry from `INSPECTION.md` into `CHANGELOG.md`.
-5. Deletes `PLAN.md` and `INSPECTION.md`.
+5. Deletes `PLAN.md` and `INSPECTION.md`, and commits these merge-prep changes to the feature branch.
 6. **The human** merges the feature branch into the base branch.
 
 ---
@@ -77,4 +77,4 @@ The human invokes a fresh **Coder** session (selecting a different model if warr
 ### 7. Re-Review & Merge (Reviewer + Human)
 1. The **Reviewer** runs again on the branch, sees from the commit history that this is a review subsequent to a rework modification to `project/`, and verifies the hard gate: `project/` was not modified since the most recent commit to `project/` after the previous `INSPECTION.md`.
 2. The Reviewer audits the updated code and newly regenerated `INSPECTION.md` against the revised `project/specs/`, `PLAN.md` (and its addenda), `ARCHITECTURE.md`, `CONVENTIONS.md`, and `CONSTITUTION.md`.
-3. If further iteration is needed, Steps 5–7 repeat. Once the Reviewer reports **Pass** and manual verification succeeds, the human instructs the Reviewer to fold the branch's work into a single entry in `CHANGELOG.md`, delete `PLAN.md` and `INSPECTION.md`, and then **the human** merges the branch.
+3. If further iteration is needed, Steps 5–7 repeat. Once the Reviewer reports **Pass** and manual verification succeeds, the human instructs the Reviewer to fold the branch's work into a single entry in `CHANGELOG.md`, delete `PLAN.md` and `INSPECTION.md`, commit the merge-prep changes, and then **the human** merges the branch.
