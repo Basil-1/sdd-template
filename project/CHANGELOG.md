@@ -18,7 +18,7 @@ One section per increment, newest first:
 
 - Entries describe delivered behavior, not intent.
 - Update only at merge. Do not edit during execution.
-- At merge, append the entries proposed in `INSPECTION.md`, then delete `INSPECTION.md`.
+- At merge, insert the entry proposed in `INSPECTION.md` under `## History` at the top, then delete `INSPECTION.md`.
 - One entry per branch: all changes from a branch fold into a single entry at merge.
 
 ## History
