@@ -36,9 +36,8 @@ When the human and **Planner** agree it's time for the next narrow increment:
 ### 3. Autonomous Implementation (Coder)
 The human starts a fresh **Coder** session on the feature branch.
 1. The Coder reads `project/PLAN.md`, the updated domain specs in `project/specs/`, and the governing files (`CONSTITUTION.md`, `CONVENTIONS.md`, `ARCHITECTURE.md`).
-2. Checking the commit history from the branch fork point, the Coder sees this is the initial implementation pass.
-3. Without ever modifying `project/`, the Coder implements and verifies the changes iteratively until `project/PLAN.md` and `project/specs/` are satisfied, then commits the implementation.
-4. The Coder writes `INSPECTION.md` from scratch at the repository root with manual verification steps, self-verification evidence, and proposed `CHANGELOG.md` additions, then commits the file and hands control back to the human.
+2. Without ever modifying `project/`, the Coder implements and verifies the changes iteratively until `project/PLAN.md` and `project/specs/` are satisfied, then commits the implementation.
+3. The Coder writes `INSPECTION.md` from scratch at the repository root with manual verification steps, self-verification evidence, and proposed `CHANGELOG.md` additions, then commits the file and hands control back to the human.
 
 ### 4. Adversarial Review & Human Verification (Reviewer + Human)
 The human starts a fresh **Reviewer** session on the feature branch while running any manual testing specified in `INSPECTION.md`. The Reviewer audits the branch:
@@ -67,14 +66,13 @@ The human conducts a mini-planning session directly with the **Reviewer**, who a
    - Updating `ARCHITECTURE.md` and creating or superseding an ADR via `manage-adr`,
    - Refining `CONVENTIONS.md` or `CONSTITUTION.md`, or moving deferred scope into `ROADMAP.md`.
 2. **Plan rework addendum**: The Reviewer appends a rework addendum to `project/PLAN.md` explaining why the increment was sent back and what must be addressed to match the revised `project/` files.
-3. **Commit `project/`**: **The human** commits all `project/` changes on the feature branch (after the earlier creation of `INSPECTION.md`), establishing the new baseline for the coder.
+3. **Commit `project/`**: **The human** commits all `project/` changes on the feature branch (after the earlier creation of `INSPECTION.md`), establishing the new baseline for the next review gate.
 
 ### 6. Rework Pass (Fresh Coder Session)
-The human invokes a fresh **Coder** session (selecting a different model if warranted):
-1. The Coder inspects the branch commit history from the fork point, sees the existing implementation commits followed by the Reviewer's send-back commit to `project/`, and recognizes it is continuing work on an existing feature branch after a send-back.
-2. The Coder reads the updated `project/` files (`project/specs/`, `ARCHITECTURE.md`, `CONVENTIONS.md`, `CONSTITUTION.md`) and `project/PLAN.md` including the new rework addendum.
-3. Keeping `project/` strictly read-only, the Coder reworks the implementation iteratively until the revised specs and plan addendum are satisfied, and commits the code changes.
-4. The Coder regenerates `INSPECTION.md` completely from scratch so it reflects the full, updated branch increment (never appending history).
+The human invokes a fresh **Coder** session (selecting a different model if warranted). The Coder runs the exact same workflow as on the first pass—it does not need to know whether this is an initial run or a rework:
+1. The Coder reads the current `project/` files (`project/specs/`, `ARCHITECTURE.md`, `CONVENTIONS.md`, `CONSTITUTION.md`) and `project/PLAN.md` (which now includes the rework addendum).
+2. Keeping `project/` strictly read-only, the Coder updates and verifies the implementation iteratively until the revised specs and plan are satisfied, and commits the code changes.
+3. The Coder regenerates `INSPECTION.md` completely from scratch (overwriting the previous file) so it reflects the full, updated branch increment.
 
 ### 7. Re-Review & Merge (Reviewer + Human)
 1. The **Reviewer** runs again on the branch, sees from the commit history that this is a review subsequent to a send-back modification to `project/`, and verifies the hard gate: `project/` was not modified since the most recent commit to `project/` after the previous `INSPECTION.md`.
