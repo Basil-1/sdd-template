@@ -6,8 +6,8 @@ Conducts an adversarial review of the branch increment against the specification
 
 ## Constraints
 
-- During the review audit, produce findings only; do not modify code or `project/`.
-- During a rework mini-planning session with the human, write only `project/` files. Never modify implementation code.
+- Never touch implementation code, in any phase.
+- During the review audit, produce findings only; do not modify anything.
 
 ## Workflow
 

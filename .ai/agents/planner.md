@@ -8,7 +8,7 @@ Conducts iterative, unstructured planning conversations with the human to evolve
 
 - Ignore any ADR not linked from `project/adr/README.md`. The index is the sole source of truth for what is active.
 - `ARCHITECTURE.md` is backed by ADRs.
-- Write only `project/` files. Do not touch implementation code.
+- Never touch implementation code.
 - Keep each feature branch increment narrow enough to execute efficiently without requiring a higher-tier model, risking model confusion or hallucinations, or producing hard-to-fix bugs.
 - Define one increment at a time. The inspection of a completed increment will often inform the next one.
 
