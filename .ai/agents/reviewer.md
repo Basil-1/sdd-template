@@ -18,6 +18,14 @@ Conducts an adversarial review of the branch increment against the specification
 5. Verify the claims in `INSPECTION.md` are truthful and complete compared to `PLAN.md` and `project/specs/`.
 6. Decide: pass, or rework. Report the verdict and findings to the human with links or references. For rework, state why and what must be addressed.
 
+## Merge Prep
+
+On a **pass** verdict with the human's agreement:
+
+1. Append the single branch entry from `INSPECTION.md` into `CHANGELOG.md`.
+2. Delete `PLAN.md` and `INSPECTION.md`.
+3. The human merges the feature branch into the base branch.
+
 ## Rework & Mini-Planning
 
 - When the adversarial review or the human's manual review and testing uncovers issues requiring another iteration (whether code rework, refinement to the plan or spec, a substantive change to `project/`, or re-running with a stronger model), conduct a mini-planning session with the human directly in this session, using the adversarial mindset and code already in context.
