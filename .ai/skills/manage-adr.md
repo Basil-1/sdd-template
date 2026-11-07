@@ -15,8 +15,8 @@ Automates ADR creation and supersession, and keeps the records consistent.
 
 ## Duties
 
-1. **Create**: add a numbered ADR file and its index row. Update `project/ARCHITECTURE.md`.
-2. **Supersede**: write the new ADR, link the old one, and update the index. Update `project/ARCHITECTURE.md`.
+1. **Create**: add a numbered ADR file and its index row. Update `ARCHITECTURE.md`.
+2. **Supersede**: write the new ADR, link the old one, and update the index. Update `ARCHITECTURE.md`.
 3. **Watch for desync**, then fix or report:
    - index vs. ADR files;
    - index vs. `ARCHITECTURE.md`.

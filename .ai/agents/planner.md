@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Conducts iterative, unstructured planning conversations with the human to evolve the strategic layer (`CONSTITUTION.md`, `CONVENTIONS.md`, `ROADMAP.md`, `ARCHITECTURE.md`, ADRs) and domain specifications (`project/specs/`), then chambers a narrow increment on a new feature branch by updating `project/specs/` and writing `project/PLAN.md`.
+Conducts iterative, unstructured planning conversations with the human to evolve the strategic layer (`CONSTITUTION.md`, `CONVENTIONS.md`, `ROADMAP.md`, `ARCHITECTURE.md`, ADRs) and domain specifications (`project/specs/`), then chambers a narrow increment on a new feature branch by updating `project/specs/` and writing `PLAN.md`.
 
 ## Constraints
 
@@ -18,6 +18,6 @@ Conducts iterative, unstructured planning conversations with the human to evolve
 3. When deciding how to split or group domain specifications, use the `decompose-domains` skill and follow `project/specs/README.md`.
 4. Apply strategic updates (`CONSTITUTION.md`, `CONVENTIONS.md`, `ROADMAP.md`, and `ARCHITECTURE.md` + ADRs via the `manage-adr` skill) directly without creating a feature branch.
 5. Update `ROADMAP.md` to be a reflection of the current ambitions, remove delivered or abandoned topics without archival. 
-6. When ready to chamber an increment for the coder: create a feature branch, modify `project/specs/` to reflect the desired behavior, write `project/PLAN.md` to achieve those changes, and commit. If the vision covers multiple increments, place future steps into `ROADMAP.md` to be tackled one inspected increment at a time.
+6. When ready to chamber an increment for the coder: create a feature branch, modify `project/specs/` to reflect the desired behavior, write `PLAN.md` to achieve those changes, and commit. If the vision covers multiple increments, place future steps into `ROADMAP.md` to be tackled one inspected increment at a time.
 
 Your turn ends here. The human drives the next step.

@@ -11,10 +11,10 @@ A spec-driven development (SDD) scaffold. This repository is a **template, not a
    - Run `git init` in your new project root to create a fresh `.git/` directory.
    - Create a new `README.md` that describes your project.
 3. **Instantiate the governing layer in `project/`:**
-   - Write your project's root rules and guardrails in `project/CONSTITUTION.md`.
-   - Write your coding standards, naming, and tooling rules in `project/CONVENTIONS.md`.
-   - Document your initial architecture in `project/ARCHITECTURE.md` (recording architectural decisions under `project/adr/` via the `manage-adr` skill).
-   - Seed `project/ROADMAP.md` with your initial goals, and add initial domain specifications in `project/specs/` as you begin planning.
+   - Write your project's root rules and guardrails in `CONSTITUTION.md`.
+   - Write your coding standards, naming, and tooling rules in `CONVENTIONS.md`.
+   - Document your initial architecture in `ARCHITECTURE.md` (recording architectural decisions under `project/adr/` via the `manage-adr` skill).
+   - Seed `ROADMAP.md` with your initial goals, and add initial domain specifications in `project/specs/` as you begin planning.
 4. **Add project-specific mechanisms:**
    - Add your language toolchain, test runner, linters, CI checks, and harness permissions alongside the scaffold.
 5. **Run the workflow:**
@@ -32,14 +32,14 @@ A spec-driven development (SDD) scaffold. This repository is a **template, not a
   - `PLAN.md` (ephemeral, on feature branches only) — scopes the current branch increment.
 - `.ai/` — the vendor-neutral AI core: three agents (`planner`, `coder`, `reviewer`) and three skills (`decompose-domains`, `manage-adr`, `manage-ai-capabilities`).
 - `.claude/`, `.github/`, `.opencode/` — harness routing stubs pointing to `.ai/` so behavior is defined in one place.
-- `SDD-WORKFLOW.md` — end-to-end guide to the SDD lifecycle, both with and without a send-back loop.
+- `SDD-WORKFLOW.md` — end-to-end guide to the SDD lifecycle, both with and without a rework loop.
 - `INSPECTION.md` (ephemeral, generated at the repository root on feature branches) — handover verification protocol, test evidence, and proposed changelog entry produced by the coder.
 
 ## Invariants vs. Mechanisms
 
 The template rests on one split:
 
-- **Invariants** (included here) — workflow rules that hold for every project regardless of language or domain: who may write which files, file lifecycles, domain boundary tests, branch-scoped planning, phase handover, adversarial review and in-branch send-back re-planning, ADR indexing and supersession, pruning over archiving, and no palimpsest.
+- **Invariants** (included here) — workflow rules that hold for every project regardless of language or domain: who may write which files, file lifecycles, domain boundary tests, branch-scoped planning, phase handover, adversarial review and in-branch rework re-planning, ADR indexing and supersession, pruning over archiving, and no palimpsest.
 - **Mechanisms** (supplied by your project) — how invariants are enforced in a specific stack: tests, CI gates, linting, smell detection, and harness permission rules.
 
 ## Contributing Back to This Template
