@@ -2,7 +2,7 @@
 
 ## Purpose
 
-A guide to how work moves through a project built from this template: the roles, the artifacts, the standard flow when an increment passes review on the first pass, and the rework flow when review or manual testing requires re-planning and rework on the branch.
+A guide to how work moves through a project built from this template: the roles, the artifacts, and two flows. Flow 1 is the standard path — review passes on the first attempt. Flow 2 adds in-branch re-planning and rework when review or manual testing requires it.
 
 ## Roles
 
@@ -27,7 +27,7 @@ The human and the **Planner** explore ideas in an open-ended conversation.
 - Cross-cutting changes to `CONSTITUTION.md`, `CONVENTIONS.md`, `ROADMAP.md`, or `ARCHITECTURE.md` (with new or superseded ADRs via `manage-adr`) are committed **by the Planner** directly on the base branch.
 
 ### 2. Chambering the Increment (Feature Branch Created)
-When the human and **Planner** agree it's time for the next narrow increment:
+To **chamber** an increment is to load it onto a feature branch — scoped and ready for implementation. When the human and **Planner** agree it's time for the next narrow increment:
 1. The Planner creates a new feature branch.
 2. On the branch, the Planner directly edits `project/specs/` to describe the desired behavior, narrowly scoped enough to execute cleanly without model confusion or hard-to-isolate bugs. 
 3. The Planner writes `PLAN.md` detailing the implementation steps to bring the codebase into alignment with the updated specifications.
