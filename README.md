@@ -4,9 +4,8 @@ A spec-driven development (SDD) scaffold. This repository is a **template, not a
 
 ## Creating a New Project from This Template
 
-1. **Copy the scaffold into your new project directory, excluding `.git/` and `README.md`:**
-   - Do **not** copy this repository's `.git/` folder or this `README.md`.
-   - Copy `project/`, `.ai/`, `.claude/`, `.github/`, `.opencode/`, and `SDD-WORKFLOW.md` into your new project root.
+1. **Copy the scaffold into your new project directory, excluding `.git/` and this `README.md`:**
+   - Copy everything else in this repository into your new project root.
 2. **Initialize your project's own repository and README:**
    - Run `git init` in your new project root to create a fresh `.git/` directory.
    - Create a new `README.md` that describes your project.
@@ -14,8 +13,23 @@ A spec-driven development (SDD) scaffold. This repository is a **template, not a
    - Start a session with the `planner` agent and work through your vision together to populate `CONSTITUTION.md`, `CONVENTIONS.md`, `ARCHITECTURE.md` (with backing ADRs in `project/adr/`), `ROADMAP.md`, and your initial domain specifications in `project/specs/`.
    - Chamber your first increment on a feature branch (such as scaffolding your toolchain, test runner, linters, and CI mechanisms) into `PLAN.md`, then follow [`SDD-WORKFLOW.md`](SDD-WORKFLOW.md) through coding, adversarial review, rework (when needed), and merge.
 
+## Updating a Project Built from This Template
+
+Template improvements are grafted into an existing project by an AI session in that project. These steps are addressed to that AI.
+
+1. Obtain the current template as reference, and read its governing layer: `SDD-WORKFLOW.md`, `AGENTS.md`, everything under `.ai/`, and the rule-bearing sections of `project/`.
+2. Diff the template against your project's installed copies, and classify every divergence:
+   - **Project content** — domain spec bodies, ADRs, architecture description, roadmap entries, changelog history. Never touch it.
+   - **Local divergence** — earlier grafts or deliberate local decisions. Leave it.
+   - **Template improvements** — sharper rules, new invariants, structural additions. Port these.
+3. Port rules, not text. In each governing file the template owns the scaffolding — Purpose, Rules, Format, and Index sections — while the project owns the content. Restate an improved rule in your project's own words and current state; never overwrite local content wholesale.
+4. Structural additions — a new entry point, agent, skill, or stub — follow the template's layout exactly, mirroring into the vendor folders per the `manage-ai-capabilities` skill.
+5. Route the graft through your project's planner: governing-layer updates commit directly on the base branch, no feature branch required.
+
 ## What Is Included
 
+- `AGENTS.md` — the entry point: steers any AI session into the workflow before work starts.
+- `CLAUDE.md` & `.github/copilot-instructions.md` — entry-point routing stubs pointing to `AGENTS.md`.
 - `project/` — the governing and specification layer:
   - `CONSTITUTION.md` — root governance and safety guardrails.
   - `CONVENTIONS.md` — tactical coding, directory, naming, and tool rules.
