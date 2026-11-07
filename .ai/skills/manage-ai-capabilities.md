@@ -21,4 +21,4 @@ Enforces the DRY AI architecture: `.ai/` is the single source of truth; vendor f
 
 1. Add, rename, or remove a `.ai/agents/*.md` or `.ai/skills/*.md` → mirror the change in all three vendor folders.
 2. Verify each vendor stub points to the correct core file, carries that harness's required front matter, and uses the same lowercase kebab-case identifier as the core file.
-3. Keep each vendor stub's front matter in sync with its `.ai/` source: copy `name`, `description`, and other portable fields from the core file, and let only harness-required fields differ.
+3. Keep each vendor stub's front matter aligned with its `.ai/` source. Skills copy `name` and `description` from the core front matter. Agents carry no core front matter, so keep the stub's one-line `description` aligned in substance with the core file's Purpose. Let only harness-required fields, such as OpenCode `permissions`, differ.
