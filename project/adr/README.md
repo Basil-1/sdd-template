@@ -17,10 +17,10 @@ Canonical index of all current ADRs. This index — not the individual ADR files
 
 ## Superseding and Clarification
 
-- Determine whether a modification supersedes an ADR or is only a clarification. A change affecting a developer behavior rule is generally a supersession, and small or cosmetic changes can be clarifications.
+- Determine whether a modification supersedes an ADR or is only a clarification. A change affecting an architectural decision or system design constraint is generally a supersession, and small or cosmetic changes can be clarifications.
 - Supersession: write a new ADR that links the old one and states it is replaced. In the index, remove the old ADR. In the old ADR file, add at the top `Superseded by NNNN-title`.
 - Clarification: add an addendum to the existing ADR.
 
 ## Consistency
 
-The `manage-adr` skill verifies this index stays consistent with the ADR files, and with `ARCHITECTURE.md`, `CONVENTIONS.md`, and `CONSTITUTION.md`.
+The `manage-adr` skill verifies this index stays consistent with the ADR files and with `ARCHITECTURE.md`.

@@ -1,6 +1,6 @@
 ---
 name: manage-adr
-description: Creates and supersedes Architecture Decision Records (ADRs), keeps the ADR index current, and detects desync between ADRs and strategy files. Use when recording or changing an architectural or technical decision, adding or updating an ADR, superseding an old decision, or checking that the ADR index matches ARCHITECTURE.md, CONVENTIONS.md, and CONSTITUTION.md.
+description: Creates and supersedes Architecture Decision Records (ADRs), keeps the ADR index current, and detects desync between ADRs and ARCHITECTURE.md. Use when recording or changing an architectural decision, adding or updating an ADR, superseding an old decision, or checking that the ADR index matches ARCHITECTURE.md.
 ---
 
 # manage-adr
@@ -19,4 +19,4 @@ Automates ADR creation and supersession, and keeps the records consistent.
 2. **Supersede**: write the new ADR, link the old one, and update the index.
 3. **Watch for desync**, then fix or report:
    - index vs. ADR files;
-   - index vs. `ARCHITECTURE.md`, `CONVENTIONS.md`, and `CONSTITUTION.md`.
+   - index vs. `ARCHITECTURE.md`.
