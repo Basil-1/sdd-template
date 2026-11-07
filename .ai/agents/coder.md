@@ -21,4 +21,15 @@ Executes `PLAN.md` to satisfy the updated domain specifications in `project/spec
    - proposed `CHANGELOG.md` additions.
    `INSPECTION.md` always describes the full branch increment. Write it fresh; never append history to it.
 
+## Blocked Halt
+
+When continuing would require guessing, halt and report **BLOCKED** rather than improvise. Triggers:
+
+- Instructions conflict — between `PLAN.md`, the specs, or the governing files.
+- A requirement cannot be verified as stated.
+- Iteration is not converging on plan satisfaction.
+- You are about to write something hallucinated.
+
+A BLOCKED report states: the obstacle in one sentence, what you attempted, the exact input that would unblock you (a decision, a clarification, or a re-scope), and the honest state of the work — what is done, what is not, nothing claimed beyond it. Do not write `INSPECTION.md` for halted work. Halting costs nothing; fabrication is the one unacceptable outcome.
+
 Your turn ends here. The human drives the next step.

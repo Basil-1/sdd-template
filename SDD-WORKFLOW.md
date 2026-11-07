@@ -58,7 +58,7 @@ Steps **1 through 3** happen exactly as in Flow 1: strategy is updated, a featur
 The human runs manual verification alongside the **Reviewer**'s adversarial audit. Together they discover that the increment cannot be merged as-is because seeing the working attempt reveals a deeper problem, for example:
 - A desired behavior in the spec needs substantive refinement,
 - An architectural constraint in `ARCHITECTURE.md` (and its backing ADR) or a rule in `CONVENTIONS.md` needs adjustment, or
-- The remaining delta needs to be re-scoped and run with a stronger model.
+- The remaining delta needs to be re-scoped.
 
 ### 5. In-Branch Mini-Planning Session (Reviewer + Human)
 The human conducts a mini-planning session directly with the **Reviewer**, who already holds the adversarial mindset and the code review context:
@@ -69,7 +69,7 @@ The human conducts a mini-planning session directly with the **Reviewer**, who a
 3. **Commit strategy artifacts**: **The Reviewer** commits all strategy artifact changes on the feature branch (after the earlier creation of `INSPECTION.md`), establishing the new baseline for the next review gate.
 
 ### 6. Rework Pass (Fresh Coder Session)
-The human invokes a fresh **Coder** session (selecting a different model if warranted). The Coder runs the exact same workflow as on the first pass—it does not need to know whether this is an initial run or a rework:
+The human invokes a fresh **Coder** session. The Coder runs the exact same workflow as on the first pass—it does not need to know whether this is an initial run or a rework:
 1. The Coder reads the current `project/` files (`project/specs/`, `ARCHITECTURE.md`, `CONVENTIONS.md`, `CONSTITUTION.md`) and `PLAN.md` (which now includes the rework addendum).
 2. Keeping strategy artifacts strictly read-only, the Coder updates and verifies the implementation iteratively until the revised specs and plan are satisfied, and commits the code changes.
 3. The Coder regenerates `INSPECTION.md` completely from scratch (overwriting the previous file) so it reflects the full, updated branch increment.
@@ -78,3 +78,11 @@ The human invokes a fresh **Coder** session (selecting a different model if warr
 1. The **Reviewer** runs again on the branch and verifies the hard gate exactly as in Flow 1, recognizing the rework baseline commits from Step 5 as planning commits.
 2. The Reviewer audits the updated code and newly regenerated `INSPECTION.md` against the revised `project/specs/`, `PLAN.md` (and its addenda), `ARCHITECTURE.md`, `CONVENTIONS.md`, and `CONSTITUTION.md`.
 3. If further iteration is needed, Steps 5–7 repeat. Once the Reviewer reports **Pass** and manual verification succeeds, the human instructs the Reviewer to fold the branch's work into a single entry in `CHANGELOG.md`, delete `PLAN.md` and `INSPECTION.md`, commit the merge-prep changes, and then **the human** merges the branch.
+
+## Coder Blocked Halt
+
+Working autonomously, the Coder may report **BLOCKED** rather than proceed by guessing, per its protocol in `.ai/agents/coder.md`.
+
+On a BLOCKED report, the human routes it to the **Reviewer**, whose in-branch mini-planning session (Flow 2, Step 5) is the resolution path. The Reviewer examines the halted work with the human, and the resolution lands in the planning artifacts on the feature branch — a clarified or re-scoped spec, an adjusted governing file, or a rework addendum to `PLAN.md`. A fresh Coder session then executes it as a normal rework pass.
+
+No `INSPECTION.md` is produced for halted work; partial work stands as committed and is inspectable. A halt is the cheapest possible time to find a flaw — welcome it.

@@ -29,6 +29,6 @@ On a **pass** verdict with the human's agreement:
 
 ## Rework & Mini-Planning
 
-- When the adversarial review or the human's manual review and testing uncovers issues requiring another iteration (whether code rework, refinement to the plan or spec, a substantive change to `project/`, or re-running with a stronger model), conduct a mini-planning session with the human directly in this session, using the adversarial mindset and code already in context.
+- When the adversarial review, the human's manual review and testing, or a Coder **BLOCKED** report uncovers issues requiring another iteration (whether code rework, refinement to the plan or spec, or a substantive change to `project/`), conduct a mini-planning session with the human directly in this session, using the adversarial mindset and code already in context.
 - Any planning action allowed between feature branches can be performed during rework: update or split domain specs in `project/specs/` (following the domain boundary tests in `project/specs/README.md` if boundaries shift), adjust `ARCHITECTURE.md` (via `manage-adr`), `CONVENTIONS.md`, `CONSTITUTION.md`, or `ROADMAP.md`, and append a rework addendum to `PLAN.md` stating why rework is required and what must be addressed.
 - Commit all strategy artifact changes you made during the mini-planning session, establishing the new baseline for the next review gate.
