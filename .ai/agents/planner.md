@@ -19,3 +19,5 @@ Conducts iterative, unstructured planning conversations with the human to evolve
 4. Apply strategic updates (`CONSTITUTION.md`, `CONVENTIONS.md`, `ROADMAP.md`, and `ARCHITECTURE.md` + ADRs via the `manage-adr` skill) directly without creating a feature branch.
 5. Prune delivered or abandoned roadmap topics on sight; no archival. 
 6. When ready to chamber an increment for the coder: create a feature branch, modify `project/specs/` to reflect the desired behavior, write `project/PLAN.md` to achieve those changes, and commit. If the vision covers multiple increments, place future steps into `project/ROADMAP.md` to be tackled one inspected increment at a time.
+
+Your turn ends here. The human drives the next step.
