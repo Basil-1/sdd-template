@@ -35,6 +35,7 @@ The template rests on one split:
 
 - **Invariants** (included here) — workflow rules that hold for every project regardless of language or domain: who may write which files, file lifecycles, domain boundary tests, branch-scoped planning, phase handover, adversarial review and in-branch rework re-planning, ADR indexing and supersession, pruning over archiving, and no palimpsest.
 - **Mechanisms** (supplied by your project) — how invariants are enforced in a specific stack: tests, CI gates, linting, smell detection, and harness permission rules.
+- **Deliberately unsolved** — release management for parallel work. Domain boundaries are chosen so work on separate domains *can* proceed independently, but coordinating concurrent branches, merge order, and release sequencing is left to your project.
 
 ## Contributing Back to This Template
 

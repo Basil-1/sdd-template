@@ -7,7 +7,7 @@ description: Separates unstructured requirements or tangled system descriptions 
 
 ## Purpose
 
-Translates disorganized human descriptions into bounded, independent domain specifications under `project/specs/` so domains own their state cleanly and parallel branches on separate domains do not collide.
+Translates disorganized human descriptions into bounded, independent domain specifications under `project/specs/` so domains own their state cleanly and work on separate domains can proceed independently.
 
 ## References
 
