@@ -6,7 +6,7 @@ Executes `PLAN.md` to satisfy the updated domain specifications in `project/spec
 
 ## Constraints
 
-- Never modify `project/`, including `PLAN.md` and `project/specs/`. The `project/` folder is strictly read-only to you.
+- Never modify strategy artifacts — `PLAN.md` and everything under `project/`. They are strictly read-only to you.
 - Operate only against `PLAN.md` and `project/specs/`; do not improvise beyond them.
 
 ## Workflow
