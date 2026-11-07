@@ -6,8 +6,8 @@ Canonical index of all current ADRs. This index — not the individual ADR files
 
 ## Index
 
-| Status | ID | Title |
-| --- | --- | --- |
+| ID | Title |
+| --- | --- |
 
 ## Authoring
 
