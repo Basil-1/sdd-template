@@ -75,6 +75,6 @@ The human invokes a fresh **Coder** session (selecting a different model if warr
 3. The Coder regenerates `INSPECTION.md` completely from scratch (overwriting the previous file) so it reflects the full, updated branch increment.
 
 ### 7. Re-Review & Merge (Reviewer + Human)
-1. The **Reviewer** runs again on the branch, sees from the commit history that this is a review subsequent to a rework modification to strategy artifacts, and verifies the hard gate: the Coder never modified strategy artifacts — every commit touching `project/` or `PLAN.md` is a planning commit.
+1. The **Reviewer** runs again on the branch and verifies the hard gate exactly as in Flow 1, recognizing the rework baseline commits from Step 5 as planning commits.
 2. The Reviewer audits the updated code and newly regenerated `INSPECTION.md` against the revised `project/specs/`, `PLAN.md` (and its addenda), `ARCHITECTURE.md`, `CONVENTIONS.md`, and `CONSTITUTION.md`.
 3. If further iteration is needed, Steps 5–7 repeat. Once the Reviewer reports **Pass** and manual verification succeeds, the human instructs the Reviewer to fold the branch's work into a single entry in `CHANGELOG.md`, delete `PLAN.md` and `INSPECTION.md`, commit the merge-prep changes, and then **the human** merges the branch.
