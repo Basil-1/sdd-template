@@ -38,7 +38,7 @@ Template improvements are grafted into an existing project by an AI session in t
   - `ROADMAP.md` — pruned, living view of upcoming and active work.
   - `CHANGELOG.md` — reverse-chronological record of merged branch increments.
   - `PLAN.md` (ephemeral, on feature branches only) — scopes the current branch increment.
-- `.ai/` — the vendor-neutral AI core: three agents (`planner`, `coder`, `reviewer`) and three skills (`decompose-domains`, `manage-adr`, `manage-ai-capabilities`).
+- `.ai/` — the vendor-neutral AI core: three agents (`planner`, `coder`, `reviewer`) and two skills (`manage-adr`, `manage-ai-capabilities`).
 - `.claude/`, `.github/`, `.opencode/` — harness routing stubs pointing to `.ai/` so behavior is defined in one place.
 - `SDD-WORKFLOW.md` — end-to-end guide to the SDD lifecycle, both with and without a rework loop.
 - `INSPECTION.md` (ephemeral, generated at the repository root on feature branches) — handover verification protocol, test evidence, and proposed changelog entry produced by the coder.
@@ -55,5 +55,5 @@ The template rests on one split:
 
 Improve this template with changes that are domain-independent and benefit any project:
 
-- Sharpens a workflow invariant or a rule for maintaining the invariant layer (`decompose-domains`, `manage-adr`, `manage-ai-capabilities`, pruning, no palimpsest).
+- Sharpens a workflow invariant or a rule for maintaining the invariant layer (`manage-adr`, `manage-ai-capabilities`, pruning, no palimpsest).
 - Does not bake in stack-specific mechanisms or dogmatic methodology opinions.

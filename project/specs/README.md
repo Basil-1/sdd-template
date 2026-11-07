@@ -13,7 +13,7 @@ Living, long-lived documents that describe how the system's core domains current
 
 ## Domain Boundaries
 
-Extracting clean domain specs from an unstructured human description is a primary planning responsibility. Use the `decompose-domains` skill and apply these four boundary tests:
+Extracting clean domain specs from an unstructured human description is a primary planning responsibility. Apply these four boundary tests:
 
 - **State ownership**: Group capabilities around the entity that owns the data lifecycle. A domain spec must own its state entirely; no two domains may directly mutate the same data.
 - **Autonomy test**: Can this domain continue to function if another domain is refactored internally?
