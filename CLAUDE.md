@@ -1,0 +1,1 @@
+Routing stub. Read and follow the project entry point in `AGENTS.md`. Do not duplicate it here.

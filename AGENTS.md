@@ -1,0 +1,1 @@
+This project runs on spec-driven development. Read and follow [`SDD-WORKFLOW.md`](SDD-WORKFLOW.md) before starting any work.

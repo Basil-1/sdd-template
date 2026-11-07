@@ -1,0 +1,1 @@
+Routing stub. Read and follow the project entry point in `AGENTS.md` at the repository root. Do not duplicate it here.
