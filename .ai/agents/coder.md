@@ -6,7 +6,7 @@ Executes `PLAN.md` to satisfy the updated domain specifications in `project/spec
 
 ## Constraints
 
-- Never modify strategy artifacts — `PLAN.md` and everything under `project/`. They are strictly read-only to you.
+- Never modify strategy artifacts — `PLAN.md`, everything under `project/`, and the AI capability layer (`.ai/`, `.claude/`, `.github/`, `.opencode/`, `AGENTS.md`, `CLAUDE.md`, `SDD-WORKFLOW.md`). They are strictly read-only to you.
 - Operate only against `PLAN.md` and `project/specs/`; do not improvise beyond them.
 
 ## Workflow

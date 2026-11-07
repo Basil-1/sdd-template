@@ -8,7 +8,7 @@ A guide to how work moves through a project built from this template: the roles,
 
 - **Human** — drives every phase transition, collaborates on planning, runs manual verification protocols, and merges completed branches.
 - **Planner** (`.ai/agents/planner.md`) — conducts unstructured, iterative planning conversations with the human; updates strategy files (`CONSTITUTION.md`, `CONVENTIONS.md`, `ROADMAP.md`, `ARCHITECTURE.md` + ADRs) directly without a branch; and chambers narrow increments on a new feature branch by updating `project/specs/` and writing `PLAN.md`.
-- **Coder** (`.ai/agents/coder.md`) — executes on the feature branch against `PLAN.md` and `project/specs/` in autonomous edit/verify loops while treating strategy artifacts (`PLAN.md` and everything under `project/`) as strictly read-only, then writes a fresh `INSPECTION.md` at the repository root.
+- **Coder** (`.ai/agents/coder.md`) — executes on the feature branch against `PLAN.md` and `project/specs/` in autonomous edit/verify loops while treating strategy artifacts (`PLAN.md`, everything under `project/`, and the AI capability layer) as strictly read-only, then writes a fresh `INSPECTION.md` at the repository root.
 - **Reviewer** (`.ai/agents/reviewer.md`) — performs an adversarial review of the coder's branch work against `PLAN.md`, `project/specs/`, `INSPECTION.md`, and the governing files; and, if rework is needed, leads an in-branch mini-planning session with the human to update `project/` and append a rework addendum to `PLAN.md`.
 
 ## Artifacts and Lifecycles
@@ -41,7 +41,7 @@ The human starts a fresh **Coder** session on the feature branch.
 
 ### 4. Adversarial Review & Human Verification (Reviewer + Human)
 The human starts a fresh **Reviewer** session on the feature branch while running any manual testing specified in `INSPECTION.md`. The Reviewer audits the branch:
-1. Checks the branch commit history to confirm the hard gate: the Coder never modified strategy artifacts — every commit touching `project/` or `PLAN.md` is a planning commit.
+1. Checks the branch commit history to confirm the hard gate: the Coder never modified strategy artifacts — `PLAN.md`, everything under `project/`, and the AI capability layer (`.ai/`, `.claude/`, `.github/`, `.opencode/`, `AGENTS.md`, `CLAUDE.md`, `SDD-WORKFLOW.md`). Every commit touching them is a planning commit.
 2. Diffs the branch against the base branch and audits the implementation and `INSPECTION.md` against `PLAN.md`, `project/specs/`, `ARCHITECTURE.md`, `CONVENTIONS.md`, and `CONSTITUTION.md`.
 3. Reports a **Pass** verdict to the human.
 4. If the human agrees, appends the single branch entry from `INSPECTION.md` into `CHANGELOG.md`.
