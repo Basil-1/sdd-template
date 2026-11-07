@@ -15,16 +15,7 @@ A spec-driven development (SDD) scaffold. This repository is a **template, not a
 
 ## Updating a Project Built from This Template
 
-Template improvements are grafted into an existing project by an AI session in that project. These steps are addressed to that AI.
-
-1. Obtain the current template as reference, and read its governing layer: `SDD-WORKFLOW.md`, `AGENTS.md`, everything under `.ai/`, and the rule-bearing sections of `project/`.
-2. Diff the template against your project's installed copies, and classify every divergence:
-   - **Project content** — domain spec bodies, ADRs, architecture description, roadmap entries, changelog history. Never touch it.
-   - **Local divergence** — earlier grafts or deliberate local decisions. Leave it.
-   - **Template improvements** — sharper rules, new invariants, structural additions. Port these.
-3. Port rules, not text. In each governing file the template owns the scaffolding — Purpose, Rules, Format, and Index sections — while the project owns the content. Restate an improved rule in your project's own words and current state; never overwrite local content wholesale.
-4. Structural additions — a new entry point, agent, skill, or stub — follow the template's layout exactly, mirroring into the vendor folders per the `manage-ai-capabilities` skill.
-5. Route the graft through your project's planner: governing-layer updates commit directly on the base branch, no feature branch required.
+Projects instantiated from this template graft improvements from the current template. The protocol ships with the scaffold: see **Grafting Template Updates** in [`SDD-WORKFLOW.md`](SDD-WORKFLOW.md).
 
 ## What Is Included
 

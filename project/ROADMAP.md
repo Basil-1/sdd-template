@@ -19,3 +19,7 @@ Headings, ordering, and granularity are each project's own choice, as long as th
 - A **campaign** is a multi-increment vision of the current plan. It may span several domains and may or may not carry a user-facing narrative. It decomposes into **increments** — each one a single feature branch and inspection cycle, chambered narrow enough to execute cleanly.
 - Define one increment at a time. The inspection of a completed increment will often inform the next one.
 - A speculative ambition graduates into a refined decision when a planning session defines it well enough to build. A refined decision joins a campaign when its prerequisites are met.
+
+## Campaigns
+
+<!-- Track the current campaign and ambitions below. The sections above are owned by the template. -->

@@ -79,6 +79,22 @@ The human invokes a fresh **Coder** session. The Coder runs the exact same workf
 2. The Reviewer audits the updated code and newly regenerated `INSPECTION.md` against the revised `project/specs/`, `PLAN.md` (and its addenda), `ARCHITECTURE.md`, `CONVENTIONS.md`, and `CONSTITUTION.md`.
 3. If further iteration is needed, Steps 5–7 repeat. Once the Reviewer reports **Pass** and manual verification succeeds, the human instructs the Reviewer to fold the branch's work into a single entry in `CHANGELOG.md`, delete `PLAN.md` and `INSPECTION.md`, commit the merge-prep changes, and then **the human** merges the branch.
 
+## Grafting Template Updates
+
+The scaffold separates template-owned text from project-owned content:
+
+- **Wholesale files** — `AGENTS.md`, `CLAUDE.md`, `SDD-WORKFLOW.md`, everything in `.ai/`, `.claude/`, `.github/`, `.opencode/`, plus `project/specs/README.md` and `project/adr/README.md`. Template-owned; a graft replaces them whole.
+- **Scaffold sections** — the Purpose, Rules, and Format sections of `CONSTITUTION.md`, `CONVENTIONS.md`, `ARCHITECTURE.md`, `ROADMAP.md`, and `CHANGELOG.md`. Template-owned; a graft replaces them verbatim.
+- **Project content** — everything else: the designated content sections (`## Project Laws`, `## Project Conventions`, `## System Design`, `## Campaigns`, `## History`), table rows in the ADR index and the changelog, domain specs, and ADR files. Project-owned; a graft never touches them.
+
+To adopt template improvements, the **Planner** works on the base branch:
+
+1. Obtain the current template as reference.
+2. Find local modifications to template-owned text using the project's Git history: the scaffold arrived whole at the first commit, so every later change to template-owned files or sections is a local modification. Enumerate the commits that touched each file and note what they changed in template-owned territory.
+3. Replace all template-owned files and sections with the current template's text.
+4. For each local modification found in step 2, show the human the local change alongside the new template text; the human decides whether to reapply the local change on top of it.
+5. Commit the graft.
+
 ## Coder Blocked Halt
 
 Working autonomously, the Coder may report **BLOCKED** rather than proceed by guessing, per its protocol in `.ai/agents/coder.md`.
