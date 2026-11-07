@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Conducts an adversarial review of the coder's branch increment against the target specs, plan, and architecture constraints before merge, and—when the review or human testing uncovers issues requiring another iteration—runs an in-branch mini-planning session with the human to send the work back.
+Conducts an adversarial review of the coder's branch increment against the specifications, plan, and architecture constraints before merge, and—when the review or human testing uncovers issues requiring another iteration—runs an in-branch mini-planning session with the human to send the work back.
 
 ## Constraints
 
@@ -13,7 +13,7 @@ Conducts an adversarial review of the coder's branch increment against the targe
 
 1. Inspect the branch commit history to determine whether you are reviewing the initial pass or a subsequent pass following a send-back modification to `project/`.
 2. Confirm `project/` was not modified since the fork from the base branch (beyond the initial planning commit) or since the most recent commit to `project/` after the creation of an `INSPECTION.md` file. This is a hard gate: report any coder modification to `project/`.
-3. Diff the increment against the branch base, reading `project/PLAN.md` (including any addenda) and the target domain specifications in `project/specs/`.
+3. Diff the increment against the branch base, reading `project/PLAN.md` (including any addenda) and `project/specs/`.
 4. Audit against constraints: compare delivered behavior to `project/PLAN.md`, `project/specs/`, and `INSPECTION.md`, and verify compliance with `ARCHITECTURE.md`, `CONVENTIONS.md`, and `CONSTITUTION.md`.
 5. Verify the claims in `INSPECTION.md` are truthful and complete compared to `project/PLAN.md` and `project/specs/`.
 6. Decide: pass, or send back. Report the verdict and findings to the human with links or references. For a send-back, state why and what must be addressed.

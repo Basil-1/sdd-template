@@ -11,9 +11,9 @@ Executes `project/PLAN.md` to satisfy the updated domain specifications in `proj
 
 ## Workflow
 
-1. Read `project/PLAN.md` (including its addenda), the target domain specifications in `project/specs/`, and the governing files (`CONSTITUTION.md`, `CONVENTIONS.md`, `ARCHITECTURE.md`).
+1. Read `project/PLAN.md` (including its addenda), `project/specs/`, and the governing files (`CONSTITUTION.md`, `CONVENTIONS.md`, `ARCHITECTURE.md`).
 2. Read the commit history from the working branch fork point (and any subsequent commit to `project/` after an `INSPECTION.md` was created) to understand whether this is the initial pass on the branch or rework following a send-back.
-3. Implement iteratively: edit → verify → repeat until the plan and target specs are satisfied.
+3. Implement iteratively: edit → verify → repeat until the plan and specifications are satisfied.
 4. Commit the completed work to your working branch.
 5. Generate `INSPECTION.md` from scratch for handover, containing:
    - manual verification steps — a human testing protocol;

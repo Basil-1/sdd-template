@@ -25,7 +25,7 @@ A spec-driven development (SDD) scaffold. This repository is a **template, not a
 - `project/` — the governing and specification layer:
   - `CONSTITUTION.md` — root governance and safety guardrails.
   - `CONVENTIONS.md` — tactical coding, directory, naming, and tool rules.
-  - `ARCHITECTURE.md` & `adr/` — current system design, backed by indexed Architecture Decision Records (`ADR`s). Only `ARCHITECTURE.md` requires ADR backing.
+  - `ARCHITECTURE.md` & `adr/` — current system design, backed by indexed Architecture Decision Records (`ADR`s).
   - `specs/` — living domain specifications (`one file per domain`), describing how each core domain currently behaves.
   - `ROADMAP.md` — pruned, living view of upcoming and active work.
   - `CHANGELOG.md` — reverse-chronological record of merged branch increments.

@@ -7,13 +7,13 @@ A guide to how work moves through a project built from this template: the roles,
 ## Roles
 
 - **Human** — drives every phase transition, collaborates on planning and domain boundaries, runs manual verification protocols, and merges completed branches.
-- **Planner** (`.ai/agents/planner.md`) — conducts unstructured, iterative planning conversations with the human; updates strategy files (`CONSTITUTION.md`, `CONVENTIONS.md`, `ROADMAP.md`, `ARCHITECTURE.md` + ADRs) directly without a branch; and chambers narrow increments on a new feature branch by updating target domain specs in `project/specs/` and writing `project/PLAN.md`.
+- **Planner** (`.ai/agents/planner.md`) — conducts unstructured, iterative planning conversations with the human; updates strategy files (`CONSTITUTION.md`, `CONVENTIONS.md`, `ROADMAP.md`, `ARCHITECTURE.md` + ADRs) directly without a branch; and chambers narrow increments on a new feature branch by updating `project/specs/` and writing `project/PLAN.md`.
 - **Coder** (`.ai/agents/coder.md`) — executes on the feature branch against `project/PLAN.md` and `project/specs/` in autonomous edit/verify loops while treating `project/` as strictly read-only, then writes a fresh `INSPECTION.md` at the repository root.
 - **Reviewer** (`.ai/agents/reviewer.md`) — performs an adversarial review of the coder's branch work against `project/PLAN.md`, `project/specs/`, `INSPECTION.md`, and the governing files; enforces the hard gate that the coder did not modify `project/`; and, if a send-back is needed, leads an in-branch mini-planning session with the human to update `project/` and append a rework addendum to `project/PLAN.md`.
 
 ## Artifacts and Lifecycles
 
-- **Unbranched strategic files** (`project/CONSTITUTION.md`, `project/CONVENTIONS.md`, `project/ROADMAP.md`, `project/ARCHITECTURE.md`, `project/adr/`): Evolved continuously as understanding matures. Only `ARCHITECTURE.md` claims require backing ADRs (maintained via `manage-adr`). `ROADMAP.md` is pruned on sight as items are delivered or abandoned.
+- **Unbranched strategic files** (`project/CONSTITUTION.md`, `project/CONVENTIONS.md`, `project/ROADMAP.md`, `project/ARCHITECTURE.md`, `project/adr/`): Evolved continuously as understanding matures. `ARCHITECTURE.md` is backed by ADRs (maintained via `manage-adr`). `ROADMAP.md` is pruned on sight as items are delivered or abandoned.
 - **Living domain specifications** (`project/specs/<domain>.md`): One file per core domain, separated using the `decompose-domains` skill (state ownership, autonomy, vocabulary, and lifetime tests). Each spec describes how its domain behaves right now with no palimpsest. Modified directly on a feature branch during planning (and during send-back re-planning) alongside `project/PLAN.md`.
 - **Branch-ephemeral files** (`project/PLAN.md` and root `INSPECTION.md`): Created on a feature branch to drive and verify a single narrow increment, and deleted when the branch merges.
 - **Merge archive** (`project/CHANGELOG.md` and Git history): Updated once per branch merge with a single entry summarizing delivered behavior. Git history serves as the archive for all pruned roadmap items and superseded states.
@@ -31,8 +31,8 @@ The human and the **Planner** explore ideas in an open-ended conversation.
 ### 2. Chambering the Increment (Feature Branch Created)
 When the human and **Planner** agree on the next narrow increment:
 1. The Planner creates a new feature branch.
-2. On the branch, the Planner directly edits the target domain specification(s) in `project/specs/` so they describe the new desired behavior.
-3. The Planner writes `project/PLAN.md` detailing the implementation steps to bring the codebase into alignment with the updated domain spec(s).
+2. On the branch, the Planner directly edits `project/specs/` to describe the desired behavior.
+3. The Planner writes `project/PLAN.md` detailing the implementation steps to bring the codebase into alignment with the updated specifications.
 4. The Planner commits the `project/` changes to the feature branch.
 
 ### 3. Autonomous Implementation (Coder)
@@ -57,7 +57,7 @@ While the human runs manual testing using `INSPECTION.md`, the **Reviewer** audi
 
 ## Flow 2: Increment with a Send-Back (Including Substantive `project/` Changes)
 
-Steps **1 through 3** happen exactly as in Flow 1: strategy is updated, a feature branch is created with updated domain spec(s) in `project/specs/` and `project/PLAN.md`, and the **Coder** implements the first pass and generates `INSPECTION.md`.
+Steps **1 through 3** happen exactly as in Flow 1: strategy is updated, a feature branch is created with updated specifications in `project/specs/` and `project/PLAN.md`, and the **Coder** implements the first pass and generates `INSPECTION.md`.
 
 ### 4. Adversarial Review Uncovers a Deeper Issue (Reviewer + Human)
 The human runs manual verification alongside the **Reviewer**'s adversarial audit. Together they discover that the increment cannot be merged as-is—not merely because of a coding mistake, but because seeing the working attempt reveals a deeper problem:
