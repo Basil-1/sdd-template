@@ -13,6 +13,7 @@ Enforces the DRY AI architecture: `.ai/` is the single source of truth; vendor f
 
 - Agent and skill behavior is defined only under `.ai/`. No logic is duplicated into `.claude/`, `.github/`, or `.opencode/`.
 - Change the `.ai/` file, never the vendor stub, when behavior changes.
+- OpenCode stubs may carry `permissions` front matter that mechanically enforces the write restrictions stated in the `.ai/` core file; keep it aligned when those restrictions change. Claude Code and Copilot stubs stay prose-only.
 - When the set of agents or skills changes, refresh the matching stubs in every vendor folder.
 - Skill identifiers use lowercase kebab-case everywhere: the `.ai/skills/` filename, the frontmatter `name`, the vendor skill directory, and each vendor stub's `name`. Use only `a-z`, `0-9`, and single hyphens, start and end with a letter or digit, and stay within 64 characters. This is the intersection accepted by Claude Code, GitHub Copilot, and OpenCode, so one identifier works in every harness.
 
