@@ -10,15 +10,9 @@ A spec-driven development (SDD) scaffold. This repository is a **template, not a
 2. **Initialize your project's own repository and README:**
    - Run `git init` in your new project root to create a fresh `.git/` directory.
    - Create a new `README.md` that describes your project.
-3. **Instantiate the governing layer in `project/`:**
-   - Write your project's root rules and guardrails in `CONSTITUTION.md`.
-   - Write your coding standards, naming, and tooling rules in `CONVENTIONS.md`.
-   - Document your initial architecture in `ARCHITECTURE.md` (recording architectural decisions under `project/adr/` via the `manage-adr` skill).
-   - Seed `ROADMAP.md` with your initial goals, and add initial domain specifications in `project/specs/` as you begin planning.
-4. **Add project-specific mechanisms:**
-   - Add your language toolchain, test runner, linters, CI checks, and harness permissions alongside the scaffold.
-5. **Run the workflow:**
-   - Follow [`SDD-WORKFLOW.md`](SDD-WORKFLOW.md) to move work from planning through coding, adversarial review, rework (when needed), and merge.
+3. **Bootstrap and run the project with the `planner` agent:**
+   - Start a session with the `planner` agent and work through your vision together to populate `CONSTITUTION.md`, `CONVENTIONS.md`, `ARCHITECTURE.md` (with backing ADRs in `project/adr/`), `ROADMAP.md`, and your initial domain specifications in `project/specs/`.
+   - Chamber your first increment on a feature branch (such as scaffolding your toolchain, test runner, linters, and CI mechanisms) into `PLAN.md`, then follow [`SDD-WORKFLOW.md`](SDD-WORKFLOW.md) through coding, adversarial review, rework (when needed), and merge.
 
 ## What Is Included
 
