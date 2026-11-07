@@ -21,4 +21,3 @@ Translates disorganized human descriptions into bounded, independent domain spec
    - **Autonomy test**: Verify a domain can continue to function if another domain is refactored internally.
    - **Vocabulary test**: Check whether a shared term changes meaning across contexts (e.g., a catalog "product" vs. a logistics "product"); split domains where vocabulary diverges.
    - **Lifetime test**: Check whether data changes at different frequencies (e.g., user profile data vs. cart state); split domains where update cadences diverge.
-3. **Right-size the active increment**: When a decomposition spans more domain changes than can be executed reliably in a single narrow branch increment, isolate the immediate slice for the current branch and record the remaining domain work in `project/ROADMAP.md`.
