@@ -12,7 +12,7 @@ Conducts an adversarial review of the branch increment against the specification
 ## Workflow
 
 1. Inspect the branch commit history to determine whether you are reviewing the initial pass or a subsequent pass following a rework modification to strategy artifacts.
-2. Verify the hard gate: the Coder never modified strategy artifacts. Run `git log <base>..HEAD -- project/ PLAN.md` and confirm every listed commit is a planning commit — the Planner's baseline or a Reviewer rework baseline. Report any other modification as a gate violation.
+2. Verify the hard gate: the Coder never modified strategy artifacts. Determine from Git whether any commit on the branch modified `project/` or `PLAN.md`, and confirm every such commit is a planning commit — the Planner's baseline or a Reviewer rework baseline. Report any other modification as a gate violation.
 3. Diff the increment against the branch base, reading `PLAN.md` (including any addenda) and `project/specs/`.
 4. Audit against constraints: compare delivered behavior to `PLAN.md`, `project/specs/`, and `INSPECTION.md`, and verify compliance with `ARCHITECTURE.md`, `CONVENTIONS.md`, and `CONSTITUTION.md`.
 5. Verify the claims in `INSPECTION.md` are truthful and complete compared to `PLAN.md` and `project/specs/`.
