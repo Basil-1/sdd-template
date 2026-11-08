@@ -93,7 +93,7 @@ To adopt template improvements, the human starts a **basic AI agent** — a plai
 2. Find local modifications to template-owned text using the project's Git history: the scaffold arrived whole at the first commit, so every later change to template-owned files or sections is a local modification. Enumerate the commits that touched each file and note what they changed in template-owned territory.
 3. Replace all template-owned files and sections with the current template's text.
 4. For each local modification found in step 2, show the human the local change alongside the new template text; the human decides whether to reapply the local change on top of it.
-5. Commit the graft.
+5. If the project has an existing policy about who does what in git, follow it. Otherwise, stage the graft but don't commit, so the human can review and iterate.
 
 ## Coder Blocked Halt
 
