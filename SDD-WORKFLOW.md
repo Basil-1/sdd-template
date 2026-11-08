@@ -87,7 +87,7 @@ The scaffold separates template-owned text from project-owned content:
 - **Scaffold sections** — the Purpose, Rules, and Format sections of `CONSTITUTION.md`, `CONVENTIONS.md`, `ARCHITECTURE.md`, `ROADMAP.md`, and `CHANGELOG.md`. Template-owned; a graft replaces them verbatim.
 - **Project content** — everything else: the designated content sections (`## Project Laws`, `## Project Conventions`, `## System Design`, `## Campaigns`, `## History`), table rows in the ADR index and the changelog, domain specs, and ADR files. Project-owned; a graft never touches them.
 
-To adopt template improvements, the **Planner** works on the base branch:
+To adopt template improvements, the human starts a **basic AI agent** — a plain AI session that does **not** operate under any of the three agent identities (Planner, Coder, or Reviewer) — to run the graft on the base branch. The graft can replace the very files that define those identities (everything in `.ai/`, `.claude/`, `.github/`, and `.opencode/`), so an agent running under one of them would be rewriting its own instructions mid-session and cannot do this safely. The basic agent:
 
 1. Obtain the current template as reference.
 2. Find local modifications to template-owned text using the project's Git history: the scaffold arrived whole at the first commit, so every later change to template-owned files or sections is a local modification. Enumerate the commits that touched each file and note what they changed in template-owned territory.
