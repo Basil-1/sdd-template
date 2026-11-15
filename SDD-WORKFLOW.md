@@ -1,3 +1,7 @@
+---
+template_version: 2.0.0
+---
+
 # SDD Workflow
 
 ## Purpose
@@ -78,6 +82,19 @@ The human invokes a fresh **Coder** session. The Coder runs the exact same workf
 2. The Reviewer audits the updated code and newly regenerated `INSPECTION.md` against the revised `project/specs/`, `PLAN.md` (and its addenda), `ARCHITECTURE.md`, `CONVENTIONS.md`, and `CONSTITUTION.md`.
 3. If further iteration is needed, Steps 5–7 repeat. Once the Reviewer reports **Pass** and manual verification succeeds, the human instructs the Reviewer to fold the branch's work into a single entry in `CHANGELOG.md` and perform the squash merge, exactly as in Flow 1.
 
+## Template Versioning
+
+The template is versioned semantically, and the version lives in this file's frontmatter (`template_version`). It names the template as a whole, not this document: a graft replaces this file wholesale, so every project carries its template version, and every graft delivers the next one.
+
+The tiers:
+
+- **MAJOR** — any change to the meaning of the template's governing text: rules, roles, artifact lifecycles, ownership boundaries, the graft protocol, or the wholesale and scaffold inventories. Projects build local practice against this text, so changing it is breaking.
+- **MINOR** — purely additive text that alters no rule and no inventory: new non-normative guidance, expanded rationale, new project-content placeholders.
+- **PATCH** — meaning-preserving corrections: typos, grammar, and clarity rewrites that leave every rule behaving as before.
+- When a change sits between tiers, choose the higher.
+
+Releases are recorded in `TEMPLATE-CHANGELOG.md` at the template repository root — one entry per released version, newest first. The file is excluded from the scaffold copy, so projects never carry a stale history; the grafting agent reads it from the reference template. Whoever ships a change to template-owned text bumps `template_version` and writes its entry in the same change set; there is no separate release step. Such changes touch strategy artifacts, so under this workflow they land with a planning commit — the Planner's, or the Reviewer's during in-branch rework.
+
 ## Grafting Template Updates
 
 The scaffold separates template-owned text from project-owned content:
@@ -88,11 +105,12 @@ The scaffold separates template-owned text from project-owned content:
 
 To adopt template improvements, the human starts a **basic AI agent** — a plain AI session that does **not** operate under any of the three agent identities (Planner, Coder, or Reviewer) — to run the graft on the base branch. The graft can replace the very files that define those identities (everything in `.ai/`, `.claude/`, `.github/`, and `.opencode/`), so an agent running under one of them would be rewriting its own instructions mid-session and cannot do this safely. The basic agent:
 
-1. Obtain the current template as reference.
-2. Find local modifications to template-owned text using the project's Git history: the scaffold arrived whole at the first commit, so every later change to template-owned files or sections is a local modification. Enumerate the commits that touched each file and note what they changed in template-owned territory.
-3. Replace all template-owned files and sections with the current template's text.
-4. For each local modification found in step 2, show the human the local change alongside the new template text; the human decides whether to reapply the local change on top of it.
-5. If the project has an existing policy about who does what in git, follow it. Otherwise, stage the graft but don't commit, so the human can review and iterate.
+1. Obtain the current template as reference. Compare the `template_version` in the reference's `SDD-WORKFLOW.md` against the local copy's. On a match, the project is up to date — report that and stop. If the reference is older than the local copy, stop and tell the human: the reference may not be the source this project tracks.
+2. Read `TEMPLATE-CHANGELOG.md` from the reference and summarize for the human every entry between the local and reference versions — this is what the graft brings. Call out each major boundary crossed: governing rules changed there, and local practice built on the old rules may need the human's arbitration.
+3. Find local modifications to template-owned text using the project's Git history: the scaffold arrived whole at the first commit, so every later change to template-owned files or sections is a local modification. Enumerate the commits that touched each file and note what they changed in template-owned territory.
+4. Replace all template-owned files and sections with the current template's text.
+5. For each local modification found in step 3, show the human the local change alongside the new template text; the human decides whether to reapply the local change on top of it.
+6. If the project has an existing policy about who does what in git, follow it. Otherwise, stage the graft but don't commit, so the human can review and iterate.
 
 ## Coder Blocked Halt
 

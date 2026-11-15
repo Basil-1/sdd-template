@@ -4,7 +4,7 @@ A spec-driven development (SDD) scaffold. This repository is a **template, not a
 
 ## Creating a New Project from This Template
 
-1. **Copy the scaffold into your new project directory, excluding `.git/` and this `README.md`:**
+1. **Copy the scaffold into your new project directory, excluding `.git/`, this `README.md`, and `TEMPLATE-CHANGELOG.md`:**
    - Copy everything else in this repository into your new project root.
 2. **Initialize your project's own repository and README:**
    - Run `git init` in your new project root to create a fresh `.git/` directory.
@@ -15,7 +15,7 @@ A spec-driven development (SDD) scaffold. This repository is a **template, not a
 
 ## Updating a Project Built from This Template
 
-Projects instantiated from this template graft improvements from the current template. The protocol ships with the scaffold: see **Grafting Template Updates** in [`SDD-WORKFLOW.md`](SDD-WORKFLOW.md).
+Projects instantiated from this template graft improvements from the current template. The template is semantically versioned: `SDD-WORKFLOW.md` carries the version in its frontmatter and travels with every graft, and `TEMPLATE-CHANGELOG.md` in this repository records what each release delivers. The protocol ships with the scaffold: see **Grafting Template Updates** in [`SDD-WORKFLOW.md`](SDD-WORKFLOW.md).
 
 ## What Is Included
 
