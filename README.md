@@ -29,7 +29,7 @@ Projects instantiated from this template graft improvements from the current tem
   - `ROADMAP.md` — pruned, living view of upcoming and active work.
   - `CHANGELOG.md` — reverse-chronological record of merged branch increments.
   - `PLAN.md` (ephemeral, on feature branches only) — scopes the current branch increment.
-- `.ai/` — the vendor-neutral AI core: three agents (`planner`, `coder`, `reviewer`) and two skills (`manage-adr`, `manage-ai-capabilities`).
+- `.ai/` — the vendor-neutral AI core: three agents (`planner`, `coder`, `reviewer`) and three skills (`commit`, `manage-adr`, `manage-ai-capabilities`).
 - `.claude/`, `.github/`, `.opencode/` — harness routing stubs pointing to `.ai/` so behavior is defined in one place.
 - `SDD-WORKFLOW.md` — end-to-end guide to the SDD lifecycle, both with and without a rework loop.
 - `INSPECTION.md` (ephemeral, generated at the repository root on feature branches) — handover verification protocol, test evidence, and proposed changelog entry produced by the coder.

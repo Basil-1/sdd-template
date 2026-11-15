@@ -22,6 +22,10 @@ Reverse-chronological record of released template versions. Written for the graf
 
 ## History
 
+## 2.1.1 (2026-11-15) — README skills count
+
+- Corrected `README.md`: `.ai/` holds three skills — `commit`, `manage-adr`, `manage-ai-capabilities` — not two. The count had been stale since the `commit` skill was added without updating the inventory line.
+
 ## 2.1.0 (2026-11-15) — Optional domain conventions split
 
 - Added a permissive rule to the `CONVENTIONS.md` scaffold: a domain's conventions may split into a `CONVENTIONS-<DOMAIN>.md` file beside the hub, routed by a one-line entry there, when the hub's bulk would overburden agents working outside that domain. The rule states the split is an allowed flexibility, not an expected structure, and that any such file is treated exactly like the hub (`project/CONVENTIONS.md`).
