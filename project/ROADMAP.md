@@ -22,4 +22,4 @@ Headings, ordering, and granularity are each project's own choice, as long as th
 
 ## Campaigns
 
-<!-- Track the current campaign and ambitions below. The sections above are owned by the template. -->
+<!-- Track the current campaign and ambitions below. -->

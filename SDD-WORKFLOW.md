@@ -1,5 +1,5 @@
 ---
-template_version: 2.1.1
+template_version: 3.0.0
 ---
 
 # SDD Workflow
@@ -16,6 +16,8 @@ A guide to how work moves through a project built from this template: the roles,
 - **Reviewer** (`.ai/agents/reviewer.md`) — performs an adversarial review of the coder's branch work against `PLAN.md`, `project/specs/`, `INSPECTION.md`, and the governing files; if rework is needed, leads an in-branch mini-planning session with the human to update `project/` and append a rework addendum to `PLAN.md`; and, on a pass, performs the squash merge into the base branch as a single narrative commit, then prunes superseded merged branches, keeping only the most recent.
 
 ## Artifacts and Lifecycles
+
+Ownership precedes lifecycle. Every artifact belongs either to the **template** — governing text that a graft renews — or to the **project** — content that a graft never touches. Files with two owners are divided by section: from its boundary section down, the file is the project's; above, the template's. Both halves bind the agents equally, and each owner's intent belongs on its own side of the divider. The lifecycles below are of the project's half.
 
 - **Unbranched strategic files** (`CONSTITUTION.md`, `CONVENTIONS.md`, `ROADMAP.md`, `ARCHITECTURE.md`, `project/adr/`): Evolved continuously with understanding. `ARCHITECTURE.md` is backed by ADRs (maintained via `manage-adr`). `ROADMAP.md` is updated to reflect the ambitions as items are delivered or abandoned.
 - **Living domain specifications** (`project/specs/<domain>.md`): One file per core domain. Each spec describes how its domain behaves right now with no palimpsest. Modified directly on a feature branch during planning (and during rework re-planning) alongside `PLAN.md`.
@@ -99,9 +101,9 @@ Releases are recorded in `TEMPLATE-CHANGELOG.md` at the template repository root
 
 The scaffold separates template-owned text from project-owned content:
 
-- **Wholesale files** — `AGENTS.md`, `CLAUDE.md`, `SDD-WORKFLOW.md`, everything in `.ai/`, `.claude/`, `.github/`, `.opencode/`, plus `project/specs/README.md` and `project/adr/README.md`. Template-owned; a graft replaces them whole.
-- **Scaffold sections** — the Purpose, Rules, and Format sections of `CONSTITUTION.md`, `CONVENTIONS.md`, `ARCHITECTURE.md`, `ROADMAP.md`, and `CHANGELOG.md`. Template-owned; a graft replaces them verbatim.
-- **Project content** — everything else: the designated content sections (`## Project Laws`, `## Project Conventions`, `## System Design`, `## Campaigns`, `## History`), table rows in the ADR index and the changelog, domain specs, and ADR files. Project-owned; a graft never touches them.
+- **Wholesale files** — `AGENTS.md`, `CLAUDE.md`, `SDD-WORKFLOW.md`, everything in `.claude/`, `.github/`, `.opencode/`, plus `project/specs/README.md` and `project/adr/README.md`. Template-owned; a graft replaces them whole.
+- **Scaffold sections** — the Purpose, Rules, and Format sections of `CONSTITUTION.md`, `CONVENTIONS.md`, `ARCHITECTURE.md`, `ROADMAP.md`, and `CHANGELOG.md`, plus everything in each `.ai/` agent and skill file above its `## Project Customizations` section. Template-owned; a graft replaces them verbatim.
+- **Project content** — everything else: the designated content sections (`## Project Laws`, `## Project Conventions`, `## System Design`, `## Campaigns`, `## History`), the `## Project Customizations` section of each `.ai/` agent and skill file, table rows in the ADR index and the changelog, domain specs, and ADR files. Project-owned; a graft never touches them.
 
 To adopt template improvements, the human starts a **basic AI agent** — a plain AI session that does **not** operate under any of the three agent identities (Planner, Coder, or Reviewer) — to run the graft on the base branch. The graft can replace the very files that define those identities (everything in `.ai/`, `.claude/`, `.github/`, and `.opencode/`), so an agent running under one of them would be rewriting its own instructions mid-session and cannot do this safely. The basic agent:
 

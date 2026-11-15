@@ -1,6 +1,6 @@
 ---
 name: manage-ai-capabilities
-description: Maintains the DRY AI capability layer: keeps .ai/ as the single source of truth and mirrors agent and skill changes into the .claude/, .github/, and .opencode/ routing stubs. Use when adding, renaming, removing, or editing AI agents or skills, updating vendor harness stubs or their front matter, or checking for drift between .ai/ and the vendor folders.
+description: Maintains the project's DRY AI capability layer- agent and skill behavior lives in .ai/ as the single source of truth, mirrored into the .claude/, .github/, and .opencode/ routing stubs; the project tailors roles only through each file's project-owned Project Customizations section, which a graft preserves while replacing the template-owned sections above. Use when the project wants to change agent or skill behavior, or when checking for drift between .ai/ and the vendor stubs.
 ---
 
 Routing stub. Read and follow the vendor-neutral instructions in `.ai/skills/manage-ai-capabilities.md`. Do not duplicate those instructions here.

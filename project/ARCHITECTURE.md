@@ -12,4 +12,4 @@ Cumulative snapshot of the current system design. The single reference for how t
 
 ## System Design
 
-<!-- Describe the current system design below. The sections above are owned by the template. -->
+<!-- Describe the current system design below. -->

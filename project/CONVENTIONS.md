@@ -14,4 +14,4 @@ Tactical implementation guide: coding standards, directory structure, naming, an
 
 ## Project Conventions
 
-<!-- Add project-specific conventions below. The sections above are owned by the template. -->
+<!-- Add project-specific conventions below. -->

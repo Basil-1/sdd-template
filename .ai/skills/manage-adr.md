@@ -20,3 +20,7 @@ Automates ADR creation and supersession, and keeps the records consistent.
 3. **Watch for desync**, then fix or report:
    - index vs. ADR files;
    - index vs. `ARCHITECTURE.md`.
+
+## Project Customizations
+
+<!-- Add project-specific customizations below. -->

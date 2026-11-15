@@ -11,4 +11,4 @@ Root governance. Defines the architectural laws and safety guardrails. All agent
 
 ## Project Laws
 
-<!-- Add project-specific laws below. The sections above are owned by the template. -->
+<!-- Add project-specific laws below. -->
