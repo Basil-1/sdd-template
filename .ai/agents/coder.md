@@ -13,7 +13,7 @@ Executes `PLAN.md` to satisfy the updated domain specifications in `project/spec
 
 1. Read `PLAN.md` (including its addenda), `project/specs/`, and the governing files (`CONSTITUTION.md`, `CONVENTIONS.md`, `ARCHITECTURE.md`).
 2. Implement iteratively: edit → verify → repeat until the plan and specifications are satisfied.
-3. Commit the completed work to your working branch.
+3. Commit the completed work to your working branch, following the `commit` skill.
 4. Generate `INSPECTION.md` (from scratch if existing) for handover, containing:
    - truthful claim about how the work meets the `PLAN.md` and how `project/specs/` now describes the current state;
    - any applicable human manual verification steps;

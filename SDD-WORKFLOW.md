@@ -6,17 +6,17 @@ A guide to how work moves through a project built from this template: the roles,
 
 ## Roles
 
-- **Human** — drives every phase transition, collaborates on planning, runs manual verification protocols, and merges completed branches.
+- **Human** — drives every phase transition, collaborates on planning, runs manual verification protocols, and directs the merge of completed branches.
 - **Planner** (`.ai/agents/planner.md`) — conducts unstructured, iterative planning conversations with the human; updates strategy files (`CONSTITUTION.md`, `CONVENTIONS.md`, `ROADMAP.md`, `ARCHITECTURE.md` + ADRs) directly without a branch; and chambers narrow increments on a new feature branch by updating `project/specs/` and writing `PLAN.md`.
 - **Coder** (`.ai/agents/coder.md`) — executes on the feature branch against `PLAN.md` and `project/specs/` in autonomous edit/verify loops while treating strategy artifacts (`PLAN.md`, everything under `project/`, and the AI capability layer) as strictly read-only, then writes a fresh `INSPECTION.md` at the repository root.
-- **Reviewer** (`.ai/agents/reviewer.md`) — performs an adversarial review of the coder's branch work against `PLAN.md`, `project/specs/`, `INSPECTION.md`, and the governing files; and, if rework is needed, leads an in-branch mini-planning session with the human to update `project/` and append a rework addendum to `PLAN.md`.
+- **Reviewer** (`.ai/agents/reviewer.md`) — performs an adversarial review of the coder's branch work against `PLAN.md`, `project/specs/`, `INSPECTION.md`, and the governing files; if rework is needed, leads an in-branch mini-planning session with the human to update `project/` and append a rework addendum to `PLAN.md`; and, on a pass, performs the squash merge into the base branch as a single narrative commit, then prunes superseded merged branches, keeping only the most recent.
 
 ## Artifacts and Lifecycles
 
 - **Unbranched strategic files** (`CONSTITUTION.md`, `CONVENTIONS.md`, `ROADMAP.md`, `ARCHITECTURE.md`, `project/adr/`): Evolved continuously with understanding. `ARCHITECTURE.md` is backed by ADRs (maintained via `manage-adr`). `ROADMAP.md` is updated to reflect the ambitions as items are delivered or abandoned.
 - **Living domain specifications** (`project/specs/<domain>.md`): One file per core domain. Each spec describes how its domain behaves right now with no palimpsest. Modified directly on a feature branch during planning (and during rework re-planning) alongside `PLAN.md`.
 - **Branch-ephemeral files** (`PLAN.md` and root `INSPECTION.md`): Created on a feature branch to drive and verify a single narrow increment, and deleted when the branch merges.
-- **Merge archive** (`CHANGELOG.md` and Git history): Updated once per branch merge with a single entry summarizing delivered behavior. Git history serves as the archive for all pruned roadmap items and superseded states.
+- **Merge archive** (`CHANGELOG.md` and Git history): Each branch merge lands on the base branch as a single squash commit whose message carries the increment's narrative of durable value, plus one `CHANGELOG.md` entry summarizing delivered behavior. The most recently merged feature branch is retained for troubleshooting; older merged branches are deleted. The narrative and the retained branch are the archive — never a palimpsest.
 
 ---
 
@@ -45,8 +45,7 @@ The human starts a fresh **Reviewer** session on the feature branch while runnin
 2. Diffs the branch against the base branch and audits the implementation and `INSPECTION.md` against `PLAN.md`, `project/specs/`, `ARCHITECTURE.md`, `CONVENTIONS.md`, and `CONSTITUTION.md`.
 3. Reports a **Pass** verdict to the human.
 4. If the human agrees, appends the single branch entry from `INSPECTION.md` into `CHANGELOG.md`.
-5. Deletes `PLAN.md` and `INSPECTION.md`, and commits these merge-prep changes to the feature branch.
-6. **The human** merges the feature branch into the base branch.
+5. On the human's direction, performs the squash merge per its merge protocol in `.ai/agents/reviewer.md`: composes the narrative of durable value from the review context, deletes `PLAN.md` and `INSPECTION.md`, squash-merges the feature branch into the base branch as a single commit, and prunes previously merged branches, retaining only the most recently merged.
 
 ---
 
@@ -77,7 +76,7 @@ The human invokes a fresh **Coder** session. The Coder runs the exact same workf
 ### 7. Re-Review & Merge (Reviewer + Human)
 1. The **Reviewer** runs again on the branch and verifies the hard gate exactly as in Flow 1, recognizing the rework baseline commits from Step 5 as planning commits.
 2. The Reviewer audits the updated code and newly regenerated `INSPECTION.md` against the revised `project/specs/`, `PLAN.md` (and its addenda), `ARCHITECTURE.md`, `CONVENTIONS.md`, and `CONSTITUTION.md`.
-3. If further iteration is needed, Steps 5–7 repeat. Once the Reviewer reports **Pass** and manual verification succeeds, the human instructs the Reviewer to fold the branch's work into a single entry in `CHANGELOG.md`, delete `PLAN.md` and `INSPECTION.md`, commit the merge-prep changes, and then **the human** merges the branch.
+3. If further iteration is needed, Steps 5–7 repeat. Once the Reviewer reports **Pass** and manual verification succeeds, the human instructs the Reviewer to fold the branch's work into a single entry in `CHANGELOG.md` and perform the squash merge, exactly as in Flow 1.
 
 ## Grafting Template Updates
 
