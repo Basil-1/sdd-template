@@ -22,6 +22,10 @@ Reverse-chronological record of released template versions. Written for the graf
 
 ## History
 
+## 2.1.0 (2026-11-15) — Optional domain conventions split
+
+- Added a permissive rule to the `CONVENTIONS.md` scaffold: a domain's conventions may split into a `CONVENTIONS-<DOMAIN>.md` file beside the hub, routed by a one-line entry there, when the hub's bulk would overburden agents working outside that domain. The rule states the split is an allowed flexibility, not an expected structure, and that any such file is treated exactly like the hub (`project/CONVENTIONS.md`).
+
 ## 2.0.0 (2026-11-15) — Template versioning
 
 - Added `template_version` frontmatter to `SDD-WORKFLOW.md`; the version names the template as a whole and travels with this wholesale-replaced file.
