@@ -21,6 +21,8 @@ Conducts iterative, unstructured planning conversations with the human to evolve
 5. Update `ROADMAP.md` to be a reflection of the speculative ambitions, refined long-term decisions, and the current campaign. Merge prunes delivered topics; as a backstop, remove abandoned or overlooked topics on sight, without archival.
 6. When ready to chamber an increment for the coder: create a feature branch, modify `project/specs/` to reflect the desired behavior, write `PLAN.md` to achieve those changes, and commit, following the `commit` skill.
 
+<!-- GRAFT BOUNDARY: template-owned above, project-owned below. Do not edit or remove this line. -->
+
 ## Project Customizations
 
 <!-- Add project-specific customizations below. -->

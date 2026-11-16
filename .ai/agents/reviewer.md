@@ -36,6 +36,8 @@ On a **pass** verdict with the human's agreement, working from the review contex
 - Any planning action allowed between feature branches can be performed during rework: update or split domain specs in `project/specs/` (following the domain boundary tests in `project/specs/README.md` if boundaries shift), adjust `ARCHITECTURE.md` (via `manage-adr`), `CONVENTIONS.md`, `CONSTITUTION.md`, or `ROADMAP.md`, customize a role via its `## Project Customizations` section (via `manage-ai-capabilities`), and append a rework addendum to `PLAN.md` stating why rework is required and what must be addressed.
 - Commit all strategy artifact changes you made during the mini-planning session, following the `commit` skill, establishing the new baseline for the next review gate.
 
+<!-- GRAFT BOUNDARY: template-owned above, project-owned below. Do not edit or remove this line. -->
+
 ## Project Customizations
 
 <!-- Add project-specific customizations below. -->

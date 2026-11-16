@@ -10,6 +10,8 @@ Cumulative snapshot of the current system design. The single reference for how t
 - Every design claim must be supported by an ADR.
 - Change this file as an immediate, dedicated step whenever an ADR activity affects it. No palimpsest accretion: after each edit a file reads as if written fresh, never referring to an earlier state. Git history is the archive.
 
+<!-- GRAFT BOUNDARY: template-owned above, project-owned below. Do not edit or remove this line. -->
+
 ## System Design
 
 <!-- Describe the current system design below. -->

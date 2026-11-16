@@ -21,6 +21,8 @@ One section per increment, newest first:
 - At merge, insert the entry proposed in `INSPECTION.md` under `## History` at the top, then delete `INSPECTION.md`.
 - One entry per branch: all changes from a branch fold into a single entry at merge.
 
+<!-- GRAFT BOUNDARY: template-owned above, project-owned below. Do not edit or remove this line. -->
+
 ## History
 
 <!-- Empty until the first merge. -->

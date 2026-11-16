@@ -21,6 +21,8 @@ Automates ADR creation and supersession, and keeps the records consistent.
    - index vs. ADR files;
    - index vs. `ARCHITECTURE.md`.
 
+<!-- GRAFT BOUNDARY: template-owned above, project-owned below. Do not edit or remove this line. -->
+
 ## Project Customizations
 
 <!-- Add project-specific customizations below. -->

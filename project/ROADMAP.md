@@ -20,6 +20,8 @@ Headings, ordering, and granularity are each project's own choice, as long as th
 - Define one increment at a time. The inspection of a completed increment will often inform the next one.
 - A speculative ambition graduates into a refined decision when a planning session defines it well enough to build. A refined decision joins a campaign when its prerequisites are met.
 
+<!-- GRAFT BOUNDARY: template-owned above, project-owned below. Do not edit or remove this line. -->
+
 ## Campaigns
 
 <!-- Track the current campaign and ambitions below. -->

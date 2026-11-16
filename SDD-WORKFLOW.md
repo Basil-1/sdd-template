@@ -1,5 +1,5 @@
 ---
-template_version: 4.0.1
+template_version: 5.0.0
 ---
 
 # SDD Workflow
@@ -17,7 +17,7 @@ A guide to how work moves through a project built from this template: the roles,
 
 ## Artifacts and Lifecycles
 
-Ownership precedes lifecycle. Every artifact belongs either to the **template** — governing text that a graft renews — or to the **project** — content that a graft never touches. Files with two owners are divided by section: from its boundary section down, the file is the project's; above, the template's. Both halves bind the agents equally, and each owner's intent belongs on its own side of the divider. The lifecycles below are of the project's half.
+Ownership precedes lifecycle. Every artifact belongs either to the **template** — governing text that a graft renews — or to the **project** — content that a graft never touches. A file with two owners carries a boundary line — `<!-- GRAFT BOUNDARY: template-owned above, project-owned below. Do not edit or remove this line. -->` — and that line alone is the seam: everything up to and including it is the template's, everything below it is the project's. No heading name marks the division. Both halves bind the agents equally, and each owner's intent belongs on its own side of the divider. The lifecycles below are of the project's half.
 
 - **Unbranched strategic files** (`CONSTITUTION.md`, `CONVENTIONS.md`, `ROADMAP.md`, `ARCHITECTURE.md`, `project/adr/`): Evolved continuously with understanding. `ARCHITECTURE.md` is backed by ADRs (maintained via `manage-adr`). `ROADMAP.md` reflects the ambitions as items are delivered or abandoned: the Reviewer prunes delivered topics at merge; the Planner prunes abandoned or overlooked topics on sight as a backstop.
 - **Living domain specifications** (`project/specs/<domain>.md`): One file per core domain. Each spec describes how its domain behaves right now with no palimpsest. Modified directly on a feature branch during planning (and during rework re-planning) alongside `PLAN.md`.
@@ -90,7 +90,7 @@ The template is versioned semantically, and the version lives in this file's fro
 
 The tiers:
 
-- **MAJOR** — any change to the meaning of the template's governing text: rules, roles, artifact lifecycles, ownership boundaries, the graft protocol, or the wholesale and scaffold inventories. Projects build local practice against this text, so changing it is breaking.
+- **MAJOR** — any change to the meaning of the template's governing text: rules, roles, artifact lifecycles, ownership boundaries, the graft protocol, or the wholesale and split inventories. Projects build local practice against this text, so changing it is breaking.
 - **MINOR** — purely additive text that alters no rule and no inventory: new non-normative guidance, expanded rationale, new project-content placeholders.
 - **PATCH** — meaning-preserving corrections: typos, grammar, and clarity rewrites that leave every rule behaving as before.
 - When a change sits between tiers, choose the higher.
@@ -101,16 +101,16 @@ Releases are recorded in `TEMPLATE-CHANGELOG.md` at the template repository root
 
 The scaffold separates template-owned text from project-owned content:
 
-- **Wholesale files** — `AGENTS.md`, `CLAUDE.md`, `SDD-WORKFLOW.md`, everything in `.claude/`, `.github/`, `.opencode/`, plus `project/specs/README.md` and `project/adr/README.md`. Template-owned; a graft replaces them whole.
-- **Scaffold sections** — the Purpose, Rules, and Format sections of `CONSTITUTION.md`, `CONVENTIONS.md`, `ARCHITECTURE.md`, `ROADMAP.md`, and `CHANGELOG.md`, plus everything in each `.ai/` agent and skill file above its `## Project Customizations` section. Template-owned; a graft replaces them verbatim.
-- **Project content** — everything else: the designated content sections (`## Project Laws`, `## Project Conventions`, `## System Design`, `## Campaigns`, `## History`), the `## Project Customizations` section of each `.ai/` agent and skill file, table rows in the ADR index and the changelog, domain specs, and ADR files. Project-owned; a graft never touches them.
+- **Wholesale files** — `AGENTS.md`, `CLAUDE.md`, `SDD-WORKFLOW.md`, everything in `.claude/`, `.github/`, `.opencode/`, plus `project/specs/README.md`. Template-owned; a graft replaces them whole.
+- **Split files** — `CONSTITUTION.md`, `CONVENTIONS.md`, `ARCHITECTURE.md`, `ROADMAP.md`, `CHANGELOG.md`, `project/adr/README.md`, and every `.ai/` agent and skill file. Each carries the boundary line; everything up to and including it is template-owned and a graft replaces it verbatim.
+- **Project content** — everything below a split file's boundary line, plus domain specs and ADR files. Project-owned; a graft never touches them.
 
 To adopt template improvements, the human starts a **basic AI agent** — a plain AI session that does **not** operate under any of the three agent identities (Planner, Coder, or Reviewer) — to run the graft on the base branch. The graft can replace the very files that define those identities (everything in `.ai/`, `.claude/`, `.github/`, and `.opencode/`), so an agent running under one of them would be rewriting its own instructions mid-session and cannot do this safely. The basic agent:
 
 1. Obtain the current template as reference. Compare the `template_version` in the reference's `SDD-WORKFLOW.md` against the local copy's. On a match, the project is up to date — report that and stop. If the reference is older than the local copy, stop and tell the human: the reference may not be the source this project tracks.
 2. Read `TEMPLATE-CHANGELOG.md` from the reference and summarize for the human every entry between the local and reference versions — this is what the graft brings. Call out each major boundary crossed: governing rules changed there, and local practice built on the old rules may need the human's arbitration.
-3. Find local modifications to template-owned text using the project's Git history: the scaffold arrived whole at the first commit, so every later change to template-owned files or sections is a local modification. Enumerate the commits that touched each file and note what they changed in template-owned territory.
-4. Replace all template-owned files and sections with the current template's text.
+3. Find local modifications to template-owned text using the project's Git history: the scaffold arrived whole at the first commit, so every later change to a wholesale file, or to the text at or above a split file's boundary line, is a local modification. Enumerate the commits that touched each file and note what they changed in template-owned territory.
+4. Replace all template-owned text with the current template's text: each wholesale file whole, and each split file up to and including its boundary line.
 5. For each local modification found in step 3, show the human the local change alongside the new template text; the human decides whether to reapply the local change on top of it.
 6. If the project has an existing policy about who does what in git, follow it. Otherwise, stage the graft but don't commit, so the human can review and iterate.
 

@@ -28,6 +28,8 @@ Extract, never invent. Omit any trailer whose value you cannot determine from yo
 
 Commits can become public. Attribution may state only the agent identity, harness, model, and human initials as above — never anything about the machine or account: hostname, username, operating system, hardware, file paths, or environment details. Never write human information into the repository to feed these trailers; what the harness does not know is left out.
 
+<!-- GRAFT BOUNDARY: template-owned above, project-owned below. Do not edit or remove this line. -->
+
 ## Project Customizations
 
 <!-- Add project-specific customizations below. -->

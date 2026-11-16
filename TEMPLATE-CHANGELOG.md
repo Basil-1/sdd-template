@@ -22,6 +22,13 @@ Reverse-chronological record of released template versions. Written for the graf
 
 ## History
 
+## 5.0.0 (2026-11-15) — One demarcation line for every split file
+
+- Defined ownership's seam as a single line — `<!-- GRAFT BOUNDARY: template-owned above, project-owned below. Do not edit or remove this line. -->` — in `SDD-WORKFLOW.md`: everything up to and including it is the template's, everything below it the project's, and no heading name marks the division. **Scaffold sections** became **Split files**, a list of filenames plus every `.ai/` agent and skill file, dropping the exhaustive section names; template-side sections can now be added, reordered, or renamed without touching the inventory. `CONSTITUTION.md`, `CONVENTIONS.md`, `ARCHITECTURE.md`, `ROADMAP.md`, `CHANGELOG.md`, `project/adr/README.md`, and every `.ai/` agent and skill file all carry the line.
+- Graft steps 3 and 4 now read the line mechanically: a local modification is any later change to a wholesale file or to the text at or above a split file's boundary line, and replacement runs up to and including it. `manage-ai-capabilities` states the same rule for the `.ai/` files, and its description — in all four mirrored copies — points at the boundary line rather than at a named section.
+- Fixed a contradicted ownership entry: `project/adr/README.md` was listed wholesale while the ADR index rows were listed as project content, so a graft would have wiped the project's index. The file is a split file like the rest; its `## Index` moved below the boundary line to the end of the file, and Authoring's "append one row to the index above" points there.
+- Ownership moved from section names to a marker, and the ADR index changed hands, so MAJOR.
+
 ## 4.0.1 (2026-11-15) — Repair the manage-ai-capabilities description
 
 - Restored the broken sentence in the `manage-ai-capabilities` description across all four mirrored copies (`.ai/skills/manage-ai-capabilities.md` and its `.claude/`, `.github/`, and `.opencode/` stubs): `layer- agent` became `layer. Agent`. The stray hyphen replaced a colon in an unquoted YAML scalar, where `: ` is invalid; the sentence is now punctuated without one, so the front matter parses cleanly in every harness without quoting. Wording and triggers are unchanged, so PATCH.

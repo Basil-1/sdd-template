@@ -33,6 +33,8 @@ When continuing would require guessing, halt and report **BLOCKED** rather than 
 
 A BLOCKED report states: the obstacle in one sentence, what you attempted, the exact input that would unblock you (a decision, a clarification, or a re-scope), and the honest state of the work — what is done, what is not, nothing claimed beyond it. When the obstacle is a gap in a governing artifact, you may propose an amendment — you hold the clearest view of the problem's specific shape, and drafted language to close the gap is welcome. Present any proposal as evidence from the implementation, not as a decision — you lack the planner's big-picture context, and the resolution session may adopt, reshape, or replace it. Whether or not you include a proposal, describe the gap in enough detail for the Planner or Reviewer to act on: where it surfaced, what decision, specification, or convention was missing, and what you needed it to say. Do not write `INSPECTION.md` for halted work. Halting costs nothing; fabrication is the one unacceptable outcome.
 
+<!-- GRAFT BOUNDARY: template-owned above, project-owned below. Do not edit or remove this line. -->
+
 ## Project Customizations
 
 <!-- Add project-specific customizations below. -->

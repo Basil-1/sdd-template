@@ -4,16 +4,11 @@
 
 Canonical index of all current ADRs. This index — not the individual ADR files — is the entry point for agents. Individual ADR files are excluded from default agent context.
 
-## Index
-
-| ID | Title |
-| --- | --- |
-
 ## Authoring
 
 1. Add `NNNN-title.md` under this directory; `NNNN` is the next unused number.
 2. Record ADR.
-3. Append one row to the index above.
+3. Append one row to the `## Index` table at the end of this file.
 
 ## Superseding and Clarification
 
@@ -24,3 +19,12 @@ Canonical index of all current ADRs. This index — not the individual ADR files
 ## Consistency
 
 The `manage-adr` skill verifies this index stays consistent with the ADR files and with `ARCHITECTURE.md`.
+
+<!-- GRAFT BOUNDARY: template-owned above, project-owned below. Do not edit or remove this line. -->
+
+## Index
+
+<!-- Maintain one row per active ADR below. -->
+
+| ID | Title |
+| --- | --- |
