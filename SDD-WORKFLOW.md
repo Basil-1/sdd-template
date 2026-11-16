@@ -1,123 +1,86 @@
 ---
-template_version: 5.1.0
+template_version: 6.0.0
 ---
 
 # SDD Workflow
 
-## Purpose
-
-A guide to how work moves through a project built from this template: the roles, the artifacts, and two flows. Flow 1 is the standard path — review passes on the first attempt. Flow 2 adds in-branch re-planning and rework when review or manual testing requires it.
+How work moves through a project built from this template: the roles, the artifacts, and two flows. Flow 1 is the standard path; Flow 2 adds in-branch re-planning and rework.
 
 ## Roles
 
-- **Human** — drives every phase transition, collaborates on planning, runs manual verification protocols, and directs the merge of completed branches.
-- **Planner** (`.ai/agents/planner.md`) — conducts unstructured, iterative planning conversations with the human; updates strategy files (`CONSTITUTION.md`, `CONVENTIONS.md`, `ROADMAP.md`, `ARCHITECTURE.md` + ADRs) directly without a branch; and chambers narrow increments on a new feature branch by updating `project/specs/` and writing `PLAN.md`.
-- **Coder** (`.ai/agents/coder.md`) — executes on the feature branch against `PLAN.md` and `project/specs/` in autonomous edit/verify loops while treating strategy artifacts (`PLAN.md`, everything under `project/`, and the AI capability layer) as strictly read-only, then writes a fresh `INSPECTION.md` at the repository root.
-- **Reviewer** (`.ai/agents/reviewer.md`) — performs an adversarial review of the coder's branch work against `PLAN.md`, `project/specs/`, `INSPECTION.md`, and the governing files; if rework is needed, leads an in-branch mini-planning session with the human to update `project/` and append a rework addendum to `PLAN.md`; and, on a pass, prunes the increment's delivered topics from `ROADMAP.md`, performs the squash merge into the base branch as a single narrative commit, then prunes superseded merged branches, keeping only the most recent.
+- **Human** — drives every phase transition; plans, verifies manually, directs merges.
+- **Planner** (`.ai/agents/planner.md`) — evolves strategy on the base branch, then chambers each increment on a new branch by updating `project/specs/` and writing `PLAN.md`.
+- **Coder** (`.ai/agents/coder.md`) — implements against `PLAN.md` and the specs on the branch, treating strategy artifacts as read-only, then writes `INSPECTION.md`.
+- **Reviewer** (`.ai/agents/reviewer.md`) — audits the branch adversarially, runs in-branch rework planning when needed, and on a pass prunes the roadmap, folds the changelog entry, squash-merges, and prunes old merged branches.
 
 ## Artifacts and Lifecycles
 
-Ownership precedes lifecycle. Every artifact belongs either to the **template** — governing text that a graft renews — or to the **project** — content that a graft never touches. A file with two owners carries a boundary line — `<!-- GRAFT BOUNDARY: template-owned above, project-owned below. Do not edit or remove this line. -->` — and that line alone is the seam: everything up to and including it is the template's, everything below it is the project's. No heading name marks the division. Both halves bind the agents equally, and each owner's intent belongs on its own side of the divider. The lifecycles below are of the project's half.
+**Strategy artifacts** — `PLAN.md`, everything under `project/`, and the AI capability layer (`.ai/`, `.claude/`, `.github/`, `.opencode/`, `AGENTS.md`, `CLAUDE.md`, `SDD-WORKFLOW.md`). Only planning commits write them; the Coder never does.
 
-- **Unbranched strategic files** (`CONSTITUTION.md`, `CONVENTIONS.md`, `ROADMAP.md`, `ARCHITECTURE.md`, `project/adr/`): Evolved continuously with understanding. `ARCHITECTURE.md` is backed by ADRs (maintained via `manage-adr`). `ROADMAP.md` reflects the ambitions as items are delivered or abandoned: the Reviewer prunes delivered topics at merge; the Planner prunes abandoned or overlooked topics on sight as a backstop.
-- **Living domain specifications** (`project/specs/<domain>.md`): One file per core domain. Each spec describes how its domain behaves right now with no palimpsest. Modified directly on a feature branch during planning (and during rework re-planning) alongside `PLAN.md`.
-- **Branch-ephemeral files** (`PLAN.md` and root `INSPECTION.md`): Created on a feature branch to drive and verify a single narrow increment, and deleted when the branch merges.
-- **Merge archive** (`CHANGELOG.md` and Git history): Each branch merge lands on the base branch as a single squash commit whose message carries the increment's narrative of durable value, plus one `CHANGELOG.md` entry summarizing delivered behavior. The most recently merged feature branch is retained for troubleshooting; older merged branches are deleted. The narrative and the retained branch are the archive — never a palimpsest.
+Every artifact is template-owned (a graft renews it) or project-owned (a graft never touches it). A split file marks the seam with one boundary line: everything up to and including it is the template's, everything below it the project's. Both halves bind equally.
 
----
+- **Unbranched strategic files** (`CONSTITUTION.md`, `CONVENTIONS.md`, `ROADMAP.md`, `ARCHITECTURE.md`, `project/adr/`): evolved continuously with understanding. `ARCHITECTURE.md` is backed by ADRs (`manage-adr`). `ROADMAP.md` is pruned as ambition changes: the Reviewer prunes delivered topics at merge; the Planner prunes abandoned topics on sight.
+- **Living domain specifications** (`project/specs/<domain>.md`): one file per core domain, describing how the domain behaves now, with no palimpsest. Modified on the feature branch during planning and rework.
+- **Branch-ephemeral files** (`PLAN.md`, root `INSPECTION.md`): created on a feature branch to drive and verify one increment, deleted at merge.
+- **Merge archive** (`CHANGELOG.md` and git history): each merge lands as one squash commit whose message carries the increment's durable narrative, plus one `CHANGELOG.md` entry. The most recent merged branch is retained for troubleshooting; older ones are deleted.
 
 ## Flow 1: Standard Increment (Pass on First Review)
 
 ### 1. Unstructured Discovery & Strategy Updates (No Branch)
-The human and the **Planner** explore ideas in an open-ended conversation.
-- Cross-cutting changes to `CONSTITUTION.md`, `CONVENTIONS.md`, `ROADMAP.md`, or `ARCHITECTURE.md` (with new or superseded ADRs via `manage-adr`) are committed **by the Planner** directly on the base branch.
+
+The human and **Planner** explore ideas openly. Cross-cutting changes to `CONSTITUTION.md`, `CONVENTIONS.md`, `ROADMAP.md`, or `ARCHITECTURE.md` (with new or superseded ADRs via `manage-adr`) are committed by the Planner directly on the base branch.
 
 ### 2. Chambering the Increment (Feature Branch Created)
-To **chamber** an increment is to load it onto a feature branch — scoped and ready for implementation. When the human and **Planner** agree it's time for the next narrow increment:
+
+To **chamber** an increment is to load it onto a feature branch — scoped and ready to implement. When the human and Planner agree on the next narrow increment:
+
 1. The Planner creates a new feature branch.
-2. On the branch, the Planner directly edits `project/specs/` to describe the desired behavior, narrowly scoped enough to execute cleanly without model confusion or hard-to-isolate bugs. 
-3. The Planner writes `PLAN.md` detailing the implementation steps to bring the codebase into alignment with the updated specifications.
-4. **The Planner** commits the strategy artifact changes to the feature branch.
+2. On the branch, the Planner edits `project/specs/` to describe the desired behavior, narrowly scoped enough to execute cleanly without model confusion or hard-to-isolate bugs.
+3. The Planner writes `PLAN.md`: the implementation steps that bring the codebase into alignment with the updated specifications.
+4. The Planner commits these strategy artifacts to the feature branch.
 
 ### 3. Autonomous Implementation (Coder)
+
 The human starts a fresh **Coder** session on the feature branch.
-1. The Coder reads `PLAN.md`, the updated domain specs in `project/specs/`, and the governing files (`CONSTITUTION.md`, `CONVENTIONS.md`, `ARCHITECTURE.md`).
-2. Without ever modifying strategy artifacts, the Coder implements and verifies the changes iteratively until `PLAN.md` and `project/specs/` are satisfied, then commits the implementation.
-3. The Coder writes `INSPECTION.md` from scratch at the repository root with manual verification steps, self-verification evidence, and proposed `CHANGELOG.md` additions, then commits the file and hands control back to the human.
+
+1. The Coder reads `PLAN.md`, the updated specs, and the governing files (`CONSTITUTION.md`, `CONVENTIONS.md`, `ARCHITECTURE.md`).
+2. Never modifying strategy artifacts, the Coder implements and verifies iteratively until `PLAN.md` and `project/specs/` are satisfied, then commits.
+3. The Coder writes root `INSPECTION.md` fresh, per `.ai/agents/coder.md`, commits it, and hands control back to the human.
 
 ### 4. Adversarial Review & Human Verification (Reviewer + Human)
-The human starts a fresh **Reviewer** session on the feature branch while running any manual testing specified in `INSPECTION.md`. The Reviewer audits the branch:
-1. Checks the branch commit history to confirm the hard gate: the Coder never modified strategy artifacts — `PLAN.md`, everything under `project/`, and the AI capability layer (`.ai/`, `.claude/`, `.github/`, `.opencode/`, `AGENTS.md`, `CLAUDE.md`, `SDD-WORKFLOW.md`). Every commit touching them is a planning commit.
-2. Diffs the branch against the base branch and audits the implementation and `INSPECTION.md` against `PLAN.md`, `project/specs/`, `ARCHITECTURE.md`, `CONVENTIONS.md`, and `CONSTITUTION.md`.
-3. Reports a **Pass** verdict to the human.
-4. If the human agrees, appends the single branch entry from `INSPECTION.md` into `CHANGELOG.md` and prunes the increment's delivered topics from `ROADMAP.md`.
-5. On the human's direction, performs the squash merge per its merge protocol in `.ai/agents/reviewer.md`: composes the narrative of durable value from the review context, deletes `PLAN.md` and `INSPECTION.md`, squash-merges the feature branch into the base branch as a single commit, and prunes previously merged branches, retaining only the most recently merged.
 
----
+The human starts a fresh **Reviewer** session on the feature branch while running any manual testing specified in `INSPECTION.md`. The Reviewer:
+
+1. Verifies the hard gate: every branch commit touching strategy artifacts is a planning commit by the Planner or the Reviewer.
+2. Diffs the branch against its base and audits the implementation and `INSPECTION.md` against `PLAN.md`, `project/specs/`, and the governing files.
+3. Reports a **Pass** verdict, or a rework verdict with findings.
+4. On a pass the human agrees with: the Reviewer folds the `INSPECTION.md` entry into `CHANGELOG.md`, prunes the increment's delivered topics from `ROADMAP.md`, and squash-merges into the base branch per its merge protocol, deleting `PLAN.md` and `INSPECTION.md` and retaining only the most recently merged branch.
 
 ## Flow 2: Increment with Rework (Including Substantive `project/` Changes)
 
-Steps **1 through 3** happen exactly as in Flow 1: strategy is updated, a feature branch is created with updated specifications in `project/specs/` and `PLAN.md`, and the **Coder** implements the first pass and generates `INSPECTION.md`.
+Steps 1–3 are Flow 1's. The human's manual verification, alongside the Reviewer's audit, shows the increment cannot merge as-is: a spec needs substantive refinement, an architectural constraint or convention needs adjustment, or the remaining delta needs re-scoping.
 
-### 4. Adversarial Review Uncovers a Deeper Issue (Reviewer + Human)
-The human runs manual verification alongside the **Reviewer**'s adversarial audit. Together they discover that the increment cannot be merged as-is because seeing the working attempt reveals a deeper problem, for example:
-- A desired behavior in the spec needs substantive refinement,
-- An architectural constraint in `ARCHITECTURE.md` (and its backing ADR) or a rule in `CONVENTIONS.md` needs adjustment, or
-- The remaining delta needs to be re-scoped.
+### 4. In-Branch Mini-Planning (Reviewer + Human)
 
-### 5. In-Branch Mini-Planning Session (Reviewer + Human)
-The human conducts a mini-planning session directly with the **Reviewer**, who already holds the adversarial mindset and the code review context:
-1. **Substantive `project/` updates**: Anything the Planner can do between branches can be done here on the feature branch. With the human's agreement, the Reviewer updates the affected files in `project/`—for example:
-   - Updating `ARCHITECTURE.md` and creating or superseding an ADR via `manage-adr`,
-   - Refining `CONVENTIONS.md` or `CONSTITUTION.md`, or moving deferred scope into `ROADMAP.md`.
-2. **Plan rework addendum**: The Reviewer appends a rework addendum to `PLAN.md` explaining why rework is required and what must be addressed to match the revised `project/` files.
-3. **Commit strategy artifacts**: **The Reviewer** commits all strategy artifact changes on the feature branch (after the earlier creation of `INSPECTION.md`), establishing the new baseline for the next review gate.
+The Reviewer already holds the adversarial mindset and the review context, so the human plans directly with it:
 
-### 6. Rework Pass (Fresh Coder Session)
-The human invokes a fresh **Coder** session. The Coder runs the exact same workflow as on the first pass—it does not need to know whether this is an initial run or a rework:
-1. The Coder reads the current `project/` files (`project/specs/`, `ARCHITECTURE.md`, `CONVENTIONS.md`, `CONSTITUTION.md`) and `PLAN.md` (which now includes the rework addendum).
-2. Keeping strategy artifacts strictly read-only, the Coder updates and verifies the implementation iteratively until the revised specs and plan are satisfied, and commits the code changes.
-3. The Coder regenerates `INSPECTION.md` completely from scratch (overwriting the previous file) so it reflects the full, updated branch increment.
+1. **Substantive `project/` updates**: anything the Planner may do between branches is done here, with the human's agreement — for example `ARCHITECTURE.md` plus an ADR (`manage-adr`), a refined `CONVENTIONS.md` or `CONSTITUTION.md`, or deferred scope moved into `ROADMAP.md`.
+2. **Rework addendum**: the Reviewer appends to `PLAN.md` why rework is required and what must change to match the revised `project/` files.
+3. The Reviewer commits these strategy artifacts on the feature branch as the next baseline.
 
-### 7. Re-Review & Merge (Reviewer + Human)
-1. The **Reviewer** runs again on the branch and verifies the hard gate exactly as in Flow 1, recognizing the rework baseline commits from Step 5 as planning commits.
-2. The Reviewer audits the updated code and newly regenerated `INSPECTION.md` against the revised `project/specs/`, `PLAN.md` (and its addenda), `ARCHITECTURE.md`, `CONVENTIONS.md`, and `CONSTITUTION.md`.
-3. If further iteration is needed, Steps 5–7 repeat. Once the Reviewer reports **Pass** and manual verification succeeds, the human instructs the Reviewer to fold the branch's work into a single entry in `CHANGELOG.md` and perform the squash merge, exactly as in Flow 1.
+### 5. Rework Pass and Re-Review (Fresh Coder, then Reviewer)
 
-## Template Versioning
-
-The template is versioned semantically, and the version lives in this file's frontmatter (`template_version`). It names the template as a whole, not this document: a graft replaces this file wholesale, so every project carries its template version, and every graft delivers the next one.
-
-The tiers:
-
-- **MAJOR** — any change to the meaning of the template's governing text: rules, roles, artifact lifecycles, ownership boundaries, the graft protocol, or the wholesale and split inventories. Projects build local practice against this text, so changing it is breaking.
-- **MINOR** — purely additive text that alters no rule and no inventory: new non-normative guidance, expanded rationale, new project-content placeholders.
-- **PATCH** — meaning-preserving corrections: typos, grammar, and clarity rewrites that leave every rule behaving as before.
-- When a change sits between tiers, choose the higher.
-
-Releases are recorded in `TEMPLATE-CHANGELOG.md` at the template repository root — one entry per released version, newest first. The file is excluded from the scaffold copy, so projects never carry a stale history; the grafting agent reads it from the reference template.
-
-## Grafting Template Updates
-
-The scaffold separates template-owned text from project-owned content:
-
-- **Wholesale files** — `AGENTS.md`, `CLAUDE.md`, `SDD-WORKFLOW.md`, everything in `.claude/`, `.github/`, `.opencode/`, plus `project/specs/README.md`. Template-owned; a graft replaces them whole.
-- **Split files** — `CONSTITUTION.md`, `CONVENTIONS.md`, `ARCHITECTURE.md`, `ROADMAP.md`, `CHANGELOG.md`, `project/adr/README.md`, and every `.ai/` agent and skill file. Each carries the boundary line; everything up to and including it is template-owned and a graft replaces it verbatim.
-- **Project content** — everything below a split file's boundary line, plus domain convention files (`CONVENTIONS-<DOMAIN>.md`), domain specs, and ADR files. Project-owned; a graft never touches them.
-
-To adopt template improvements, the human starts a **basic AI agent** — a plain AI session that does **not** operate under any of the three agent identities (Planner, Coder, or Reviewer) — to run the graft on the base branch. The graft can replace the very files that define those identities (everything in `.ai/`, `.claude/`, `.github/`, and `.opencode/`), so an agent running under one of them would be rewriting its own instructions mid-session and cannot do this safely. The basic agent:
-
-1. Obtain the current template as reference. Compare the `template_version` in the reference's `SDD-WORKFLOW.md` against the local copy's. On a match, the project is up to date — report that and stop. If the reference is older than the local copy, stop and tell the human: the reference may not be the source this project tracks.
-2. Read `TEMPLATE-CHANGELOG.md` from the reference and summarize for the human every entry between the local and reference versions — this is what the graft brings. Call out each major boundary crossed: governing rules changed there, and local practice built on the old rules may need the human's arbitration.
-3. Find local modifications to template-owned text using the project's Git history: the scaffold arrived whole at the first commit, so every later change to a wholesale file, or to the text at or above a split file's boundary line, is a local modification. Enumerate the commits that touched each file and note what they changed in template-owned territory.
-4. Replace all template-owned text with the current template's text: each wholesale file whole, and each split file up to and including its boundary line.
-5. For each local modification found in step 3, show the human the local change alongside the new template text; the human decides whether to reapply the local change on top of it.
-6. If the project has an existing policy about who does what in git, follow it. Otherwise, stage the graft but don't commit, so the human can review and iterate.
+1. A fresh **Coder** session runs Flow 1 step 3 unchanged — it need not know this is a rework — and regenerates `INSPECTION.md` fresh so it describes the full branch increment.
+2. The **Reviewer** reruns Flow 1 step 4, recognizing the rework baseline commits as planning commits. Steps 4–5 repeat until a pass and successful manual verification.
 
 ## Coder Blocked Halt
 
-Working autonomously, the Coder may report **BLOCKED** rather than proceed by guessing, per its protocol in `.ai/agents/coder.md`.
+Working autonomously, the Coder may report **BLOCKED** rather than guess, per its protocol in `.ai/agents/coder.md`. On a BLOCKED report, the human routes it to the **Reviewer**, whose mini-planning session (Flow 2, Step 4) resolves it.
 
-On a BLOCKED report, the human routes it to the **Reviewer**, whose in-branch mini-planning session (Flow 2, Step 5) is the resolution path. When the block is a gap in a governing artifact, the report describes the gap in enough detail to plan against, and may carry the Coder's proposed amendment — drafted language to close the gap, written from the clearest view of its specific shape. The Reviewer extracts that problem-shape context as ground truth, then shapes the ratified amendment with the human against the big picture the Coder does not hold. The resolution lands in the planning artifacts on the feature branch — a clarified or re-scoped spec, an adjusted governing file, or a rework addendum to `PLAN.md`. A fresh Coder session then executes it as a normal rework pass.
+When the block is a gap in a governing artifact, the report carries the problem's shape and may carry a proposed amendment, drafted by the Coder from the clearest view of its specific shape. The Reviewer extracts that ground truth, then shapes the ratified amendment with the human against the big picture the Coder does not hold. The resolution lands in the planning artifacts on the branch: a clarified or re-scoped spec, an adjusted governing file, or a rework addendum to `PLAN.md`. A fresh Coder session then executes it as a normal rework pass.
 
-No `INSPECTION.md` is produced for halted work; partial work stands as committed and is inspectable. A halt is the cheapest possible time to find a flaw — welcome it.
+No `INSPECTION.md` is produced for halted work; partial work stands as committed and is inspectable. A halt is the cheapest time to find a flaw — welcome it.
+
+## Grafting and Versioning
+
+Grafting template updates into a project, and the template's semantic versioning: [`GRAFT.md`](GRAFT.md).

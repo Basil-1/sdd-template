@@ -15,11 +15,11 @@ Conducts iterative, unstructured planning conversations with the human to evolve
 ## Workflow
 
 1. Read the relevant `project/` files, `project/specs/`, and `project/adr/README.md`.
-2. Conduct a targeted, iterative interview with the human to surface implicit assumptions, challenge ambiguities, and lock down constraints until both sides share an exact mental model. Once aligned, translate the unstructured descriptions into concrete updates across `CONSTITUTION.md`, `CONVENTIONS.md`, `ROADMAP.md`, and `ARCHITECTURE.md` (with ADRs).
-3. When deciding how to split or group domain specifications, follow the domain boundary tests in `project/specs/README.md`.
-4. Apply strategic updates (`CONSTITUTION.md`, `CONVENTIONS.md`, `ROADMAP.md`, and `ARCHITECTURE.md` + ADRs via the `manage-adr` skill, and role customizations in `## Project Customizations` sections via the `manage-ai-capabilities` skill) directly without creating a feature branch, and commit them, following the `commit` skill.
-5. Update `ROADMAP.md` to be a reflection of the speculative ambitions, refined long-term decisions, and the current campaign. Merge prunes delivered topics; as a backstop, remove abandoned or overlooked topics on sight, without archival.
-6. When ready to chamber an increment for the coder: create a feature branch, modify `project/specs/` to reflect the desired behavior, write `PLAN.md` to achieve those changes, and commit, following the `commit` skill.
+2. Interview the human iteratively to surface implicit assumptions, challenge ambiguities, and lock down constraints until both sides share an exact mental model. Translate the result into concrete updates across `CONSTITUTION.md`, `CONVENTIONS.md`, `ROADMAP.md`, and `ARCHITECTURE.md` (with ADRs).
+3. Follow the domain boundary tests in `project/specs/README.md` when splitting or grouping domain specifications.
+4. Apply strategic updates directly on the base branch, without a feature branch, and commit them following the `commit` skill. That covers `CONSTITUTION.md`, `CONVENTIONS.md`, `ROADMAP.md`, `ARCHITECTURE.md` + ADRs via `manage-adr`, and role customizations in `## Project Customizations` sections via `manage-ai-capabilities`.
+5. Keep `ROADMAP.md` reflecting the speculative ambitions, refined long-term decisions, and current campaign. Merge prunes delivered topics; remove abandoned or overlooked topics on sight, without archival.
+6. To chamber an increment: create a feature branch, modify `project/specs/` to express the desired behavior, write `PLAN.md` to achieve it, and commit, following the `commit` skill.
 
 <!-- GRAFT BOUNDARY: template-owned above, project-owned below. Do not edit or remove this line. -->
 

@@ -9,7 +9,8 @@ Reverse-chronological record of released template versions. Written for the graf
 - One entry per released template version, newest first.
 - Entries describe delivered template changes and name the governing files they touch.
 - The version bump and its entry ship in the same change set as the change; there is no separate release step.
-- Version tiers follow the mapping in `SDD-WORKFLOW.md` under **Template Versioning**.
+- Version tiers follow the mapping in `GRAFT.md` under **Template Versioning**.
+- One bullet per change, naming the files touched; no rationale beyond a clause.
 - The 1.0.0 baseline entry carries no date: it was never a marked release.
 
 ## Format
@@ -21,6 +22,14 @@ Reverse-chronological record of released template versions. Written for the graf
 ```
 
 ## History
+
+## 6.0.0 (2026-11-16) — Leaner governing text; graft protocol split out
+
+- Moved **Template Versioning** and **Grafting Template Updates** out of `SDD-WORKFLOW.md` into a new wholesale file, `GRAFT.md`, so the workflow a session must read before work stays short. The workflow points to it in one line, and `README.md` routes there.
+- Defined **Strategy artifacts** once in `SDD-WORKFLOW.md` and routed to it from the agent files, replacing four separate enumerations.
+- Gave each governing rule one home: the no-palimpsest rule to `CONSTITUTION.md`, the squash-merge rule to `.ai/agents/reviewer.md`, `INSPECTION.md` contents to `.ai/agents/coder.md`, and amendment etiquette to the workflow's **Coder Blocked Halt**.
+- Compressed Roles to one line each, the ownership preamble to three sentences, and every agent, skill, and strategy file to lower-entropy prose. Shortened all four mirrored copies of each skill description.
+- Leaving `SDD-WORKFLOW.md` wholesale but adding a wholesale file changes the inventory, and flow step numbers moved, so MAJOR.
 
 ## 5.1.0 (2026-11-16) — Convention splits stop leaking into references
 
