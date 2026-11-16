@@ -22,6 +22,11 @@ Reverse-chronological record of released template versions. Written for the graf
 
 ## History
 
+## 5.1.0 (2026-11-16) — Convention splits stop leaking into references
+
+- Fixed an ownership ambiguity in the `CONVENTIONS.md` domain-split rule: a `CONVENTIONS-<DOMAIN>.md` file was "treated exactly like this one", which left open whether a project copies the hub's template-owned Rules above a boundary line. Such a file now binds exactly as the hub does but is wholly project content — no boundary line, and a graft never touches it — and the hub's route line sits under `## Project Conventions`, below the boundary, where a graft cannot erase it. `SDD-WORKFLOW.md` names domain convention files in the graft inventory's **Project content** bullet, where the closed file lists had left them uncovered.
+- Added the reference rule to the `CONVENTIONS.md` scaffold: a convention is cited as `CONVENTIONS.md` (topic optional), never a `CONVENTIONS-<DOMAIN>.md` file — only the hub's routes name domain files — so a split leaves every reference intact. Purely additive, touching no existing rule or inventory, so MINOR.
+
 ## 5.0.1 (2026-11-15) — Graft-facing release note loses its planning-commit claim
 
 - Dropped the trailing sentences of **Template Versioning** in `SDD-WORKFLOW.md`: the version-bump discipline and a claim that template-owned changes land as planning commits. The first is already stated verbatim in `TEMPLATE-CHANGELOG.md` **Rules**, and the second described the project flows — a graft runs as a basic agent outside all three identities, so the claim misdirected the reader it was addressed to. The hard gate in Flow 1 Step 4 still states that every commit touching this file is a planning commit. No rule changed behavior, so PATCH.

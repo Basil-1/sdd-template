@@ -1,5 +1,5 @@
 ---
-template_version: 5.0.1
+template_version: 5.1.0
 ---
 
 # SDD Workflow
@@ -103,7 +103,7 @@ The scaffold separates template-owned text from project-owned content:
 
 - **Wholesale files** — `AGENTS.md`, `CLAUDE.md`, `SDD-WORKFLOW.md`, everything in `.claude/`, `.github/`, `.opencode/`, plus `project/specs/README.md`. Template-owned; a graft replaces them whole.
 - **Split files** — `CONSTITUTION.md`, `CONVENTIONS.md`, `ARCHITECTURE.md`, `ROADMAP.md`, `CHANGELOG.md`, `project/adr/README.md`, and every `.ai/` agent and skill file. Each carries the boundary line; everything up to and including it is template-owned and a graft replaces it verbatim.
-- **Project content** — everything below a split file's boundary line, plus domain specs and ADR files. Project-owned; a graft never touches them.
+- **Project content** — everything below a split file's boundary line, plus domain convention files (`CONVENTIONS-<DOMAIN>.md`), domain specs, and ADR files. Project-owned; a graft never touches them.
 
 To adopt template improvements, the human starts a **basic AI agent** — a plain AI session that does **not** operate under any of the three agent identities (Planner, Coder, or Reviewer) — to run the graft on the base branch. The graft can replace the very files that define those identities (everything in `.ai/`, `.claude/`, `.github/`, and `.opencode/`), so an agent running under one of them would be rewriting its own instructions mid-session and cannot do this safely. The basic agent:
 
