@@ -9,6 +9,7 @@ Reverse-chronological record of released template versions. Written for the graf
 - One entry per released template version, newest first.
 - Entries describe delivered template changes and name the governing files they touch.
 - The version bump and its entry ship in the same change set as the change; there is no separate release step.
+- The release commit carries a lightweight tag naming its version (`git tag X.Y.Z <commit>`), and tags travel with pushes to the remote.
 - Version tiers follow the mapping in `GRAFT.md` under **Template Versioning**.
 - One bullet per change, naming the files touched; no rationale beyond a clause.
 - The 1.0.0 baseline entry carries no date: it was never a marked release.
@@ -22,6 +23,11 @@ Reverse-chronological record of released template versions. Written for the graf
 ```
 
 ## History
+
+## 7.0.0 (2026-11-16) — Graft finds local modifications by anchored content, not history
+
+- Rewrote graft step 3 in `GRAFT.md`: the working tree's template-owned regions are diffed against the reference's tag for the project's own `template_version`, replacing the enumeration of every commit since the first. The work is bounded by file count, the verdict stays correct across past grafts — whose replacement commits the old rule misread as local modifications — and the diff feeds step 5's arbitration directly. The fallback for pre-versioning projects is dropped: step 1 already stops a project carrying no version. The graft protocol changed, so MAJOR.
+- `GRAFT.md` **Template Versioning** now promises each release commit carries a lightweight tag naming its version and that the grafting agent reads the project's own version tag from the reference clone; this file's **Rules** carries the obligation against the template repository itself. Releases 2.0.0–6.0.0 are tagged retroactively; 1.0.0 was never a marked release and stays untagged.
 
 ## 6.0.0 (2026-11-16) — Leaner governing text; graft protocol split out
 
