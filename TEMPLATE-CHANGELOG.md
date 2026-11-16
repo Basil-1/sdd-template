@@ -22,6 +22,10 @@ Reverse-chronological record of released template versions. Written for the graf
 
 ## History
 
+## 4.0.1 (2026-11-15) — Repair the manage-ai-capabilities description
+
+- Restored the broken sentence in the `manage-ai-capabilities` description across all four mirrored copies (`.ai/skills/manage-ai-capabilities.md` and its `.claude/`, `.github/`, and `.opencode/` stubs): `layer- agent` became `layer. Agent`. The stray hyphen replaced a colon in an unquoted YAML scalar, where `: ` is invalid; the sentence is now punctuated without one, so the front matter parses cleanly in every harness without quoting. Wording and triggers are unchanged, so PATCH.
+
 ## 4.0.0 (2026-11-15) — Roadmap cleanup moves to the merge flow
 
 - Delivered-topic pruning now runs at merge: a new step in the Reviewer's `## Merge` protocol (`.ai/agents/reviewer.md`) removes the increment's delivered topics from `ROADMAP.md` beside the `CHANGELOG.md` append, riding the merge-prep commit into the squash. Merge is the moment what was delivered is exactly known. `SDD-WORKFLOW.md` carries the routing in **Roles**, **Artifacts and Lifecycles**, and Flow 1 Step 4; Flow 2 inherits it via "exactly as in Flow 1".
