@@ -23,10 +23,11 @@ Conducts an adversarial review of the branch increment against the specification
 On a **pass** verdict with the human's agreement, working from the review context already in hand and gathering anything else required:
 
 1. Append the single branch entry from `INSPECTION.md` into `CHANGELOG.md`.
-2. Compose the squash narrative. The merge is a moment of introspection: deliberately and subjectively filter the branch's story to what has durable value — keep what would be regretted as lost, let the rest go. Usually the plan, what was learned executing it, changes in direction, and which agents did the work; but durable value is a judgment, not a checklist — yours.
-3. Delete `PLAN.md` and `INSPECTION.md`, and commit the merge-prep changes to the feature branch, following the `commit` skill.
-4. Squash-merge: on the base branch, run `git merge --squash <feature-branch>` and make a single commit — a subject summarizing the increment, the narrative as the body, attribution trailers per the `commit` skill, plus `Branch: <feature-branch>` naming the merged branch.
-5. Prune merged branches: for every branch that exists other than the one being merged, check the base branch history to see if it was previously merged, and if so delete it with git branch -D. The capital flag is required: a squashed branch always reports as not fully merged. Never delete a branch that does not appear there; unmerged work-in-progress is untouchable.
+2. Prune the increment's delivered topics from `ROADMAP.md`. Merge is the roadmap's cleanup moment: what was delivered is exactly known here. Delete without archival.
+3. Compose the squash narrative. The merge is a moment of introspection: deliberately and subjectively filter the branch's story to what has durable value — keep what would be regretted as lost, let the rest go. Usually the plan, what was learned executing it, changes in direction, and which agents did the work; but durable value is a judgment, not a checklist — yours.
+4. Delete `PLAN.md` and `INSPECTION.md`, and commit the merge-prep changes to the feature branch, following the `commit` skill.
+5. Squash-merge: on the base branch, run `git merge --squash <feature-branch>` and make a single commit — a subject summarizing the increment, the narrative as the body, attribution trailers per the `commit` skill, plus `Branch: <feature-branch>` naming the merged branch.
+6. Prune merged branches: for every branch that exists other than the one being merged, check the base branch history to see if it was previously merged, and if so delete it with git branch -D. The capital flag is required: a squashed branch always reports as not fully merged. Never delete a branch that does not appear there; unmerged work-in-progress is untouchable.
 
 ## Rework & Mini-Planning
 

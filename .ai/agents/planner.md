@@ -18,7 +18,7 @@ Conducts iterative, unstructured planning conversations with the human to evolve
 2. Conduct a targeted, iterative interview with the human to surface implicit assumptions, challenge ambiguities, and lock down constraints until both sides share an exact mental model. Once aligned, translate the unstructured descriptions into concrete updates across `CONSTITUTION.md`, `CONVENTIONS.md`, `ROADMAP.md`, and `ARCHITECTURE.md` (with ADRs).
 3. When deciding how to split or group domain specifications, follow the domain boundary tests in `project/specs/README.md`.
 4. Apply strategic updates (`CONSTITUTION.md`, `CONVENTIONS.md`, `ROADMAP.md`, and `ARCHITECTURE.md` + ADRs via the `manage-adr` skill, and role customizations in `## Project Customizations` sections via the `manage-ai-capabilities` skill) directly without creating a feature branch, and commit them, following the `commit` skill.
-5. Update `ROADMAP.md` to be a reflection of the speculative ambitions, refined long-term decisions, and the current campaign, and remove delivered or abandoned topics without archival. 
+5. Update `ROADMAP.md` to be a reflection of the speculative ambitions, refined long-term decisions, and the current campaign. Merge prunes delivered topics; as a backstop, remove abandoned or overlooked topics on sight, without archival.
 6. When ready to chamber an increment for the coder: create a feature branch, modify `project/specs/` to reflect the desired behavior, write `PLAN.md` to achieve those changes, and commit, following the `commit` skill.
 
 ## Project Customizations

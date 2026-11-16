@@ -1,5 +1,5 @@
 ---
-template_version: 3.0.0
+template_version: 4.0.0
 ---
 
 # SDD Workflow
@@ -13,13 +13,13 @@ A guide to how work moves through a project built from this template: the roles,
 - **Human** — drives every phase transition, collaborates on planning, runs manual verification protocols, and directs the merge of completed branches.
 - **Planner** (`.ai/agents/planner.md`) — conducts unstructured, iterative planning conversations with the human; updates strategy files (`CONSTITUTION.md`, `CONVENTIONS.md`, `ROADMAP.md`, `ARCHITECTURE.md` + ADRs) directly without a branch; and chambers narrow increments on a new feature branch by updating `project/specs/` and writing `PLAN.md`.
 - **Coder** (`.ai/agents/coder.md`) — executes on the feature branch against `PLAN.md` and `project/specs/` in autonomous edit/verify loops while treating strategy artifacts (`PLAN.md`, everything under `project/`, and the AI capability layer) as strictly read-only, then writes a fresh `INSPECTION.md` at the repository root.
-- **Reviewer** (`.ai/agents/reviewer.md`) — performs an adversarial review of the coder's branch work against `PLAN.md`, `project/specs/`, `INSPECTION.md`, and the governing files; if rework is needed, leads an in-branch mini-planning session with the human to update `project/` and append a rework addendum to `PLAN.md`; and, on a pass, performs the squash merge into the base branch as a single narrative commit, then prunes superseded merged branches, keeping only the most recent.
+- **Reviewer** (`.ai/agents/reviewer.md`) — performs an adversarial review of the coder's branch work against `PLAN.md`, `project/specs/`, `INSPECTION.md`, and the governing files; if rework is needed, leads an in-branch mini-planning session with the human to update `project/` and append a rework addendum to `PLAN.md`; and, on a pass, prunes the increment's delivered topics from `ROADMAP.md`, performs the squash merge into the base branch as a single narrative commit, then prunes superseded merged branches, keeping only the most recent.
 
 ## Artifacts and Lifecycles
 
 Ownership precedes lifecycle. Every artifact belongs either to the **template** — governing text that a graft renews — or to the **project** — content that a graft never touches. Files with two owners are divided by section: from its boundary section down, the file is the project's; above, the template's. Both halves bind the agents equally, and each owner's intent belongs on its own side of the divider. The lifecycles below are of the project's half.
 
-- **Unbranched strategic files** (`CONSTITUTION.md`, `CONVENTIONS.md`, `ROADMAP.md`, `ARCHITECTURE.md`, `project/adr/`): Evolved continuously with understanding. `ARCHITECTURE.md` is backed by ADRs (maintained via `manage-adr`). `ROADMAP.md` is updated to reflect the ambitions as items are delivered or abandoned.
+- **Unbranched strategic files** (`CONSTITUTION.md`, `CONVENTIONS.md`, `ROADMAP.md`, `ARCHITECTURE.md`, `project/adr/`): Evolved continuously with understanding. `ARCHITECTURE.md` is backed by ADRs (maintained via `manage-adr`). `ROADMAP.md` reflects the ambitions as items are delivered or abandoned: the Reviewer prunes delivered topics at merge; the Planner prunes abandoned or overlooked topics on sight as a backstop.
 - **Living domain specifications** (`project/specs/<domain>.md`): One file per core domain. Each spec describes how its domain behaves right now with no palimpsest. Modified directly on a feature branch during planning (and during rework re-planning) alongside `PLAN.md`.
 - **Branch-ephemeral files** (`PLAN.md` and root `INSPECTION.md`): Created on a feature branch to drive and verify a single narrow increment, and deleted when the branch merges.
 - **Merge archive** (`CHANGELOG.md` and Git history): Each branch merge lands on the base branch as a single squash commit whose message carries the increment's narrative of durable value, plus one `CHANGELOG.md` entry summarizing delivered behavior. The most recently merged feature branch is retained for troubleshooting; older merged branches are deleted. The narrative and the retained branch are the archive — never a palimpsest.
@@ -50,7 +50,7 @@ The human starts a fresh **Reviewer** session on the feature branch while runnin
 1. Checks the branch commit history to confirm the hard gate: the Coder never modified strategy artifacts — `PLAN.md`, everything under `project/`, and the AI capability layer (`.ai/`, `.claude/`, `.github/`, `.opencode/`, `AGENTS.md`, `CLAUDE.md`, `SDD-WORKFLOW.md`). Every commit touching them is a planning commit.
 2. Diffs the branch against the base branch and audits the implementation and `INSPECTION.md` against `PLAN.md`, `project/specs/`, `ARCHITECTURE.md`, `CONVENTIONS.md`, and `CONSTITUTION.md`.
 3. Reports a **Pass** verdict to the human.
-4. If the human agrees, appends the single branch entry from `INSPECTION.md` into `CHANGELOG.md`.
+4. If the human agrees, appends the single branch entry from `INSPECTION.md` into `CHANGELOG.md` and prunes the increment's delivered topics from `ROADMAP.md`.
 5. On the human's direction, performs the squash merge per its merge protocol in `.ai/agents/reviewer.md`: composes the narrative of durable value from the review context, deletes `PLAN.md` and `INSPECTION.md`, squash-merges the feature branch into the base branch as a single commit, and prunes previously merged branches, retaining only the most recently merged.
 
 ---

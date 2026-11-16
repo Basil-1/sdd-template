@@ -22,6 +22,12 @@ Reverse-chronological record of released template versions. Written for the graf
 
 ## History
 
+## 4.0.0 (2026-11-15) — Roadmap cleanup moves to the merge flow
+
+- Delivered-topic pruning now runs at merge: a new step in the Reviewer's `## Merge` protocol (`.ai/agents/reviewer.md`) removes the increment's delivered topics from `ROADMAP.md` beside the `CHANGELOG.md` append, riding the merge-prep commit into the squash. Merge is the moment what was delivered is exactly known. `SDD-WORKFLOW.md` carries the routing in **Roles**, **Artifacts and Lifecycles**, and Flow 1 Step 4; Flow 2 inherits it via "exactly as in Flow 1".
+- The Planner's on-sight pruning (`.ai/agents/planner.md` step 5) stays as a de-emphasized backstop for abandoned or overlooked topics only. The `ROADMAP.md` **Rules** wording matches: delivered topics are pruned at merge, everything else on sight.
+- The cleanup moment inside the increment lifecycle changed owners, so MAJOR.
+
 ## 3.0.0 (2026-11-15) — Project customizations for agents and skills
 
 - Appended a project-owned `## Project Customizations` section to every `.ai/` agent and skill file, letting a project give its roles local specifications the way it gives `CONVENTIONS.md` local conventions. The Planner maintains these sections on the base branch and the Reviewer during in-branch rework — via `manage-ai-capabilities`, landing as planning commits; the Coder keeps the whole capability layer strictly read-only, so no hard-gate or permission changes were needed.

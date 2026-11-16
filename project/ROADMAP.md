@@ -14,7 +14,7 @@ Headings, ordering, and granularity are each project's own choice, as long as th
 
 ## Rules
 
-- Prune, don't archive. Delete delivered or abandoned topics on sight.
+- Prune, don't archive. Delivered topics are pruned at the increment's merge; delete abandoned or overlooked topics on sight.
 - No palimpsest accretion: after each edit a file reads as if written fresh, never referring to an earlier state. Git history is the archive.
 - A **campaign** is a multi-increment vision of the current plan. It may span several domains and may or may not carry a user-facing narrative. It decomposes into **increments** — each one a single feature branch and inspection cycle, chambered narrow enough to execute cleanly.
 - Define one increment at a time. The inspection of a completed increment will often inform the next one.
