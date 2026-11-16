@@ -22,6 +22,10 @@ Reverse-chronological record of released template versions. Written for the graf
 
 ## History
 
+## 5.0.1 (2026-11-15) — Graft-facing release note loses its planning-commit claim
+
+- Dropped the trailing sentences of **Template Versioning** in `SDD-WORKFLOW.md`: the version-bump discipline and a claim that template-owned changes land as planning commits. The first is already stated verbatim in `TEMPLATE-CHANGELOG.md` **Rules**, and the second described the project flows — a graft runs as a basic agent outside all three identities, so the claim misdirected the reader it was addressed to. The hard gate in Flow 1 Step 4 still states that every commit touching this file is a planning commit. No rule changed behavior, so PATCH.
+
 ## 5.0.0 (2026-11-15) — One demarcation line for every split file
 
 - Defined ownership's seam as a single line — `<!-- GRAFT BOUNDARY: template-owned above, project-owned below. Do not edit or remove this line. -->` — in `SDD-WORKFLOW.md`: everything up to and including it is the template's, everything below it the project's, and no heading name marks the division. **Scaffold sections** became **Split files**, a list of filenames plus every `.ai/` agent and skill file, dropping the exhaustive section names; template-side sections can now be added, reordered, or renamed without touching the inventory. `CONSTITUTION.md`, `CONVENTIONS.md`, `ARCHITECTURE.md`, `ROADMAP.md`, `CHANGELOG.md`, `project/adr/README.md`, and every `.ai/` agent and skill file all carry the line.

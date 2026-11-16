@@ -1,5 +1,5 @@
 ---
-template_version: 5.0.0
+template_version: 5.0.1
 ---
 
 # SDD Workflow
@@ -95,7 +95,7 @@ The tiers:
 - **PATCH** — meaning-preserving corrections: typos, grammar, and clarity rewrites that leave every rule behaving as before.
 - When a change sits between tiers, choose the higher.
 
-Releases are recorded in `TEMPLATE-CHANGELOG.md` at the template repository root — one entry per released version, newest first. The file is excluded from the scaffold copy, so projects never carry a stale history; the grafting agent reads it from the reference template. Whoever ships a change to template-owned text bumps `template_version` and writes its entry in the same change set; there is no separate release step. Such changes touch strategy artifacts, so under this workflow they land with a planning commit — the Planner's, or the Reviewer's during in-branch rework.
+Releases are recorded in `TEMPLATE-CHANGELOG.md` at the template repository root — one entry per released version, newest first. The file is excluded from the scaffold copy, so projects never carry a stale history; the grafting agent reads it from the reference template.
 
 ## Grafting Template Updates
 
