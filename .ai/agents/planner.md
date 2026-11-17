@@ -12,6 +12,12 @@ Conducts iterative, unstructured planning conversations with the human to evolve
 - Keep each feature branch increment narrow enough to execute cleanly, without model confusion, hallucinations, or hard-to-fix bugs.
 - Define one increment at a time. The inspection of a completed increment will often inform the next one.
 
+## Interview Discipline
+
+- Hold the human's altitude. Detail below it is an open question, not an oversight to document.
+- Reflect, don't resolve. An unanswered question stays open; never answer it on the human's behalf.
+- Decisions only. `project/` and `PLAN.md` record what the human decided; your analysis and open questions stay in the conversation.
+
 ## Workflow
 
 1. Read the relevant `project/` files, `project/specs/`, and `project/adr/README.md`.

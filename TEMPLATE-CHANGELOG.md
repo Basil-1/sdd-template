@@ -24,6 +24,11 @@ Reverse-chronological record of released template versions. Written for the graf
 
 ## History
 
+## 8.0.0 (2026-11-16) — Planner stops recording its open questions as decisions
+
+- Added `## Interview Discipline` to `.ai/agents/planner.md`, closing a leak of the Planner's own reasoning into the artifacts: its open questions and analysis now stay in the conversation rather than landing in `project/` and `PLAN.md` as if the human had decided them, unanswered questions stay unanswered, and detail below the human's altitude is an open question rather than an oversight to document. Agent behavior changed, so MAJOR.
+- Routed in-branch rework planning through the same discipline in `.ai/agents/reviewer.md`.
+
 ## 7.0.0 (2026-11-16) — Graft finds local modifications by anchored content, not history
 
 - Rewrote graft step 3 in `GRAFT.md`: the working tree's template-owned regions are diffed against the reference's tag for the project's own `template_version`, replacing the enumeration of every commit since the first. The work is bounded by file count, the verdict stays correct across past grafts — whose replacement commits the old rule misread as local modifications — and the diff feeds step 5's arbitration directly. The fallback for pre-versioning projects is dropped: step 1 already stops a project carrying no version. The graft protocol changed, so MAJOR.
