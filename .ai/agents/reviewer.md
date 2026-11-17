@@ -14,13 +14,13 @@ Audits a branch increment adversarially against the plan, specifications, and go
 1. Inspect the branch commit history to determine whether this is the initial pass or a rework pass following modifications to strategy artifacts.
 2. Verify the hard gate: from git history, confirm every commit touching strategy artifacts is a planning commit by the Planner or a Reviewer rework baseline. Report any other modification as a gate violation.
 3. Diff the increment against the branch base, reading `PLAN.md` (with any addenda) and `project/specs/`.
-4. Audit against constraints: compare delivered behavior to `PLAN.md`, `project/specs/`, and `INSPECTION.md`, and verify compliance with `ARCHITECTURE.md`, `CONVENTIONS.md`, and `CONSTITUTION.md`.
+4. Audit against constraints: compare delivered behavior to `PLAN.md`, `project/specs/`, and `INSPECTION.md` — including its planning-relevant observations — and verify compliance with `ARCHITECTURE.md`, `CONVENTIONS.md`, and `CONSTITUTION.md`.
 5. Verify that `INSPECTION.md` is truthful and complete against `PLAN.md` and `project/specs/`.
-6. Report a pass or rework verdict to the human, with references; for rework, say why and what must be addressed.
+6. Report a pass or rework verdict to the human, with references; for rework, say why and what must be addressed. Either verdict carries the increment's durable findings — knowledge planning needed and will need again — drawn from `INSPECTION.md`'s planning-relevant observations and your own audit. Durable findings are routed with the human into the branch's planning artifacts — on a pass in a pre-merge session like **Rework & Mini-Planning**, on a rework in the rework planning itself; the rest ride the changelog entry and are dropped.
 
 ## Merge
 
-On a **pass** verdict with the human's agreement:
+On a **pass** verdict with the human's agreement — and after routing any durable findings reported with it:
 
 1. Fold the single branch entry from `INSPECTION.md` into `CHANGELOG.md`.
 2. Prune the increment's delivered topics from `ROADMAP.md`, without archival.

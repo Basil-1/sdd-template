@@ -1,5 +1,5 @@
 ---
-template_version: 9.0.0
+template_version: 10.0.0
 ---
 
 # SDD Workflow
@@ -11,7 +11,7 @@ How work moves through a project built from this template: the roles, the artifa
 - **Human** — drives every phase transition; plans, verifies manually, directs merges.
 - **Planner** (`.ai/agents/planner.md`) — evolves strategy on the base branch, then chambers each increment on a new branch by updating `project/specs/` and writing `PLAN.md`.
 - **Coder** (`.ai/agents/coder.md`) — implements against `PLAN.md` and the specs on the branch, treating strategy artifacts as read-only, then writes `INSPECTION.md`.
-- **Reviewer** (`.ai/agents/reviewer.md`) — audits the branch adversarially, runs in-branch rework planning when needed, and on a pass prunes the roadmap, folds the changelog entry, squash-merges, and prunes old merged branches.
+- **Reviewer** (`.ai/agents/reviewer.md`) — audits the branch adversarially, runs in-branch rework planning when needed, and on a pass holds the merge for a routing session on any durable findings before pruning the roadmap, folding the changelog entry, squash-merging, and pruning old merged branches.
 
 ## Artifacts and Lifecycles
 
@@ -53,8 +53,9 @@ The human starts a fresh **Reviewer** session on the feature branch while runnin
 
 1. Verifies the hard gate: every branch commit touching strategy artifacts is a planning commit by the Planner or the Reviewer.
 2. Diffs the branch against its base and audits the implementation and `INSPECTION.md` against `PLAN.md`, `project/specs/`, and the governing files.
-3. Reports a **Pass** verdict, or a rework verdict with findings.
-4. On a pass the human agrees with: the Reviewer folds the `INSPECTION.md` entry into `CHANGELOG.md`, prunes the increment's delivered topics from `ROADMAP.md`, and squash-merges into the base branch per its merge protocol, deleting `PLAN.md` and `INSPECTION.md` and retaining only the most recently merged branch.
+3. Reports a **Pass** verdict, or a rework verdict with findings; either carries a triage of the increment's findings for durable value — knowledge planning needed and will need again.
+4. Durable findings route with the Reviewer into the branch's planning artifacts — on a pass in a pre-merge session like Flow 2's mini-planning, on a rework in the rework planning itself.
+5. On an agreed pass: the Reviewer folds the `INSPECTION.md` entry into `CHANGELOG.md`, prunes the increment's delivered topics from `ROADMAP.md`, and squash-merges into the base branch per its merge protocol, deleting `PLAN.md` and `INSPECTION.md` and retaining only the most recently merged branch.
 
 ## Flow 2: Increment with Rework (Including Substantive `project/` Changes)
 
@@ -79,7 +80,7 @@ Working autonomously, the Coder may report **BLOCKED** rather than guess, per it
 
 When the block is a gap in a governing artifact, the report carries the problem's shape and may carry a proposed amendment, drafted by the Coder from the clearest view of its specific shape. The Reviewer extracts that ground truth, then shapes the ratified amendment with the human against the big picture the Coder does not hold. The resolution lands in the planning artifacts on the branch: a clarified or re-scoped spec, an adjusted governing file, or a rework addendum to `PLAN.md`. A fresh Coder session then executes it as a normal rework pass.
 
-No `INSPECTION.md` is produced for halted work; partial work stands as committed and is inspectable. A halt is the cheapest time to find a flaw — welcome it.
+No `INSPECTION.md` is produced for halted work; partial work stands as committed and is inspectable. A gap the remaining work does not depend on is not a halt: the Coder records it in `INSPECTION.md` as a planning-relevant observation for the Reviewer's triage.
 
 ## Grafting and Versioning
 

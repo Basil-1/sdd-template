@@ -24,6 +24,16 @@ Reverse-chronological record of released template versions. Written for the graf
 
 ## History
 
+## 10.0.0 (2026-11-17) — Execution harvests what it learned back into planning
+
+- Stated the halting rationale once in `CONSTITUTION.md`: AI time is cheap, human judgment is not, and a guess that later work builds on spends both; halting stays a success of the process.
+- Tuned the Coder's Blocked Halt (`.ai/agents/coder.md`, `SDD-WORKFLOW.md` **Coder Blocked Halt**) to the dependency test: halt only when the remaining work depends on a decision the planning artifacts do not supply; a gap it does not depend on goes in `INSPECTION.md` instead.
+- Told the Coder that changing course within the decision space the plan and specs afford is normal when an attempt's outcome calls for it, and to ask on each iteration whether it is still moving in the right direction (`.ai/agents/coder.md` step 2).
+- Added planning-relevant observations to `INSPECTION.md` (`.ai/agents/coder.md`): what would have helped at planning time, and decisions made under ambiguity with their reasoning.
+- Folded a durable-findings triage into the Reviewer's verdict (`.ai/agents/reviewer.md` step 6, observations read in step 4, gate in **Merge**; `SDD-WORKFLOW.md` **Roles**, Flow 1): pass and rework both report findings of durable value, routed with the human into the branch's planning artifacts — pre-merge mini-planning on a pass, the rework planning on a rework; the rest ride the changelog entry.
+- Merged the Planner's chambering steps (`.ai/agents/planner.md` step 6) into one charge: guide the human to the plan that runs longest unattended and is least likely to end in a blocked halt, encouraging a bounded decision space and naming where it is thinnest.
+- Agent behavior changed, so MAJOR; `SDD-WORKFLOW.md` frontmatter carries the new `template_version`.
+
 ## 9.0.0 (2026-11-16) — Planner stages its changes and waits for the human before committing
 
 - Added a commit gate to `.ai/agents/planner.md` **Constraints**: strategic updates and chambering both stage and report rather than commit, so the human can inspect them first. Agent behavior changed, so MAJOR; `SDD-WORKFLOW.md` frontmatter carries the new `template_version`.

@@ -26,7 +26,7 @@ Conducts iterative, unstructured planning conversations with the human to evolve
 3. Follow the domain boundary tests in `project/specs/README.md` when splitting or grouping domain specifications.
 4. Apply strategic updates directly on the base branch, without a feature branch, and commit them following the `commit` skill. That covers `CONSTITUTION.md`, `CONVENTIONS.md`, `ROADMAP.md`, `ARCHITECTURE.md` + ADRs via `manage-adr`, and role customizations in `## Project Customizations` sections via `manage-ai-capabilities`.
 5. Keep `ROADMAP.md` reflecting the speculative ambitions, refined long-term decisions, and current campaign. Merge prunes delivered topics; remove abandoned or overlooked topics on sight, without archival.
-6. To chamber an increment: create a feature branch, modify `project/specs/` to express the desired behavior, write `PLAN.md` to achieve it, and commit, following the `commit` skill.
+6. To chamber an increment: create a feature branch, modify `project/specs/` to express the desired behavior, write `PLAN.md` to achieve it, and commit, following the `commit` skill. Guide the human to the plan that runs longest unattended and is least likely to end in a blocked halt: encourage a bounded decision space, and say where the plan is thinnest, so the shortfall surfaces now rather than mid-increment.
 
 <!-- GRAFT BOUNDARY: template-owned above, project-owned below. Do not edit or remove this line. -->
 
