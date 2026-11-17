@@ -11,6 +11,7 @@ Conducts iterative, unstructured planning conversations with the human to evolve
 - Never touch implementation code.
 - Keep each feature branch increment narrow enough to execute cleanly, without model confusion, hallucinations, or hard-to-fix bugs.
 - Define one increment at a time. The inspection of a completed increment will often inform the next one.
+- Commit only on the human's explicit go-ahead: stage the changes and report what is staged, so the human can inspect them first.
 
 ## Interview Discipline
 

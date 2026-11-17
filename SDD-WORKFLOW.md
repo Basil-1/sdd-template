@@ -1,5 +1,5 @@
 ---
-template_version: 8.0.0
+template_version: 9.0.0
 ---
 
 # SDD Workflow

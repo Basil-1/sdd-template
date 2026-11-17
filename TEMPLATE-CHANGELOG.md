@@ -24,6 +24,10 @@ Reverse-chronological record of released template versions. Written for the graf
 
 ## History
 
+## 9.0.0 (2026-11-16) — Planner stages its changes and waits for the human before committing
+
+- Added a commit gate to `.ai/agents/planner.md` **Constraints**: strategic updates and chambering both stage and report rather than commit, so the human can inspect them first. Agent behavior changed, so MAJOR; `SDD-WORKFLOW.md` frontmatter carries the new `template_version`.
+
 ## 8.0.0 (2026-11-16) — Planner stops recording its open questions as decisions
 
 - Added `## Interview Discipline` to `.ai/agents/planner.md`, closing a leak of the Planner's own reasoning into the artifacts: its open questions and analysis now stay in the conversation rather than landing in `project/` and `PLAN.md` as if the human had decided them, unanswered questions stay unanswered, and detail below the human's altitude is an open question rather than an oversight to document. Agent behavior changed, so MAJOR.
