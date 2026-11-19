@@ -24,6 +24,13 @@ Reverse-chronological record of released template versions. Written for the graf
 
 ## History
 
+## 11.0.0 (2026-11-19) — Workflow gains a project-owned tail
+
+- Moved `SDD-WORKFLOW.md` from wholesale to split ownership in `GRAFT.md` **Grafting Template Updates**, and gave it the `GRAFT BOUNDARY` line plus a closing `## Project Workflow Rules` section, so a project can bind the roles to local process without forking template text. The version frontmatter sits above the line, so a graft still refreshes it.
+- Restated the versioning rationale in `GRAFT.md` **Template Versioning**: the version lives above the boundary line rather than in a wholesale file.
+- Extended `manage-ai-capabilities` to the new seam: the boundary-line rule names both tails, the contradiction rule covers the workflow tail, and routing sends workflow-level rules there while their mechanics stay in project-owned files.
+- An ownership boundary changed, so MAJOR; `SDD-WORKFLOW.md` frontmatter carries the new `template_version`.
+
 ## 10.0.0 (2026-11-17) — Execution harvests what it learned back into planning
 
 - Stated the halting rationale once in `CONSTITUTION.md`: AI time is cheap, human judgment is not, and a guess that later work builds on spends both; halting stays a success of the process.

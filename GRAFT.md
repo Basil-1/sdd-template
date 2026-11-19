@@ -4,7 +4,7 @@ How a project adopts improvements from a newer version of the template it was bu
 
 ## Template Versioning
 
-The template is versioned semantically; the version lives in `SDD-WORKFLOW.md` frontmatter (`template_version`) and names the template as a whole. A graft replaces that file wholesale, so every project carries its template version.
+The template is versioned semantically; the version lives in `SDD-WORKFLOW.md` frontmatter (`template_version`) and names the template as a whole. That frontmatter sits above the file's boundary line, which a graft replaces, so every project carries its template version.
 
 - **MAJOR** — any change to the meaning of the governing text: rules, roles, artifact lifecycles, ownership boundaries, the graft protocol, or the inventories. Projects build local practice against this text, so changing it is breaking.
 - **MINOR** — purely additive text that alters no rule and no inventory: new guidance, expanded rationale, new project placeholders.
@@ -17,8 +17,8 @@ Releases are recorded in `TEMPLATE-CHANGELOG.md` at the template repository root
 
 The scaffold separates template-owned text from project-owned content:
 
-- **Wholesale files** — `AGENTS.md`, `CLAUDE.md`, `SDD-WORKFLOW.md`, `GRAFT.md`, everything in `.claude/`, `.github/`, `.opencode/`, plus `project/specs/README.md`. Template-owned; a graft replaces them whole.
-- **Split files** — `CONSTITUTION.md`, `CONVENTIONS.md`, `ARCHITECTURE.md`, `ROADMAP.md`, `CHANGELOG.md`, `project/adr/README.md`, and every `.ai/` agent and skill file. Each carries the boundary line; a graft replaces everything up to and including it, verbatim.
+- **Wholesale files** — `AGENTS.md`, `CLAUDE.md`, `GRAFT.md`, everything in `.claude/`, `.github/`, `.opencode/`, plus `project/specs/README.md`. Template-owned; a graft replaces them whole.
+- **Split files** — `SDD-WORKFLOW.md`, `CONSTITUTION.md`, `CONVENTIONS.md`, `ARCHITECTURE.md`, `ROADMAP.md`, `CHANGELOG.md`, `project/adr/README.md`, and every `.ai/` agent and skill file. Each carries the boundary line; a graft replaces everything up to and including it, verbatim.
 - **Project content** — everything below a split file's boundary line, plus domain convention files (`CONVENTIONS-<DOMAIN>.md`), domain specs, and ADR files. Project-owned; a graft never touches them.
 
 To adopt template improvements, the human starts a **basic AI agent** — a plain session operating under none of the three agent identities. The graft can replace the files that define those identities, so an agent running under one of them would be rewriting its own instructions mid-session. The basic agent:

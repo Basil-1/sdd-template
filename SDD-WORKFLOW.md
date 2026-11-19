@@ -1,5 +1,5 @@
 ---
-template_version: 10.0.0
+template_version: 11.0.0
 ---
 
 # SDD Workflow
@@ -85,3 +85,9 @@ No `INSPECTION.md` is produced for halted work; partial work stands as committed
 ## Grafting and Versioning
 
 Grafting template updates into a project, and the template's semantic versioning: [`GRAFT.md`](GRAFT.md).
+
+<!-- GRAFT BOUNDARY: template-owned above, project-owned below. Do not edit or remove this line. -->
+
+## Project Workflow Rules
+
+<!-- Add project-specific workflow rules below. Keep them to rules that bind the roles; put the mechanics they name in project-owned files. -->
