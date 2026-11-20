@@ -24,6 +24,13 @@ Reverse-chronological record of released template versions. Written for the graf
 
 ## History
 
+## 12.0.0 (2026-11-20) — Subagent delegation contract
+
+- Added `.ai/SUBAGENT.md` as the template's basic-subagent definition, and a `## Delegation` section with a verbatim role addendum to `.ai/agents/planner.md`, `.ai/agents/coder.md`, and `.ai/agents/reviewer.md`; `project/CONSTITUTION.md` and `SDD-WORKFLOW.md` name the shape. The contract is embedded verbatim into any subagent a project delegates to; the template ships no vendor subagent definitions, and a project wanting a persistent one creates its own agent file under a vendor folder.
+- `GRAFT.md` inventory: `.ai/SUBAGENT.md` joins the split files; agent or skill files a project creates under `.claude/`, `.github/`, or `.opencode/` are project content a graft never touches; and graft step 4 now adds template-owned files the project lacks (this release's `SUBAGENT.md` is the first) and reports files the template no longer ships.
+- Extended `.ai/skills/manage-ai-capabilities.md` with the contract and addendum alignment duty and the rule that the contract is never mirrored into a vendor folder; `README.md` names the delegation boundary.
+- Agent behavior and an ownership boundary changed, so MAJOR; `SDD-WORKFLOW.md` frontmatter carries the new `template_version`.
+
 ## 11.0.1 (2026-11-20) — OpenCode V2-only requirement stated
 
 - Stated the OpenCode V2-only requirement in a `manage-ai-capabilities` rule and the `README.md` layout bullet, so a stub rewritten to V1 syntax is caught instead of silently dropping the Coder's `permissions` enforcement.

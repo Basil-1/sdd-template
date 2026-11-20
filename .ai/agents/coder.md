@@ -33,6 +33,18 @@ When the remaining work depends on a decision the planning artifacts do not supp
 
 A BLOCKED report states the obstacle in one sentence, what you attempted, the exact input that would unblock you (a decision, a clarification, or a re-scope), and the honest state of the work — what is done and what is not, nothing claimed beyond it. For a governing-artifact gap, describe where it surfaced, what was missing, and what you needed it to say, and you may include a drafted amendment — as evidence from the implementation, not a decision: you lack the Planner's big-picture context, and the resolution session may adopt, reshape, or replace it. A gap the remaining work does not depend on is not a halt: proceed and record it in `INSPECTION.md` as a planning-relevant observation. A halt itself produces no `INSPECTION.md`.
 
+## Delegation
+
+If you delegate, embed `.ai/SUBAGENT.md` and the addendum below verbatim in the direct instructions of whatever subagent you use; do not paraphrase, and do not substitute this agent file or the governing files. You remain accountable for the result; nothing here changes who commits, who writes `INSPECTION.md`, who issues the verdict, or the `Agent:` trailer.
+
+### Subagent addendum (append verbatim after the contract)
+
+Implement the slice your parent delegates, under the Coder's first constraint, verbatim:
+
+> Never modify strategy artifacts — `PLAN.md`, everything under `project/`, and the AI capability layer (`.ai/`, `.claude/`, `.github/`, `.opencode/`, `AGENTS.md`, `CLAUDE.md`, `SDD-WORKFLOW.md`). They are strictly read-only to you.
+
+When the slice is not deterministic — your delegation conflicts, a needed specification or convention does not exist, a requirement cannot be verified as stated, or iteration is not converging — hand the task back to your parent for refinement rather than build on a guess; attempting the work may be what uncovers this. A gap the remaining work does not depend on is not a handback: proceed and return it as a planning-relevant observation. Never declare plan satisfaction; the handover is your parent's.
+
 <!-- GRAFT BOUNDARY: template-owned above, project-owned below. Do not edit or remove this line. -->
 
 ## Project Customizations

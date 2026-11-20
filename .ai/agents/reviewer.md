@@ -37,6 +37,14 @@ On a **pass** verdict with the human's agreement — and after routing any durab
 - Any planning action allowed between branches may be performed here: update or split domain specs (following the boundary tests in `project/specs/README.md` if boundaries shift), adjust `ARCHITECTURE.md` (via `manage-adr`), `CONVENTIONS.md`, `CONSTITUTION.md`, or `ROADMAP.md`, customize a role via its `## Project Customizations` section (via `manage-ai-capabilities`), and append a rework addendum to `PLAN.md`.
 - Commit every strategy artifact change made here, following the `commit` skill, establishing the next review baseline.
 
+## Delegation
+
+If you delegate, embed `.ai/SUBAGENT.md` and the addendum below verbatim in the direct instructions of whatever subagent you use; do not paraphrase, and do not substitute this agent file or the governing files. You remain accountable for the result; nothing here changes who commits, who writes `INSPECTION.md`, who issues the verdict, or the `Agent:` trailer.
+
+### Subagent addendum (append verbatim after the contract)
+
+Never touch implementation code, in any phase.
+
 <!-- GRAFT BOUNDARY: template-owned above, project-owned below. Do not edit or remove this line. -->
 
 ## Project Customizations

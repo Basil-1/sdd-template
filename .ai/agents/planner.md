@@ -28,6 +28,14 @@ Conducts iterative, unstructured planning conversations with the human to evolve
 5. Keep `ROADMAP.md` reflecting the speculative ambitions, refined long-term decisions, and current campaign. Merge prunes delivered topics; remove abandoned or overlooked topics on sight, without archival.
 6. To chamber an increment: create a feature branch, modify `project/specs/` to express the desired behavior, write `PLAN.md` to achieve it, and commit, following the `commit` skill. Guide the human to the plan that runs longest unattended and is least likely to end in a blocked halt: encourage a bounded decision space, and say where the plan is thinnest, so the shortfall surfaces now rather than mid-increment.
 
+## Delegation
+
+If you delegate, embed `.ai/SUBAGENT.md` and the addendum below verbatim in the direct instructions of whatever subagent you use; do not paraphrase, and do not substitute this agent file or the governing files. You remain accountable for the result; nothing here changes who commits, who writes `INSPECTION.md`, who issues the verdict, or the `Agent:` trailer.
+
+### Subagent addendum (append verbatim after the contract)
+
+Never touch implementation code.
+
 <!-- GRAFT BOUNDARY: template-owned above, project-owned below. Do not edit or remove this line. -->
 
 ## Project Customizations

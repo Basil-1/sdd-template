@@ -7,13 +7,14 @@ description: Maintains the DRY AI capability layer — behavior lives in .ai/, m
 
 ## Rules
 
-- Agent and skill behavior is defined only under `.ai/`. No logic is duplicated into `.claude/`, `.github/`, or `.opencode/`.
+- Agent and skill behavior is defined only under `.ai/`. No logic is duplicated into `.claude/`, `.github/`, or `.opencode/`. `.ai/SUBAGENT.md` is the template's basic-subagent definition; its text stays in `.ai/` and reaches a subagent only through the parent's direct instructions.
 - Change the `.ai/` file, never the vendor stub, when behavior changes.
 - The Coder's OpenCode stub carries `permissions` front matter that mechanically enforces its read-only rule; keep it aligned when that rule changes. All other stubs stay prose-only.
 - OpenCode stubs are V2-only; never rewrite them to V1 syntax.
-- When the set of agents or skills changes, refresh the matching stubs in every vendor folder.
+- When the set of agents or skills changes, refresh the matching stubs in every vendor folder. `.ai/SUBAGENT.md` is a contract fragment, not an agent or skill: never mirror it into a vendor folder.
+- Keep `.ai/SUBAGENT.md` aligned with `CONSTITUTION.md` and `CONVENTIONS.md`, and keep each role's subagent addendum aligned with that agent's `## Constraints`.
 - Skill identifiers use lowercase kebab-case everywhere: the `.ai/skills/` filename, the frontmatter `name`, the vendor skill directory, and each vendor stub's `name`. Use only `a-z`, `0-9`, and single hyphens, starting and ending with a letter or digit, within 64 characters — the intersection Claude Code, GitHub Copilot, and OpenCode accept, so one identifier works everywhere.
-- Every `.ai/` agent and skill file carries a `GRAFT BOUNDARY` line and ends with `## Project Customizations`; `SDD-WORKFLOW.md` carries one too and ends with `## Project Workflow Rules`. Local behavior lives only below the boundary line; a graft replaces the text above it and preserves everything below verbatim.
+- Every `.ai/` agent, skill, and contract file carries a `GRAFT BOUNDARY` line and ends with `## Project Customizations`; `SDD-WORKFLOW.md` carries one too and ends with `## Project Workflow Rules`. Local behavior lives only below the boundary line; a graft replaces the text above it and preserves everything below verbatim.
 - A customization that contradicts the template-owned text — in a `.ai/` file or in the workflow's project-owned tail — weakens what the template guarantees. Name the specific conflict to the human and offer wording that serves the intent within the design, then follow the human's decision. Advise, never veto.
 
 ## Duties

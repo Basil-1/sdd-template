@@ -1,5 +1,5 @@
 ---
-template_version: 11.0.1
+template_version: 12.0.0
 ---
 
 # SDD Workflow
@@ -81,6 +81,10 @@ Working autonomously, the Coder may report **BLOCKED** rather than guess, per it
 When the block is a gap in a governing artifact, the report carries the problem's shape and may carry a proposed amendment, drafted by the Coder from the clearest view of its specific shape. The Reviewer extracts that ground truth, then shapes the ratified amendment with the human against the big picture the Coder does not hold. The resolution lands in the planning artifacts on the branch: a clarified or re-scoped spec, an adjusted governing file, or a rework addendum to `PLAN.md`. A fresh Coder session then executes it as a normal rework pass.
 
 No `INSPECTION.md` is produced for halted work; partial work stands as committed and is inspectable. A gap the remaining work does not depend on is not a halt: the Coder records it in `INSPECTION.md` as a planning-relevant observation for the Reviewer's triage.
+
+## Delegation
+
+Any of the three roles may delegate bounded work to a subagent. The template does not prescribe when, what, or how to delegate; it supplies one behavioral floor. A subagent runs under the contract in `.ai/SUBAGENT.md`, whatever its harness identity; its parent embeds that contract verbatim in the subagent's direct instructions, followed by the role's addendum from its `## Delegation` section. The parent remains accountable for the increment, its verdict, its handover artifact, its commit, and its `Agent:` trailer. Harness front matter such as model, tools, and context control is project-supplied; an agent file a project creates under `.claude/`, `.github/`, or `.opencode/` is project content a graft never touches ([`GRAFT.md`](GRAFT.md)).
 
 ## Grafting and Versioning
 
