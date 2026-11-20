@@ -24,6 +24,11 @@ Reverse-chronological record of released template versions. Written for the graf
 
 ## History
 
+## 11.0.1 (2026-11-20) — OpenCode V2-only requirement stated
+
+- Stated the OpenCode V2-only requirement in a `manage-ai-capabilities` rule and the `README.md` layout bullet, so a stub rewritten to V1 syntax is caught instead of silently dropping the Coder's `permissions` enforcement.
+- Text only, so PATCH; `SDD-WORKFLOW.md` frontmatter carries the new `template_version`.
+
 ## 11.0.0 (2026-11-19) — Workflow gains a project-owned tail
 
 - Moved `SDD-WORKFLOW.md` from wholesale to split ownership in `GRAFT.md` **Grafting Template Updates**, and gave it the `GRAFT BOUNDARY` line plus a closing `## Project Workflow Rules` section, so a project can bind the roles to local process without forking template text. The version frontmatter sits above the line, so a graft still refreshes it.
