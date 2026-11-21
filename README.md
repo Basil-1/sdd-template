@@ -18,7 +18,7 @@ Projects graft improvements from newer template versions. The template is semant
 - `project/` — governing and specification layer: `CONSTITUTION.md`, `CONVENTIONS.md`, `ARCHITECTURE.md` with `adr/`, `specs/`, `ROADMAP.md`, and `CHANGELOG.md`.
 - `.ai/` — the vendor-neutral AI core: agents `planner`, `coder`, `reviewer`; skills `commit`, `manage-adr`, `manage-ai-capabilities`; and the subagent contract `SUBAGENT.md`, the template's basic-subagent definition. `.claude/`, `.github/`, and `.opencode/` hold thin routing stubs into it; the OpenCode stubs require OpenCode V2.
 - `SDD-WORKFLOW.md` — roles, artifacts, and both flows. `GRAFT.md` — how projects adopt template updates, and versioning.
-- Ephemeral, on feature branches only: `PLAN.md` scopes the increment; root `INSPECTION.md` carries the Coder's handover verification, test evidence, and proposed changelog entry.
+- Ephemeral, on feature branches only: `PLAN.md` scopes the increment; root `INSPECTION.md` carries the Coder's handover verification, test evidence, and proposed changelog entry; root `BLOCKED.md` carries a Coder halt until its resolution lands.
 
 ## Invariants vs. Mechanisms
 

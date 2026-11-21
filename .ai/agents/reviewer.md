@@ -35,6 +35,7 @@ On a **pass** verdict with the human's agreement — and after routing any durab
 - When the audit, the human's manual testing, or a Coder **BLOCKED** report shows another iteration is needed — code rework, a refined plan or spec, or a substantive `project/` change — run a mini-planning session with the human in this session, using the review context already at hand.
 - A **BLOCKED** report may carry a proposed amendment. Extract the problem's shape as ground truth from the implementation; weigh the proposal with the human against the full strategy — the governing files and neighboring specs — then adopt, reshape, or replace it. Never ratify an amendment merely because the Coder proposed it.
 - Any planning action allowed between branches may be performed here: update or split domain specs (following the boundary tests in `project/specs/README.md` if boundaries shift), adjust `ARCHITECTURE.md` (via `manage-adr`), `CONVENTIONS.md`, `CONSTITUTION.md`, or `ROADMAP.md`, customize a role via its `## Project Customizations` section (via `manage-ai-capabilities`), and append a rework addendum to `PLAN.md`.
+- When the session answers a Coder **BLOCKED** report, delete root `BLOCKED.md` — the halt is resolved and its content is now carried by the amended artifacts.
 - Commit every strategy artifact change made here, following the `commit` skill, establishing the next review baseline.
 
 ## Delegation

@@ -1,5 +1,5 @@
 ---
-template_version: 12.0.0
+template_version: 13.0.0
 ---
 
 # SDD Workflow
@@ -21,7 +21,7 @@ Every artifact is template-owned (a graft renews it) or project-owned (a graft n
 
 - **Unbranched strategic files** (`CONSTITUTION.md`, `CONVENTIONS.md`, `ROADMAP.md`, `ARCHITECTURE.md`, `project/adr/`): evolved continuously with understanding. `ARCHITECTURE.md` is backed by ADRs (`manage-adr`). `ROADMAP.md` is pruned as ambition changes: the Reviewer prunes delivered topics at merge; the Planner prunes abandoned topics on sight.
 - **Living domain specifications** (`project/specs/<domain>.md`): one file per core domain, describing how the domain behaves now, with no palimpsest. Modified on the feature branch during planning and rework.
-- **Branch-ephemeral files** (`PLAN.md`, root `INSPECTION.md`): created on a feature branch to drive and verify one increment, deleted at merge.
+- **Branch-ephemeral files** (`PLAN.md`, root `INSPECTION.md`, root `BLOCKED.md`): created on a feature branch to drive, verify, or halt one increment; `PLAN.md` and `INSPECTION.md` are deleted at merge, and `BLOCKED.md` when a resolution lands as the next baseline.
 - **Merge archive** (`CHANGELOG.md` and git history): each merge lands as one squash commit whose message carries the increment's durable narrative, plus one `CHANGELOG.md` entry. The most recent merged branch is retained for troubleshooting; older ones are deleted.
 
 ## Flow 1: Standard Increment (Pass on First Review)
@@ -76,9 +76,9 @@ The Reviewer already holds the adversarial mindset and the review context, so th
 
 ## Coder Blocked Halt
 
-Working autonomously, the Coder may report **BLOCKED** rather than guess, per its protocol in `.ai/agents/coder.md`. On a BLOCKED report, the human routes it to the **Reviewer**, whose mini-planning session (Flow 2, Step 4) resolves it.
+Working autonomously, the Coder may report **BLOCKED** rather than guess, per its protocol in `.ai/agents/coder.md`; the report is written to root `BLOCKED.md`, sibling of `PLAN.md`. On a BLOCKED report, the human routes it to the **Reviewer**, whose mini-planning session (Flow 2, Step 4) resolves it.
 
-When the block is a gap in a governing artifact, the report carries the problem's shape and may carry a proposed amendment, drafted by the Coder from the clearest view of its specific shape. The Reviewer extracts that ground truth, then shapes the ratified amendment with the human against the big picture the Coder does not hold. The resolution lands in the planning artifacts on the branch: a clarified or re-scoped spec, an adjusted governing file, or a rework addendum to `PLAN.md`. A fresh Coder session then executes it as a normal rework pass.
+When the block is a gap in a governing artifact, the report carries the problem's shape and may carry a proposed amendment, drafted by the Coder from the clearest view of its specific shape. The Reviewer extracts that ground truth, then shapes the ratified amendment with the human against the big picture the Coder does not hold. The resolution lands in the planning artifacts on the branch: a clarified or re-scoped spec, an adjusted governing file, or a rework addendum to `PLAN.md`; the Reviewer commits it and deletes `BLOCKED.md`. A fresh Coder session then executes it as a normal rework pass.
 
 No `INSPECTION.md` is produced for halted work; partial work stands as committed and is inspectable. A gap the remaining work does not depend on is not a halt: the Coder records it in `INSPECTION.md` as a planning-relevant observation for the Reviewer's triage.
 

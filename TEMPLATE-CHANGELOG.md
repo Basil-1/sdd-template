@@ -24,6 +24,11 @@ Reverse-chronological record of released template versions. Written for the graf
 
 ## History
 
+## 13.0.0 (2026-11-20) — Blocked halt lands in a file the resolution deletes
+
+- A Coder **BLOCKED** halt report is now written to root `BLOCKED.md`, a sibling of `PLAN.md` (`.ai/agents/coder.md` **Blocked Halt**, `SDD-WORKFLOW.md` **Coder Blocked Halt**, **Artifacts and Lifecycles**), so the halt survives the session that raised it and the Reviewer reads it on the branch.
+- The Reviewer deletes `BLOCKED.md` when it commits the resolution as the next baseline (`.ai/agents/reviewer.md` **Rework & Mini-Planning**); `README.md` names the new ephemeral file. An artifact lifecycle and agent behavior changed, so MAJOR; `SDD-WORKFLOW.md` frontmatter carries the new `template_version`.
+
 ## 12.0.0 (2026-11-20) — Subagent delegation contract
 
 - Added `.ai/SUBAGENT.md` as the template's basic-subagent definition, and a `## Delegation` section with a verbatim role addendum to `.ai/agents/planner.md`, `.ai/agents/coder.md`, and `.ai/agents/reviewer.md`; `project/CONSTITUTION.md` and `SDD-WORKFLOW.md` name the shape. The contract is embedded verbatim into any subagent a project delegates to; the template ships no vendor subagent definitions, and a project wanting a persistent one creates its own agent file under a vendor folder.
