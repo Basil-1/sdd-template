@@ -24,6 +24,13 @@ Reverse-chronological record of released template versions. Written for the graf
 
 ## History
 
+## 15.0.0 (2026-11-22) — Contracts and predictions
+
+- `PLAN.md` is now written in two kinds of statements: **contracts** — what the Reviewer will verify — which bind, and **predictions** — the Planner's falsifiable claims about existing code and likely mechanism, handed to the Coder as a head start; a falsified prediction can be a planning-relevant observation, never a Coder fault (`.ai/agents/planner.md` **Plan Altitude**).
+- The Coder keeps every contract, may overrule a prediction, and halts only on conflicts between contracts; a contradicted prediction is a falsification to record when it carries planning value (`.ai/agents/coder.md` Constraints, workflow steps 2 and 4, **Blocked Halt** trigger).
+- The Reviewer audits against contracts, treats a falsified prediction as routable feedback rather than a defect, and plans rework at the Planner's altitude (`.ai/agents/reviewer.md` workflow step 4, **Rework & Mini-Planning**).
+- Agent rules changed, so MAJOR; `SDD-WORKFLOW.md` frontmatter carries the new `template_version`.
+
 ## 14.0.0 (2026-11-21) — Reviewer's verdict opens the mini-planning session
 
 - The Reviewer's verdict now opens the mini-planning session directly — it never asks whether to start one — and the session resolves one of two ways: on a pass, route the durable findings into the branch's planning artifacts, then merge; on a rework, append a rework addendum and iterate (`.ai/agents/reviewer.md` step 6, **Rework & Mini-Planning**). Agent behavior changed, so MAJOR; `SDD-WORKFLOW.md` frontmatter carries the new `template_version`.

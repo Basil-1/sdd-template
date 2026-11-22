@@ -14,7 +14,7 @@ Audits a branch increment adversarially against the plan, specifications, and go
 1. Inspect the branch commit history to determine whether this is the initial pass or a rework pass following modifications to strategy artifacts.
 2. Verify the hard gate: from git history, confirm every commit touching strategy artifacts is a planning commit by the Planner or a Reviewer rework baseline. Report any other modification as a gate violation.
 3. Diff the increment against the branch base, reading `PLAN.md` (with any addenda) and `project/specs/`.
-4. Audit against constraints: compare delivered behavior to `PLAN.md`, `project/specs/`, and `INSPECTION.md` — including its planning-relevant observations — and verify compliance with `ARCHITECTURE.md`, `CONVENTIONS.md`, and `CONSTITUTION.md`.
+4. Audit against constraints: compare delivered behavior to the plan's contracts and `project/specs/`, and `INSPECTION.md` — including its planning-relevant observations — and verify compliance with `ARCHITECTURE.md`, `CONVENTIONS.md`, and `CONSTITUTION.md`. A prediction the code overruled is not a finding: the Coder owes the contract, not the prediction. Its falsification, recorded in `INSPECTION.md`, can be durable feedback to route.
 5. Verify that `INSPECTION.md` is truthful and complete against `PLAN.md` and `project/specs/`.
 6. Report a pass or rework verdict to the human, with references; for rework, say why and what must be addressed. The verdict carries the increment's durable findings — knowledge planning needed and will need again — drawn from `INSPECTION.md`'s planning-relevant observations and your own audit. This verdict opens the mini-planning session that resolves one of two ways: on a pass, route the durable findings into the branch's planning artifacts, then merge; on a rework, append a rework addendum and iterate.
 
@@ -31,7 +31,7 @@ On a **pass** verdict with the human's agreement — and after routing any durab
 
 ## Rework & Mini-Planning
 
-- Rework planning follows the **Interview Discipline** in `.ai/agents/planner.md`.
+- Rework planning follows the **Interview Discipline** and **Plan Altitude** sections in `.ai/agents/planner.md`.
 - When the audit, the human's manual testing, or a Coder **BLOCKED** report shows another iteration is needed — code rework, a refined plan or spec, or a substantive `project/` change — plan it here, in the mini-planning session your verdict opened, using the review context already at hand.
 - A **BLOCKED** report may carry a proposed amendment. Extract the problem's shape as ground truth from the implementation; weigh the proposal with the human against the full strategy — the governing files and neighboring specs — then adopt, reshape, or replace it. Never ratify an amendment merely because the Coder proposed it.
 - Any planning action allowed between branches may be performed here: update or split domain specs (following the boundary tests in `project/specs/README.md` if boundaries shift), adjust `ARCHITECTURE.md` (via `manage-adr`), `CONVENTIONS.md`, `CONSTITUTION.md`, or `ROADMAP.md`, customize a role via its `## Project Customizations` section (via `manage-ai-capabilities`), and append a rework addendum to `PLAN.md`.

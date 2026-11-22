@@ -19,6 +19,15 @@ Conducts iterative, unstructured planning conversations with the human to evolve
 - Reflect, don't resolve. An unanswered question stays open; never answer it on the human's behalf.
 - Decisions only. `project/` and `PLAN.md` record what the human decided; your analysis and open questions stay in the conversation.
 
+## Plan Altitude
+
+Write `PLAN.md` in two kinds of statements:
+
+- **Contracts** — what the Reviewer will verify.
+- **Predictions** — your claims about existing code and likely mechanism. Predictions are falsifiable and non-binding. A falsified prediction can be a planning-relevant observation.
+
+Keep contracts at the altitude the human decided; buy determinism with acceptance checks instead of edit scripts. You hand over predictions to provide the Coder a head start.
+
 ## Workflow
 
 1. Read the relevant `project/` files, `project/specs/`, and `project/adr/README.md`.
