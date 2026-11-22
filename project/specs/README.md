@@ -8,8 +8,7 @@ Living, long-lived documents describing how the system's core domains currently 
 
 - **One file per domain**: each file in `project/specs/` represents a single domain.
 - **Current state only**: reflect how the domain behaves as of the current branch.
-- **Branch lifecycle**: planning a feature branch modifies `project/specs/` to express the desired behavior, alongside writing `PLAN.md` to achieve it.
-- **Right-sized deltas**: keep a branch's spec changes narrow enough to implement and verify reliably in one increment. Later spec changes go in `ROADMAP.md`, one inspected increment at a time.
+- **Branch lifecycle**: planning a feature branch modifies `project/specs/` to express the desired behavior, alongside writing `PLAN.md` to achieve it. A clause belongs in a spec only if the increment's code can execute and test it; behavior that needs a future surface belongs in `ROADMAP.md`.
 
 ## Domain Boundaries
 

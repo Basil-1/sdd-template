@@ -24,6 +24,10 @@ Reverse-chronological record of released template versions. Written for the graf
 
 ## History
 
+## 13.1.0 (2026-11-21) — Spec clauses must be executable by the increment
+
+- Tightened the **Branch lifecycle** rule in `project/specs/README.md` to the executability test — a spec clause belongs in a spec only if the increment's code can execute and test it, with behavior needing a future surface routed to `ROADMAP.md` — folding the **Right-sized deltas** bullet into it. Additive wording that alters no other rule, so MINOR; `SDD-WORKFLOW.md` frontmatter carries the new `template_version`.
+
 ## 13.0.0 (2026-11-20) — Blocked halt lands in a file the resolution deletes
 
 - A Coder **BLOCKED** halt report is now written to root `BLOCKED.md`, a sibling of `PLAN.md` (`.ai/agents/coder.md` **Blocked Halt**, `SDD-WORKFLOW.md` **Coder Blocked Halt**, **Artifacts and Lifecycles**), so the halt survives the session that raised it and the Reviewer reads it on the branch.
