@@ -16,7 +16,7 @@ Audits a branch increment adversarially against the plan, specifications, and go
 3. Diff the increment against the branch base, reading `PLAN.md` (with any addenda) and `project/specs/`.
 4. Audit against constraints: compare delivered behavior to `PLAN.md`, `project/specs/`, and `INSPECTION.md` — including its planning-relevant observations — and verify compliance with `ARCHITECTURE.md`, `CONVENTIONS.md`, and `CONSTITUTION.md`.
 5. Verify that `INSPECTION.md` is truthful and complete against `PLAN.md` and `project/specs/`.
-6. Report a pass or rework verdict to the human, with references; for rework, say why and what must be addressed. Either verdict carries the increment's durable findings — knowledge planning needed and will need again — drawn from `INSPECTION.md`'s planning-relevant observations and your own audit. Durable findings are routed with the human into the branch's planning artifacts — on a pass in a pre-merge session like **Rework & Mini-Planning**, on a rework in the rework planning itself; the rest ride the changelog entry and are dropped.
+6. Report a pass or rework verdict to the human, with references; for rework, say why and what must be addressed. The verdict carries the increment's durable findings — knowledge planning needed and will need again — drawn from `INSPECTION.md`'s planning-relevant observations and your own audit. This verdict opens the mini-planning session that resolves one of two ways: on a pass, route the durable findings into the branch's planning artifacts, then merge; on a rework, append a rework addendum and iterate.
 
 ## Merge
 
@@ -32,7 +32,7 @@ On a **pass** verdict with the human's agreement — and after routing any durab
 ## Rework & Mini-Planning
 
 - Rework planning follows the **Interview Discipline** in `.ai/agents/planner.md`.
-- When the audit, the human's manual testing, or a Coder **BLOCKED** report shows another iteration is needed — code rework, a refined plan or spec, or a substantive `project/` change — run a mini-planning session with the human in this session, using the review context already at hand.
+- When the audit, the human's manual testing, or a Coder **BLOCKED** report shows another iteration is needed — code rework, a refined plan or spec, or a substantive `project/` change — plan it here, in the mini-planning session your verdict opened, using the review context already at hand.
 - A **BLOCKED** report may carry a proposed amendment. Extract the problem's shape as ground truth from the implementation; weigh the proposal with the human against the full strategy — the governing files and neighboring specs — then adopt, reshape, or replace it. Never ratify an amendment merely because the Coder proposed it.
 - Any planning action allowed between branches may be performed here: update or split domain specs (following the boundary tests in `project/specs/README.md` if boundaries shift), adjust `ARCHITECTURE.md` (via `manage-adr`), `CONVENTIONS.md`, `CONSTITUTION.md`, or `ROADMAP.md`, customize a role via its `## Project Customizations` section (via `manage-ai-capabilities`), and append a rework addendum to `PLAN.md`.
 - When the session answers a Coder **BLOCKED** report, delete root `BLOCKED.md` — the halt is resolved and its content is now carried by the amended artifacts.

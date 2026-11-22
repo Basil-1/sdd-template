@@ -24,6 +24,10 @@ Reverse-chronological record of released template versions. Written for the graf
 
 ## History
 
+## 14.0.0 (2026-11-21) — Reviewer's verdict opens the mini-planning session
+
+- The Reviewer's verdict now opens the mini-planning session directly — it never asks whether to start one — and the session resolves one of two ways: on a pass, route the durable findings into the branch's planning artifacts, then merge; on a rework, append a rework addendum and iterate (`.ai/agents/reviewer.md` step 6, **Rework & Mini-Planning**). Agent behavior changed, so MAJOR; `SDD-WORKFLOW.md` frontmatter carries the new `template_version`.
+
 ## 13.1.0 (2026-11-21) — Spec clauses must be executable by the increment
 
 - Tightened the **Branch lifecycle** rule in `project/specs/README.md` to the executability test — a spec clause belongs in a spec only if the increment's code can execute and test it, with behavior needing a future surface routed to `ROADMAP.md` — folding the **Right-sized deltas** bullet into it. Additive wording that alters no other rule, so MINOR; `SDD-WORKFLOW.md` frontmatter carries the new `template_version`.
