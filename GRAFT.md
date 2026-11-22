@@ -20,6 +20,7 @@ The scaffold separates template-owned text from project-owned content:
 - **Wholesale files** — `AGENTS.md`, `CLAUDE.md`, `GRAFT.md`, every stub the template ships in `.claude/`, `.github/`, `.opencode/`, plus `project/specs/README.md`. Template-owned; a graft replaces them whole.
 - **Split files** — `SDD-WORKFLOW.md`, `CONSTITUTION.md`, `CONVENTIONS.md`, `ARCHITECTURE.md`, `ROADMAP.md`, `CHANGELOG.md`, `project/adr/README.md`, `.ai/SUBAGENT.md`, and every `.ai/` agent and skill file. Each carries the boundary line; a graft replaces everything up to and including it, verbatim.
 - **Project content** — everything below a split file's boundary line, plus domain convention files (`CONVENTIONS-<DOMAIN>.md`), domain specs, ADR files, and any agent or skill file a project creates under `.claude/`, `.github/`, or `.opencode/` that the template does not ship. Project-owned; a graft never touches them.
+- **Carried notice** — `LICENSE` is not template-owned; a graft never adds, replaces, or flags it. Drop it if you're only using the template to build your own project.  
 
 A **template-owned region** is a wholesale file whole, or a split file up to and including its boundary line; grafts compare and replace regions, never whole split files.
 

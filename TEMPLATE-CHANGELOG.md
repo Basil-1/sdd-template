@@ -24,6 +24,10 @@ Reverse-chronological record of released template versions. Written for the graf
 
 ## History
 
+## 17.0.0 (2026-11-22) — Classify LICENSE as a carried notice
+
+- `GRAFT.md` adds a **Carried notice** ownership class: `LICENSE` is not template-owned and a graft never adds, replaces, or flags it; projects that only use the template to build their own work may drop it (`GRAFT.md` **Grafting Template Updates**). The graft's reporting rule changed, so MAJOR; `SDD-WORKFLOW.md` frontmatter carries the new `template_version`.
+
 ## 16.0.0 (2026-11-22) — Grafting agents shallow-fetch the template with git
 
 - The grafting agent now makes one `git fetch --depth 1` from <https://github.com/Basil-1/sdd-template> into a single temporary directory, fetching `refs/heads/main` for the current template and the tag for the project's own `template_version` as the anchor, and reads both by ref (`GRAFT.md` **Template Versioning** closing paragraph, **Grafting Template Updates** intro, steps 1–4). The graft protocol's reference changed, so MAJOR; `SDD-WORKFLOW.md` frontmatter carries the new `template_version`.
