@@ -16,10 +16,10 @@ You need git and one of the supported harnesses: OpenCode V2, Claude Code, or Gi
 
 ## Quickstart on a fresh project
 
-1. Get the whole repo minus the template files `.git/`, `README.md`, `TEMPLATE-CHANGELOG.md`, and `CONTRIBUTING.md` into your project. You can click **Use this template** on GitHub so your repo starts with a clean first commit and delete those three files, or clone the repo and copy everything else over.
+1. Get the whole repo minus the template's `.git/`, `README.md`, `TEMPLATE-CHANGELOG.md`, and `CONTRIBUTING.md` into your project. You can click **Use this template** on GitHub so your repo starts with a clean first commit and delete the last three files, or clone the repo and copy everything else over.
 2. `git init` (if cloning) and write your own `README.md`.
 3. Open a session with the `planner` agent and work through the vision together to populate the initial strategy artifacts.
-4. Chamber your first increment into `PLAN.md`. Follow [`SDD-WORKFLOW.md`](SDD-WORKFLOW.md) through coding, adversarial review, rework, and squash-merge.
+4. Chamber (scope and write up) your first increment into `PLAN.md`. Follow [`SDD-WORKFLOW.md`](SDD-WORKFLOW.md) through coding, adversarial review, rework, and squash-merge.
 
 ## Strategy artifacts
 
@@ -44,7 +44,7 @@ The template enforces workflow invariants that hold regardless of your language 
 
 ## Upgrading existing projects
 
-Each release is tagged and tracked via `template_version` in `SDD-WORKFLOW.md` frontmatter. When a newer version drops, run a plain agent session (outside the three workflow roles) with [`GRAFT.md`](GRAFT.md) to pull template updates into an existing project without touching your project-owned content.
+Each release is tagged and tracked via `template_version` in `SDD-WORKFLOW.md` frontmatter. When a newer version drops, a plain agent session (outside the three workflow roles) following [`GRAFT.md`](GRAFT.md) brings its updates into your project without touching your project-owned content.
 
 ## License
 

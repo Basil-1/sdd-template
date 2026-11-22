@@ -24,6 +24,12 @@ Reverse-chronological record of released template versions. Written for the graf
 
 ## History
 
+## 16.0.0 (2026-11-22) — Grafting agents shallow-fetch the template with git
+
+- The grafting agent now makes one `git fetch --depth 1` from <https://github.com/Basil-1/sdd-template> into a single temporary directory, fetching `refs/heads/main` for the current template and the tag for the project's own `template_version` as the anchor, and reads both by ref (`GRAFT.md` **Template Versioning** closing paragraph, **Grafting Template Updates** intro, steps 1–4). The graft protocol's reference changed, so MAJOR; `SDD-WORKFLOW.md` frontmatter carries the new `template_version`.
+- `GRAFT.md` defines a template-owned region once, for grafts to compare and replace, and marks the version tiers as rules for release authors rather than grafting agents (`GRAFT.md` **Template Versioning** opening paragraph, **Grafting Template Updates**). Purely clarifying, so no additional tier change.
+- `README.md` **Upgrading existing projects** now states what a graft brings without duplicating the recipe, **Quickstart** step 1 says "delete the last three files" instead of "those three files" after listing four excluded paths, and step 4 glosses "chamber" for first-time readers (`README.md` Quickstart, Upgrading). Documentation of the protocol change above, so no additional tier change.
+
 ## 15.0.0 (2026-11-22) — Contracts and predictions
 
 - `PLAN.md` is now written in two kinds of statements: **contracts** — what the Reviewer will verify — which bind, and **predictions** — the Planner's falsifiable claims about existing code and likely mechanism, handed to the Coder as a head start; a falsified prediction can be a planning-relevant observation, never a Coder fault (`.ai/agents/planner.md` **Plan Altitude**).
