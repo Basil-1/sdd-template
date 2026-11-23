@@ -1,5 +1,5 @@
 ---
-template_version: 17.0.0
+template_version: 18.0.0
 ---
 
 # SDD Workflow
@@ -32,10 +32,10 @@ The human and **Planner** explore ideas openly. Cross-cutting changes to `CONSTI
 
 ### 2. Chambering the Increment (Feature Branch Created)
 
-To **chamber** an increment is to load it onto a feature branch — scoped and ready to implement. When the human and Planner agree on the next narrow increment:
+To **chamber** an increment is to load it onto a feature branch — scoped and ready to implement. When the human and Planner agree on the next deterministic increment:
 
 1. The Planner creates a new feature branch.
-2. On the branch, the Planner edits `project/specs/` to describe the desired behavior, narrowly scoped enough to execute cleanly without model confusion or hard-to-isolate bugs.
+2. On the branch, the Planner edits `project/specs/` to describe the desired behavior, bounded tightly enough to execute cleanly without model confusion or hard-to-isolate bugs.
 3. The Planner writes `PLAN.md`: the implementation steps that bring the codebase into alignment with the updated specifications.
 4. The Planner commits these strategy artifacts to the feature branch.
 
@@ -80,7 +80,7 @@ Working autonomously, the Coder may report **BLOCKED** rather than guess, per it
 
 When the block is a gap in a governing artifact, the report carries the problem's shape and may carry a proposed amendment, drafted by the Coder from the clearest view of its specific shape. The Reviewer extracts that ground truth, then shapes the ratified amendment with the human against the big picture the Coder does not hold. The resolution lands in the planning artifacts on the branch: a clarified or re-scoped spec, an adjusted governing file, or a rework addendum to `PLAN.md`; the Reviewer commits it and deletes `BLOCKED.md`. A fresh Coder session then executes it as a normal rework pass.
 
-No `INSPECTION.md` is produced for halted work; partial work stands as committed and is inspectable. A gap the remaining work does not depend on is not a halt: the Coder records it in `INSPECTION.md` as a planning-relevant observation for the Reviewer's triage.
+No `INSPECTION.md` is produced for halted work; partial work stands as committed and is inspectable. A halt after exhausting doable work is a successful overnight outcome, not a failure. A gap the remaining work does not depend on is not a halt: the Coder records it in `INSPECTION.md` as a planning-relevant observation for the Reviewer's triage.
 
 ## Delegation
 

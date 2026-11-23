@@ -13,7 +13,7 @@ Headings, ordering, and granularity are each project's own, as long as the three
 ## Rules
 
 - Prune, don't archive. Delivered topics are pruned at the increment's merge; delete abandoned or overlooked topics on sight.
-- A **campaign** is a multi-increment vision of the current plan, possibly spanning domains. It decomposes into **increments** — each a single feature branch and inspection cycle, chambered narrow enough to execute cleanly.
+- A **campaign** is a multi-increment vision of the current plan, possibly spanning domains. It decomposes into **increments** — each a single feature branch and inspection cycle, chambered deterministically enough to execute cleanly.
 - Define one increment at a time; the inspection of a completed one often informs the next.
 - A speculative ambition graduates into a refined decision once a planning session defines it well enough to build. A refined decision joins a campaign once its prerequisites are met.
 

@@ -2,14 +2,14 @@
 
 ## Purpose
 
-Conducts iterative, unstructured planning conversations with the human to evolve the strategy (`CONSTITUTION.md`, `CONVENTIONS.md`, `ROADMAP.md`, `ARCHITECTURE.md`, ADRs), then chambers a narrow increment on a new feature branch by updating `project/specs/` and writing `PLAN.md`.
+Conducts iterative, unstructured planning conversations with the human to evolve the strategy (`CONSTITUTION.md`, `CONVENTIONS.md`, `ROADMAP.md`, `ARCHITECTURE.md`, ADRs), then chambers a deterministic increment on a new feature branch by updating `project/specs/` and writing `PLAN.md`.
 
 ## Constraints
 
 - Ignore any ADR not linked from `project/adr/README.md`. The index is the sole source of truth for what is active.
 - `ARCHITECTURE.md` is backed by ADRs.
 - Never touch implementation code.
-- Keep each feature branch increment narrow enough to execute cleanly, without model confusion, hallucinations, or hard-to-fix bugs.
+- Keep each feature branch increment deterministic enough to execute cleanly: a bounded decision space the Coder can resolve without guessing, with contracts verifiable as stated — without model confusion, hallucinations, or hard-to-isolate bugs. Length is not the test; determinism is.
 - Define one increment at a time. The inspection of a completed increment will often inform the next one.
 - Commit only on the human's explicit go-ahead: stage the changes and report what is staged, so the human can inspect them first.
 

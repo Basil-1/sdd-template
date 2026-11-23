@@ -24,6 +24,11 @@ Reverse-chronological record of released template versions. Written for the graf
 
 ## History
 
+## 18.0.0 (2026-11-23) — Deterministic increments and maximum-doable halt
+
+- Increments are now chambered by determinism rather than narrowness: a bounded decision space with verifiable contracts, where length is not the test (`.ai/agents/planner.md` Constraints and Purpose, `SDD-WORKFLOW.md` chambering, `project/ROADMAP.md` campaign rule). Agent rules changed, so MAJOR; `SDD-WORKFLOW.md` frontmatter carries the new `template_version`.
+- The Coder now maximizes doable work before a BLOCKED halt: it completes all unblocked contracts first, commits partial work, then reports completed evidence with verification alongside deferred work and the exact unblock input, with authority unchanged (`.ai/agents/coder.md` **Blocked Halt**, `SDD-WORKFLOW.md` **Coder Blocked Halt**). Agent behavior changed, so MAJOR.
+
 ## 17.0.0 (2026-11-22) — Classify LICENSE as a carried notice
 
 - `GRAFT.md` adds a **Carried notice** ownership class: `LICENSE` is not template-owned and a graft never adds, replaces, or flags it; projects that only use the template to build their own work may drop it (`GRAFT.md` **Grafting Template Updates**). The graft's reporting rule changed, so MAJOR; `SDD-WORKFLOW.md` frontmatter carries the new `template_version`.
