@@ -24,6 +24,10 @@ Reverse-chronological record of released template versions. Written for the graf
 
 ## History
 
+## 19.0.0 (2026-11-24) — Self-contained domain specs
+
+- Domain specs must now stand alone: a spec never cites documents that churn or vanish — `ROADMAP.md`, `PLAN.md`, `INSPECTION.md`, `BLOCKED.md` — and restates the behavior instead (`project/specs/README.md` **Rules**). The specification rule changed, so MAJOR; `SDD-WORKFLOW.md` frontmatter carries the new `template_version`.
+
 ## 18.0.0 (2026-11-23) — Deterministic increments and maximum-doable halt
 
 - Increments are now chambered by determinism rather than narrowness: a bounded decision space with verifiable contracts, where length is not the test (`.ai/agents/planner.md` Constraints and Purpose, `SDD-WORKFLOW.md` chambering, `project/ROADMAP.md` campaign rule). Agent rules changed, so MAJOR; `SDD-WORKFLOW.md` frontmatter carries the new `template_version`.
