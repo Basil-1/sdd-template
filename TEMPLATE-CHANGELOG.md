@@ -24,6 +24,12 @@ Reverse-chronological record of released template versions. Written for the graf
 
 ## History
 
+## 20.0.0 (2026-11-25) — Explicit branch planning
+
+- The Planner may now branch early and refine specs plus draft `PLAN.md` over draft commits, with chambering as the final planning commit handing the branch to the Coder (`SDD-WORKFLOW.md` chambering, `.ai/agents/planner.md` workflow step 6).
+- Branch planning stays increment-scoped by default with whole-project authority on base, carried on the branch only on a certain, uncontended merge (`SDD-WORKFLOW.md` Planning scope and Flow 2, `.ai/agents/planner.md` workflow step 4, `.ai/agents/reviewer.md` Rework & Mini-planning).
+- Agent rules changed, so MAJOR; `SDD-WORKFLOW.md` frontmatter carries the new `template_version`.
+
 ## 19.0.0 (2026-11-24) — Self-contained domain specs
 
 - Domain specs must now stand alone: a spec never cites documents that churn or vanish — `ROADMAP.md`, `PLAN.md`, `INSPECTION.md`, `BLOCKED.md` — and restates the behavior instead (`project/specs/README.md` **Rules**). The specification rule changed, so MAJOR; `SDD-WORKFLOW.md` frontmatter carries the new `template_version`.

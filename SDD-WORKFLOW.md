@@ -1,5 +1,5 @@
 ---
-template_version: 19.0.0
+template_version: 20.0.0
 ---
 
 # SDD Workflow
@@ -9,7 +9,7 @@ How work moves through a project built from this template: the roles, the artifa
 ## Roles
 
 - **Human** — drives every phase transition; plans, verifies manually, directs merges.
-- **Planner** (`.ai/agents/planner.md`) — evolves strategy on the base branch, then chambers each increment on a new branch by updating `project/specs/` and writing `PLAN.md`.
+- **Planner** (`.ai/agents/planner.md`) — evolves strategy on base, then plans and chambers each increment on a feature branch by updating `project/specs/` and writing `PLAN.md`.
 - **Coder** (`.ai/agents/coder.md`) — implements against `PLAN.md` and the specs on the branch, treating strategy artifacts as read-only, then writes `INSPECTION.md`.
 - **Reviewer** (`.ai/agents/reviewer.md`) — audits the branch adversarially, runs in-branch rework planning when needed, and on a pass holds the merge for a routing session on any durable findings before pruning the roadmap, folding the changelog entry, squash-merging, and pruning old merged branches.
 
@@ -19,25 +19,26 @@ How work moves through a project built from this template: the roles, the artifa
 
 Every artifact is template-owned (a graft renews it) or project-owned (a graft never touches it). A split file marks the seam with one boundary line: everything up to and including it is the template's, everything below it the project's. Both halves bind equally.
 
-- **Unbranched strategic files** (`CONSTITUTION.md`, `CONVENTIONS.md`, `ROADMAP.md`, `ARCHITECTURE.md`, `project/adr/`): evolved continuously with understanding. `ARCHITECTURE.md` is backed by ADRs (`manage-adr`). `ROADMAP.md` is pruned as ambition changes: the Reviewer prunes delivered topics at merge; the Planner prunes abandoned topics on sight.
+- **Governing files** (`CONSTITUTION.md`, `CONVENTIONS.md`, `ROADMAP.md`, `ARCHITECTURE.md`, `project/adr/`): evolved continuously with understanding. `ARCHITECTURE.md` is backed by ADRs (`manage-adr`). `ROADMAP.md` is pruned as ambition changes: the Reviewer prunes delivered topics at merge; the Planner prunes abandoned topics on sight.
 - **Living domain specifications** (`project/specs/<domain>.md`): one file per core domain, describing how the domain behaves now, with no palimpsest. Modified on the feature branch during planning and rework.
+- **Planning scope** — base planning has whole-project authority. Branch planning is increment-scoped: leave base consistent without the branch. Anything mergeable without the increment defaults to base; carry it on the branch only on a certain, uncontended merge.
 - **Branch-ephemeral files** (`PLAN.md`, root `INSPECTION.md`, root `BLOCKED.md`): created on a feature branch to drive, verify, or halt one increment; `PLAN.md` and `INSPECTION.md` are deleted at merge, and `BLOCKED.md` when a resolution lands as the next baseline.
 - **Merge archive** (`CHANGELOG.md` and git history): each merge lands as one squash commit whose message carries the increment's durable narrative, plus one `CHANGELOG.md` entry. The most recent merged branch is retained for troubleshooting; older ones are deleted.
 
 ## Flow 1: Standard Increment (Pass on First Review)
 
-### 1. Unstructured Discovery & Strategy Updates (No Branch)
+### 1. Unstructured Discovery & Strategy Updates (Base)
 
-The human and **Planner** explore ideas openly. Cross-cutting changes to `CONSTITUTION.md`, `CONVENTIONS.md`, `ROADMAP.md`, or `ARCHITECTURE.md` (with new or superseded ADRs via `manage-adr`) are committed by the Planner directly on the base branch.
+The human and **Planner** explore ideas openly. Whole-project changes to governing files (ADRs via `manage-adr`) are committed by the Planner directly on base.
 
 ### 2. Chambering the Increment (Feature Branch Created)
 
 To **chamber** an increment is to load it onto a feature branch — scoped and ready to implement. When the human and Planner agree on the next deterministic increment:
 
-1. The Planner creates a new feature branch.
+1. The Planner creates a feature branch, or adopts one started early for branch planning.
 2. On the branch, the Planner edits `project/specs/` to describe the desired behavior, bounded tightly enough to execute cleanly without model confusion or hard-to-isolate bugs.
 3. The Planner writes `PLAN.md`: the implementation steps that bring the codebase into alignment with the updated specifications.
-4. The Planner commits these strategy artifacts to the feature branch.
+4. The Planner refines both over draft commits as needed; chambering is the final planning commit handing the branch to the Coder.
 
 ### 3. Autonomous Implementation (Coder)
 
@@ -65,14 +66,14 @@ Steps 1–3 are Flow 1's. The human's manual verification, alongside the Reviewe
 
 The Reviewer already holds the adversarial mindset and the review context, so the human plans directly with it:
 
-1. **Substantive `project/` updates**: anything the Planner may do between branches is done here, with the human's agreement — for example `ARCHITECTURE.md` plus an ADR (`manage-adr`), a refined `CONVENTIONS.md` or `CONSTITUTION.md`, or deferred scope moved into `ROADMAP.md`.
+1. **`project/` updates** per Planning scope, with the human's agreement.
 2. **Rework addendum**: the Reviewer appends to `PLAN.md` why rework is required and what must change to match the revised `project/` files.
 3. The Reviewer commits these strategy artifacts on the feature branch as the next baseline.
 
 ### 5. Rework Pass and Re-Review (Fresh Coder, then Reviewer)
 
 1. A fresh **Coder** session runs Flow 1 step 3 unchanged — it need not know this is a rework — and regenerates `INSPECTION.md` fresh so it describes the full branch increment.
-2. The **Reviewer** reruns Flow 1 step 4, recognizing the rework baseline commits as planning commits. Steps 4–5 repeat until a pass and successful manual verification.
+2. The **Reviewer** reruns Flow 1 step 4. Steps 4–5 repeat until a pass and successful manual verification.
 
 ## Coder Blocked Halt
 
