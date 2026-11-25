@@ -8,7 +8,7 @@ Living, long-lived documents describing how the system's core domains currently 
 
 - **One file per domain**: each file in `project/specs/` represents a single domain.
 - **Current state only**: reflect how the domain behaves as of the current branch.
-- **Self-contained**: never cite documents that churn or vanish (`ROADMAP.md`, `PLAN.md`, `INSPECTION.md`, `BLOCKED.md`); restate the behavior instead.
+- **Self-contained**: never depend on documents that churn or vanish (`ROADMAP.md`, `PLAN.md`, `INSPECTION.md`, `BLOCKED.md`); restate the behavior instead. Acknowledging one's existence is allowed.
 - **Branch lifecycle**: planning a feature branch modifies `project/specs/` to express the desired behavior, alongside writing `PLAN.md` to achieve it. A clause belongs in a spec only if the increment's code can execute and test it; behavior that needs a future surface belongs in `ROADMAP.md`.
 
 ## Domain Boundaries

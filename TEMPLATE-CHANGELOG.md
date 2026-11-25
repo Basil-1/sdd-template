@@ -24,6 +24,10 @@ Reverse-chronological record of released template versions. Written for the graf
 
 ## History
 
+## 21.0.0 (2026-11-25) — Spec acknowledgement exception
+
+- Domain specs now forbid depending on, rather than citing, documents that churn or vanish, and acknowledging one's existence is allowed (`project/specs/README.md` **Rules**). The specification rule changed, so MAJOR; `SDD-WORKFLOW.md` frontmatter carries the new `template_version`.
+
 ## 20.0.0 (2026-11-25) — Explicit branch planning
 
 - The Planner may now branch early and refine specs plus draft `PLAN.md` over draft commits, with chambering as the final planning commit handing the branch to the Coder (`SDD-WORKFLOW.md` chambering, `.ai/agents/planner.md` workflow step 6).
